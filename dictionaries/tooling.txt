@@ -1,0 +1,7 @@
+bigdecimal
+cocoapods
+mmkv
+syncpack
+tamagui
+tmdb
+xcodeproj
