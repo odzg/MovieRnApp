@@ -1,148 +1,154 @@
-# Movie Explorer – Candidate Exercise
+# Movie Explorer (React Native)
 
-This repository hosts a React Native (CLI) application that signs users in with
-Google, fetches popular movies from TMDb via the auto-generated Hey API
-client, and lets users curate a favorites list persisted locally with
-`react-native-mmkv`. The exercise emphasises strong typing, predictable data
-flows with TanStack Query, and a clean Tamagui-based UI.
+Movie Explorer is a React Native CLI app that signs users in with a mocked Google flow, fetches popular titles from TMDb, and lets them curate a local favourites list. It is written in TypeScript, uses Tamagui for theming, leverages TanStack Query for data fetching, and persists lightweight state with `react-native-mmkv`.
 
-## Getting Started
+If you are new to React Native, this guide walks you through every dependency you need and the exact commands to run the project locally.
 
-### 1. Install dependencies
+## What is inside
 
-```sh
-pnpm install
-```
+- React Native 0.82.1 with the community CLI
+- TypeScript 5.9 for static typing
+- React Navigation tabs for screen structure
+- Tamagui UI primitives with automatic light/dark themes
+- TanStack Query 5 for caching, retries, and request deduplication
+- Hey API generated TMDb client code under `generated/tmdb`
+- MMKV storage helpers for persisting auth state and favourites
 
-### 2. Provide your TMDb access token
+## Prerequisites
 
-The generated client authenticates every request with a v4 access token. Supply
-the token through one of the following before starting Metro:
+Install the tooling in the order below so Metro, Android, and iOS builds work on the first try.
 
-- Set an environment variable that Metro can inline:
+### All platforms
 
+- **Node.js 24.11.0** – required by the `engines` field. Recommended install:
   ```sh
-  TMDB_ACCESS_TOKEN="YOUR_TOKEN" pnpm start
+  nvm install 24.11.0
+  nvm use 24.11.0
   ```
-
-- Alternatively, define the token on `globalThis` before the app renders. The
-  simplest approach while iterating in the simulator is to add the following to
-  `index.js` above `AppRegistry.registerComponent`:
-
-  ```ts
-  // eslint-disable-next-line no-undef
-  globalThis.TMDB_ACCESS_TOKEN = 'YOUR_TOKEN';
+  Volta, fnm, or asdf work too; just ensure `node -v` prints `v24.11.0`.
+- **pnpm 10.20.0** – enabled through Corepack (bundled with Node 16+):
+  ```sh
+  corepack enable
+  corepack prepare pnpm@10.20.0 --activate
   ```
+- **Java Development Kit 17 (Temurin or Zulu)** – required by Android builds and the React Native CLI. Confirm with `java -version`.
+- **Git** – for version control and dependency patches.
+- **Watchman (optional, macOS)** – improves Metro performance: `brew install watchman`.
 
-### 3. Run the native target
+### Android setup (macOS, Windows, Linux)
 
-With Metro running, launch the platform of your choice:
+1. Install **Android Studio (Hedgehog or newer)** and, during setup, select:
+   - Android SDK Platform 34
+   - Android SDK Build-Tools 34.0.0
+   - Android Virtual Device (e.g. Pixel 6 emulator)
+2. Set the environment variables in your shell profile (adjust path if you moved the SDK):
+   ```sh
+   export ANDROID_HOME="$HOME/Library/Android/sdk" # macOS
+   export ANDROID_HOME="$HOME/Android/Sdk"         # Linux
+   export ANDROID_HOME="%LOCALAPPDATA%\\Android\\Sdk" # Windows PowerShell
+   export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH"
+   ```
+3. Accept all Android SDK licences:
+   ```sh
+   yes | "$ANDROID_HOME/tools/bin/sdkmanager" --licenses
+   ```
+
+### iOS setup (macOS only)
+
+- **macOS 13.6+** on Apple Silicon or Intel
+- **Xcode 16.x** with the Command Line Tools (install via Xcode preferences)
+- **Ruby 2.6.10 or newer** – matches the `Gemfile` requirement. macOS 13 ships with a compatible version; `brew install ruby` if needed.
+- **Bundler** to install CocoaPods consistently:
+  ```sh
+  gem install bundler
+  ```
+- CocoaPods 1.13+ gets installed by `bundle install` (next section).
+
+## Getting started
+
+1. **Clone and enter the project**
+   ```sh
+   git clone https://github.com/your-org/movie-rn-app.git
+   cd movie-rn-app
+   ```
+   (Skip if the repo is already on your machine.)
+
+2. **Point your shell at the required Node version**
+   ```sh
+   nvm use 24.11.0
+   ```
+
+3. **Install JavaScript dependencies with pnpm**
+   ```sh
+   pnpm install
+   ```
+
+4. **Install native iOS pods (macOS only)**
+   ```sh
+   cd ios
+   bundle install
+   bundle exec pod install
+   cd ..
+   ```
+
+5. **Start the Metro bundler**
+   ```sh
+   pnpm start
+   ```
+   Metro runs on port 8081 and must stay open while you use the app.
+
+6. **Launch a native target in a second terminal**
+   - Android: `pnpm android` (ensure an emulator or device is connected)
+   - iOS (macOS): `pnpm ios` (opens the default simulator)
+
+The first run downloads native dependencies and can take a few minutes. Subsequent runs are much faster.
+
+## Configuring the TMDb API key
+
+The project ships with a temporary TMDb API key that lets you explore the UI immediately. For your own account:
+
+1. Create a TMDb v3 API key in your TMDb dashboard.
+2. Open `src/features/movies/hooks/use-popular-movies.ts`.
+3. Replace the `UNSAFE_TMDB_API_KEY` value with your key.
+
+For production apps you should load the key from secure native storage or a server rather than committing it to source control.
+
+## Project structure
+
+| Path | Description |
+| ---- | ----------- |
+| `src/app.tsx` | Entry point; wires providers, theming, and the bottom tab navigation (`Home`, `Favorites`). |
+| `src/config/` | Shared runtime configuration (TanStack Query client, Tamagui theme). |
+| `src/features/auth/` | Authentication context, mock Google sign-in service, and login screen. |
+| `src/features/movies/` | Movie list UI, React Query hooks, and favourites handling. Subfolders hold components, screens, hooks, and types. |
+| `src/providers/` | `AppProviders` composes Safe Area, React Query, Auth, and Tamagui providers. |
+| `src/services/` | Preconfigured TMDb API client. |
+| `src/storage/` | MMKV helpers to persist JSON payloads. |
+| `src/assets/` | Static assets bundled with the app. |
+| `generated/tmdb/` | Auto-generated API bindings from `@hey-api/openapi-ts` (do not edit manually). |
+
+## Common commands
 
 ```sh
-pnpm android
-pnpm ios
+pnpm start        # Start Metro without launching a device
+pnpm android      # Build and run the Android app
+pnpm ios          # Build and run the iOS app (macOS)
+pnpm lint         # Run ESLint with the React Native config
+pnpm format       # Format the codebase with Prettier
+pnpm typecheck    # Run strict TypeScript checks
+pnpm check-spelling # Run the cspell dictionary check
 ```
 
-## Architecture Overview
+## Troubleshooting tips
 
-The codebase opts for feature-driven organisation with strictly kebab-cased
-paths. The table below highlights the main directories and their purpose.
+- **Metro cannot find a device** – open Android Studio’s Device Manager or Xcode’s Simulator before running `pnpm android`/`pnpm ios`.
+- **`npx react-native doctor` flags issues** – run it to diagnose missing SDK components; fix any ❌ items before retrying your build.
+- **Stuck builds on Android** – confirm `JAVA_HOME` points to JDK 17 and that no older JDK version appears first in `PATH`.
+- **Pods fail to install** – upgrade Ruby (`brew install ruby`), re-run `bundle install`, then retry `bundle exec pod install`.
+- **Stale Metro cache** – stop Metro and run `pnpm start --reset-cache`.
 
-| Path                   | Purpose                                                              |
-| ---------------------- | -------------------------------------------------------------------- |
-| `src/app.tsx`          | Application entry point, wiring providers and navigation.            |
-| `src/config/`          | Runtime configuration helpers (TanStack Query, Tamagui, TMDb token). |
-| `src/features/auth/`   | Authentication context, mock Google Sign-In facade, login screen.    |
-| `src/features/movies/` | Movie UI, hooks, and local favorites manager.                        |
-| `src/hooks/`           | Reusable hooks, e.g. the MMKV subscription helper.                   |
-| `src/navigation/`      | Centralised route typing for React Navigation.                       |
-| `src/providers/`       | Composition of top-level providers.                                  |
-| `src/services/`        | Pre-configured TMDb client instance.                                 |
-| `src/storage/`         | MMKV configuration and JSON helpers.                                 |
-| `src/utils/`           | Tiny utilities (e.g. runtime assertions).                            |
-| `generated/tmdb/`      | Hey API OpenAPI output (React Query bindings + Zod).                 |
+## Next steps
 
-### Navigation
-
-- Authenticated users land inside a two-tab bottom navigator (`Home`,
-  `Favorites`).
-- The login screen renders outside React Navigation to keep unauthenticated UI
-  simple while still allowing a full navigation tree post sign-in.
-
-### Data fetching
-
-- TMDb calls use the generated TanStack Query helpers (e.g.
-  `moviePopularListOptions`).
-- A shared `QueryClient` (see `src/config/query-client.ts`) configures sensible
-  defaults: one-minute staleness, retry rules, and background refetches.
-
-### Local persistence
-
-- `react-native-mmkv` stores both the authenticated user and their favorites.
-- `useMMKVJSON` subscribes to storage changes via `useSyncExternalStore`, so the
-  React tree does not rely on `useEffect` for synchronisation.
-- Favorite keys are namespaced per user (`favorites:<userId>`). When a user
-  signs out the favorites remain safely isolated but no longer accessible.
-
-### UI layer
-
-- Tamagui components provide styling primitives (`Card`, `Stack`, `Button`).
-- The UI deliberately leans on memoisation (`memo` + `useMemo`) to avoid
-  unnecessary subtree updates—for instance, `MovieCard` only re-renders when its
-  props change.
-- Pull-to-refresh uses React Query’s `refetch` API to keep server state
-  consistent with the cache.
-
-## Authentication Notes
-
-Google Sign-In is currently mocked via `useGoogleSignInMock` to keep the flow
-testable without introducing new dependencies (per the exercise brief). The
-mock returns a deterministic user after a short delay, and the rest of the app
-is agnostic to whether the credentials are real.
-
-To switch to the real SDK later:
-
-1. Add `@react-native-google-signin/google-signin` to the project.
-2. Replace the mock hook in `src/features/auth/services/google-sign-in.ts` with
-   the actual native calls.
-3. The surrounding context API (`signInWithGoogle`, `signOut`) remains the same,
-   so no other callers need to change.
-
-## Error Handling
-
-- Network failures (e.g. airplane mode) are surfaced with a friendly message on
-  the Home screen and a retry action.
-- TanStack Query’s retry strategy is conservative: automatic retries happen for
-  flaky connections but not for logical HTTP errors.
-
-## Verification
-
-- `pnpm typecheck` – strict TypeScript compilation (with generated files marked
-  `@ts-nocheck`).
-- `pnpm format` – Prettier using the existing config.
-
-## Potential Enhancements
-
-1. **Real Google Sign-In** – Integrate the official SDK and wire profile data
-   from Google to replace the placeholder avatar.
-2. **Offline caching** – Persist server responses to disk (React Query’s
-   hydration APIs) so the Movies list can load even without connectivity.
-3. **More TMDb endpoints** – Extend the generated client usage with search,
-   pagination, or movie detail screens.
-4. **Unit tests** – Add React Testing Library coverage for the authentication
-   context and favorites hook, exercising the MMKV integration.
-
-## File Naming Rationale
-
-All files use kebab-case to avoid git case-sensitivity pitfalls and to keep the
-layout predictable on case-insensitive file systems. Directories follow the same
-convention, and feature-specific folders live under `src/features` so related
-UI, hooks, and helpers remain co-located.
-
-## Credits
-
-- [React Navigation](https://reactnavigation.org/) for the bottom tab navigator.
-- [Tamagui](https://tamagui.dev/) for the design system primitives.
-- [TanStack Query](https://tanstack.com/query/latest) plus
-  [Hey API](https://heyapi.dev/openapi-ts/get-started) for the generated TMDb
-  client.
+- Swap the mock Google sign-in service for the real native SDK.
+- Extend the generated TMDb client to support search or movie detail screens.
+- Add automated tests (React Testing Library or Detox) to cover auth and favourites flows.
