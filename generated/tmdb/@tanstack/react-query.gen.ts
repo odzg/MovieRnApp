@@ -88,7 +88,7 @@ export const accountDetailsOptions = (options: Options<AccountDetailsData>) => {
 /**
  * Add Favorite
  *
- * Mark a movie or TV show as a favourite.
+ * Mark a movie or TV show as a favorite.
  */
 export const accountAddFavoriteMutation = (options?: Partial<Options<AccountAddFavoriteData>>): UseMutationOptions<AccountAddFavoriteResponse, DefaultError, Options<AccountAddFavoriteData>> => {
     const mutationOptions: UseMutationOptions<AccountAddFavoriteResponse, DefaultError, Options<AccountAddFavoriteData>> = {
@@ -128,7 +128,7 @@ export const accountGetFavoritesQueryKey = (options: Options<AccountGetFavorites
 /**
  * Favorite Movies
  *
- * Get a users list of favourite movies.
+ * Get a users list of favorite movies.
  */
 export const accountGetFavoritesOptions = (options: Options<AccountGetFavoritesData>) => {
     return queryOptions({
@@ -181,7 +181,7 @@ export const accountGetFavoritesInfiniteQueryKey = (options: Options<AccountGetF
 /**
  * Favorite Movies
  *
- * Get a users list of favourite movies.
+ * Get a users list of favorite movies.
  */
 export const accountGetFavoritesInfiniteOptions = (options: Options<AccountGetFavoritesData>) => {
     return infiniteQueryOptions<AccountGetFavoritesResponse, DefaultError, InfiniteData<AccountGetFavoritesResponse>, QueryKey<Options<AccountGetFavoritesData>>, number | Pick<QueryKey<Options<AccountGetFavoritesData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
@@ -212,7 +212,7 @@ export const accountFavoriteTvQueryKey = (options: Options<AccountFavoriteTvData
 /**
  * Favorite TV
  *
- * Get a users list of favourite TV shows.
+ * Get a users list of favorite TV shows.
  */
 export const accountFavoriteTvOptions = (options: Options<AccountFavoriteTvData>) => {
     return queryOptions({
@@ -234,7 +234,7 @@ export const accountFavoriteTvInfiniteQueryKey = (options: Options<AccountFavori
 /**
  * Favorite TV
  *
- * Get a users list of favourite TV shows.
+ * Get a users list of favorite TV shows.
  */
 export const accountFavoriteTvInfiniteOptions = (options: Options<AccountFavoriteTvData>) => {
     return infiniteQueryOptions<AccountFavoriteTvResponse, DefaultError, InfiniteData<AccountFavoriteTvResponse>, QueryKey<Options<AccountFavoriteTvData>>, number | Pick<QueryKey<Options<AccountFavoriteTvData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
@@ -1968,7 +1968,7 @@ export const movieAccountStatesQueryKey = (options: Options<MovieAccountStatesDa
 /**
  * Account States
  *
- * Get the rating, watchlist and favourite status of an account.
+ * Get the rating, watchlist and favorite status of an account.
  */
 export const movieAccountStatesOptions = (options: Options<MovieAccountStatesData>) => {
     return queryOptions({
@@ -3615,7 +3615,7 @@ export const tvSeriesAccountStatesQueryKey = (options: Options<TvSeriesAccountSt
 /**
  * Account States
  *
- * Get the rating, watchlist and favourite status.
+ * Get the rating, watchlist and favorite status.
  */
 export const tvSeriesAccountStatesOptions = (options: Options<TvSeriesAccountStatesData>) => {
     return queryOptions({
@@ -4242,7 +4242,7 @@ export const tvSeasonAccountStatesQueryKey = (options: Options<TvSeasonAccountSt
 /**
  * Account States
  *
- * Get the rating, watchlist and favourite status.
+ * Get the rating, watchlist and favorite status.
  */
 export const tvSeasonAccountStatesOptions = (options: Options<TvSeasonAccountStatesData>) => {
     return queryOptions({
@@ -4491,7 +4491,7 @@ export const tvEpisodeAccountStatesQueryKey = (options: Options<TvEpisodeAccount
 /**
  * Account States
  *
- * Get the rating, watchlist and favourite status.
+ * Get the rating, watchlist and favorite status.
  */
 export const tvEpisodeAccountStatesOptions = (options: Options<TvEpisodeAccountStatesData>) => {
     return queryOptions({

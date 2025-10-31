@@ -1,30 +1,27 @@
+/**
+ * @fileoverview Application entry point.
+ */
 import {
   createStaticNavigation,
+  DarkTheme,
+  DefaultTheme,
   type StaticParamList,
 } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { defaultConfig } from '@tamagui/config/v4';
-import { StatusBar, StyleSheet, useColorScheme } from 'react-native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { createTamagui, TamaguiProvider, View } from 'tamagui';
-import { useState } from 'react';
-import { HomeScreen } from './screens/home.tsx';
-import { LoginScreen } from './screens/login.tsx';
-import { FavoritesScreen } from './screens/favorites.tsx';
-import { AuthProvider } from './contexts/auth.ts';
+import { Home, Star } from '@tamagui/lucide-icons';
+import { StatusBar, type ColorSchemeName, useColorScheme } from 'react-native';
+import { enableScreens } from 'react-native-screens';
+import { AppProviders } from './providers/app-providers.tsx';
+import { LoginScreen } from './features/auth/screens/login-screen.tsx';
+import { useAuth } from './features/auth/auth-context.tsx';
+import { FavoritesScreen } from './features/movies/screens/favorites-screen.tsx';
+import { HomeScreen } from './features/movies/screens/home-screen.tsx';
 
-const config = createTamagui(defaultConfig);
+interface AppContentProps {
+  colorScheme: ColorSchemeName;
+}
 
-const RootStack = createBottomTabNavigator({
-  initialRouteName: 'Login',
-  screens: {
-    Favorites: FavoritesScreen,
-    Home: HomeScreen,
-    Login: LoginScreen,
-  },
-});
-
-type RootStackParamList = StaticParamList<typeof RootStack>;
+interface RootStackParamList extends StaticParamList<typeof AppTabs> {}
 
 declare global {
   namespace ReactNavigation {
@@ -32,28 +29,59 @@ declare global {
   }
 }
 
-const Navigation = createStaticNavigation(RootStack);
+enableScreens(true);
 
-export default function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  return (
-    <SafeAreaProvider>
-      <AuthProvider value={{ isLoggedIn, setIsLoggedIn }}>
-        <TamaguiProvider config={config}>
-          <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-          <View style={styles.container}>
-            <Navigation />
-          </View>
-        </TamaguiProvider>
-      </AuthProvider>
-    </SafeAreaProvider>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+const AppTabs = createBottomTabNavigator({
+  initialRouteName: 'Home',
+  screenOptions: {
+    headerShown: false,
+    tabBarActiveTintColor: '#ff6b6b',
+    tabBarLabelStyle: {
+      fontSize: 14,
+      paddingVertical: 4,
+    },
+  },
+  screens: {
+    Home: {
+      options: {
+        title: 'Movies',
+        tabBarIcon: Home,
+      },
+      screen: HomeScreen,
+    },
+    Favorites: {
+      options: {
+        title: 'My Favorites',
+        tabBarIcon: Star,
+      },
+      screen: FavoritesScreen,
+    },
   },
 });
+
+const Navigation = createStaticNavigation(AppTabs);
+
+const AppContent = ({ colorScheme }: AppContentProps) => {
+  const { currentUser } = useAuth();
+  const navigationTheme = colorScheme === 'dark' ? DarkTheme : DefaultTheme;
+
+  if (!currentUser) {
+    return <LoginScreen />;
+  }
+
+  return <Navigation theme={navigationTheme} />;
+};
+
+export default function App() {
+  const colorScheme = useColorScheme();
+  const defaultTheme = colorScheme === 'dark' ? 'dark' : 'light';
+
+  return (
+    <AppProviders defaultTheme={defaultTheme}>
+      <StatusBar
+        barStyle={colorScheme === 'dark' ? 'light-content' : 'dark-content'}
+      />
+      <AppContent colorScheme={colorScheme} />
+    </AppProviders>
+  );
+}
