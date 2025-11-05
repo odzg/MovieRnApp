@@ -94,19 +94,19 @@ importers:
         specifier: 19.1.17
         version: 19.1.17
       cspell:
-        specifier: ^9.2.2
+        specifier: 9.2.2
         version: 9.2.2
       eslint:
         specifier: 8.57.1
         version: 8.57.1
       lefthook:
-        specifier: ^2.0.2
+        specifier: 2.0.2
         version: 2.0.2
       prettier:
         specifier: 3.6.2
         version: 3.6.2
       syncpack:
-        specifier: ^13.0.4
+        specifier: 13.0.4
         version: 13.0.4(typescript@5.9.3)
       typescript:
         specifier: 5.9.3
