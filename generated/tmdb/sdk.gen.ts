@@ -57,7 +57,7 @@ export const accountDetails = <ThrowOnError extends boolean = false>(options: Op
 /**
  * Add Favorite
  *
- * Mark a movie or TV show as a favorite.
+ * Mark a movie or TV show as a favourite.
  */
 export const accountAddFavorite = <ThrowOnError extends boolean = false>(options: Options<AccountAddFavoriteData, ThrowOnError>) => {
     return (options.client ?? client).post<AccountAddFavoriteResponses, unknown, ThrowOnError>({
@@ -101,7 +101,7 @@ export const accountAddToWatchlist = <ThrowOnError extends boolean = false>(opti
 /**
  * Favorite Movies
  *
- * Get a users list of favorite movies.
+ * Get a users list of favourite movies.
  */
 export const accountGetFavorites = <ThrowOnError extends boolean = false>(options: Options<AccountGetFavoritesData, ThrowOnError>) => {
     return (options.client ?? client).get<AccountGetFavoritesResponses, unknown, ThrowOnError>({
@@ -119,7 +119,7 @@ export const accountGetFavorites = <ThrowOnError extends boolean = false>(option
 /**
  * Favorite TV
  *
- * Get a users list of favorite TV shows.
+ * Get a users list of favourite TV shows.
  */
 export const accountFavoriteTv = <ThrowOnError extends boolean = false>(options: Options<AccountFavoriteTvData, ThrowOnError>) => {
     return (options.client ?? client).get<AccountFavoriteTvResponses, unknown, ThrowOnError>({
@@ -1075,7 +1075,7 @@ export const movieDetails = <ThrowOnError extends boolean = false>(options: Opti
 /**
  * Account States
  *
- * Get the rating, watchlist and favorite status of an account.
+ * Get the rating, watchlist and favourite status of an account.
  */
 export const movieAccountStates = <ThrowOnError extends boolean = false>(options: Options<MovieAccountStatesData, ThrowOnError>) => {
     return (options.client ?? client).get<MovieAccountStatesResponses, unknown, ThrowOnError>({
@@ -1945,7 +1945,7 @@ export const tvSeriesDetails = <ThrowOnError extends boolean = false>(options: O
 /**
  * Account States
  *
- * Get the rating, watchlist and favorite status.
+ * Get the rating, watchlist and favourite status.
  */
 export const tvSeriesAccountStates = <ThrowOnError extends boolean = false>(options: Options<TvSeriesAccountStatesData, ThrowOnError>) => {
     return (options.client ?? client).get<TvSeriesAccountStatesResponses, unknown, ThrowOnError>({
@@ -2337,7 +2337,7 @@ export const tvSeasonDetails = <ThrowOnError extends boolean = false>(options: O
 /**
  * Account States
  *
- * Get the rating, watchlist and favorite status.
+ * Get the rating, watchlist and favourite status.
  */
 export const tvSeasonAccountStates = <ThrowOnError extends boolean = false>(options: Options<TvSeasonAccountStatesData, ThrowOnError>) => {
     return (options.client ?? client).get<TvSeasonAccountStatesResponses, unknown, ThrowOnError>({
@@ -2515,7 +2515,7 @@ export const tvEpisodeDetails = <ThrowOnError extends boolean = false>(options: 
 /**
  * Account States
  *
- * Get the rating, watchlist and favorite status.
+ * Get the rating, watchlist and favourite status.
  */
 export const tvEpisodeAccountStates = <ThrowOnError extends boolean = false>(options: Options<TvEpisodeAccountStatesData, ThrowOnError>) => {
     return (options.client ?? client).get<TvEpisodeAccountStatesResponses, unknown, ThrowOnError>({
