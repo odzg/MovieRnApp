@@ -4,7 +4,7 @@ import { type DefaultError, type InfiniteData, infiniteQueryOptions, queryOption
 
 import { client } from '../client.gen';
 import { accountAddFavorite, accountAddToWatchlist, accountDetails, accountFavoriteTv, accountGetFavorites, accountLists, accountRatedMovies, accountRatedTv, accountRatedTvEpisodes, accountWatchlistMovies, accountWatchlistTv, alternativeNamesCopy, authenticationCreateGuestSession, authenticationCreateRequestToken, authenticationCreateSession, authenticationCreateSessionFromLogin, authenticationCreateSessionFromV4Token, authenticationDeleteSession, authenticationValidateKey, certificationMovieList, certificationsTvList, changesMovieList, changesPeopleList, changesTvList, collectionDetails, collectionImages, collectionTranslations, companyAlternativeNames, companyDetails, companyImages, configurationCountries, configurationDetails, configurationJobs, configurationLanguages, configurationPrimaryTranslations, configurationTimezones, creditDetails, detailsCopy, discoverMovie, discoverTv, findById, genreMovieList, genreTvList, guestSessionRatedMovies, guestSessionRatedTv, guestSessionRatedTvEpisodes, keywordDetails, keywordMovies, listAddMovie, listCheckItemStatus, listClear, listCreate, listDelete, listDetails, listRemoveMovie, listsCopy, movieAccountStates, movieAddRating, movieAlternativeTitles, movieChanges, movieCredits, movieDeleteRating, movieDetails, movieExternalIds, movieImages, movieKeywords, movieLatestId, movieLists, movieNowPlayingList, moviePopularList, movieRecommendations, movieReleaseDates, movieReviews, movieSimilar, movieTopRatedList, movieTranslations, movieUpcomingList, movieVideos, movieWatchProviders, networkDetails, type Options, personChanges, personCombinedCredits, personDetails, personExternalIds, personImages, personLatestId, personMovieCredits, personPopularList, personTaggedImages, personTvCredits, reviewDetails, searchCollection, searchCompany, searchKeyword, searchMovie, searchMulti, searchPerson, searchTv, translations, trendingAll, trendingMovies, trendingPeople, trendingTv, tvEpisodeAccountStates, tvEpisodeAddRating, tvEpisodeChangesById, tvEpisodeCredits, tvEpisodeDeleteRating, tvEpisodeDetails, tvEpisodeExternalIds, tvEpisodeGroupDetails, tvEpisodeImages, tvEpisodeTranslations, tvEpisodeVideos, tvSeasonAccountStates, tvSeasonAggregateCredits, tvSeasonChangesById, tvSeasonCredits, tvSeasonDetails, tvSeasonExternalIds, tvSeasonImages, tvSeasonTranslations, tvSeasonVideos, tvSeasonWatchProviders, tvSeriesAccountStates, tvSeriesAddRating, tvSeriesAggregateCredits, tvSeriesAiringTodayList, tvSeriesAlternativeTitles, tvSeriesChanges, tvSeriesContentRatings, tvSeriesCredits, tvSeriesDeleteRating, tvSeriesDetails, tvSeriesEpisodeGroups, tvSeriesExternalIds, tvSeriesImages, tvSeriesKeywords, tvSeriesLatestId, tvSeriesOnTheAirList, tvSeriesPopularList, tvSeriesRecommendations, tvSeriesReviews, tvSeriesScreenedTheatrically, tvSeriesSimilar, tvSeriesTopRatedList, tvSeriesTranslations, tvSeriesVideos, tvSeriesWatchProviders, watchProvidersAvailableRegions, watchProvidersMovieList, watchProviderTvList } from '../sdk.gen';
-import type { AccountAddFavoriteData, AccountAddFavoriteResponse, AccountAddToWatchlistData, AccountAddToWatchlistResponse, AccountDetailsData, AccountFavoriteTvData, AccountFavoriteTvResponse, AccountGetFavoritesData, AccountGetFavoritesResponse, AccountListsData, AccountListsResponse, AccountRatedMoviesData, AccountRatedMoviesResponse, AccountRatedTvData, AccountRatedTvEpisodesData, AccountRatedTvEpisodesResponse, AccountRatedTvResponse, AccountWatchlistMoviesData, AccountWatchlistMoviesResponse, AccountWatchlistTvData, AccountWatchlistTvResponse, AlternativeNamesCopyData, AuthenticationCreateGuestSessionData, AuthenticationCreateRequestTokenData, AuthenticationCreateSessionData, AuthenticationCreateSessionFromLoginData, AuthenticationCreateSessionFromLoginResponse, AuthenticationCreateSessionFromV4TokenData, AuthenticationCreateSessionFromV4TokenResponse, AuthenticationCreateSessionResponse, AuthenticationDeleteSessionData, AuthenticationDeleteSessionResponse, AuthenticationValidateKeyData, CertificationMovieListData, CertificationsTvListData, ChangesMovieListData, ChangesMovieListResponse, ChangesPeopleListData, ChangesPeopleListResponse, ChangesTvListData, ChangesTvListResponse, CollectionDetailsData, CollectionImagesData, CollectionTranslationsData, CompanyAlternativeNamesData, CompanyDetailsData, CompanyImagesData, ConfigurationCountriesData, ConfigurationDetailsData, ConfigurationJobsData, ConfigurationLanguagesData, ConfigurationPrimaryTranslationsData, ConfigurationTimezonesData, CreditDetailsData, DetailsCopyData, DiscoverMovieData, DiscoverMovieResponse, DiscoverTvData, DiscoverTvResponse, FindByIdData, GenreMovieListData, GenreTvListData, GuestSessionRatedMoviesData, GuestSessionRatedMoviesResponse, GuestSessionRatedTvData, GuestSessionRatedTvEpisodesData, GuestSessionRatedTvEpisodesResponse, GuestSessionRatedTvResponse, KeywordDetailsData, KeywordMoviesData, KeywordMoviesResponse, ListAddMovieData, ListAddMovieResponse, ListCheckItemStatusData, ListClearData, ListClearResponse, ListCreateData, ListCreateResponse, ListDeleteData, ListDeleteResponse, ListDetailsData, ListDetailsResponse, ListRemoveMovieData, ListRemoveMovieResponse, ListsCopyData, ListsCopyResponse, MovieAccountStatesData, MovieAddRatingData, MovieAddRatingResponse, MovieAlternativeTitlesData, MovieChangesData, MovieChangesResponse, MovieCreditsData, MovieDeleteRatingData, MovieDeleteRatingResponse, MovieDetailsData, MovieExternalIdsData, MovieImagesData, MovieKeywordsData, MovieLatestIdData, MovieListsData, MovieListsResponse, MovieNowPlayingListData, MovieNowPlayingListResponse, MoviePopularListData, MoviePopularListResponse, MovieRecommendationsData, MovieRecommendationsResponse, MovieReleaseDatesData, MovieReviewsData, MovieReviewsResponse, MovieSimilarData, MovieSimilarResponse, MovieTopRatedListData, MovieTopRatedListResponse, MovieTranslationsData, MovieUpcomingListData, MovieUpcomingListResponse, MovieVideosData, MovieWatchProvidersData, NetworkDetailsData, PersonChangesData, PersonChangesResponse, PersonCombinedCreditsData, PersonDetailsData, PersonExternalIdsData, PersonImagesData, PersonLatestIdData, PersonMovieCreditsData, PersonPopularListData, PersonPopularListResponse, PersonTaggedImagesData, PersonTaggedImagesResponse, PersonTvCreditsData, ReviewDetailsData, SearchCollectionData, SearchCollectionResponse, SearchCompanyData, SearchCompanyResponse, SearchKeywordData, SearchKeywordResponse, SearchMovieData, SearchMovieResponse, SearchMultiData, SearchMultiResponse, SearchPersonData, SearchPersonResponse, SearchTvData, SearchTvResponse, TranslationsData, TrendingAllData, TrendingMoviesData, TrendingPeopleData, TrendingTvData, TvEpisodeAccountStatesData, TvEpisodeAddRatingData, TvEpisodeAddRatingResponse, TvEpisodeChangesByIdData, TvEpisodeCreditsData, TvEpisodeDeleteRatingData, TvEpisodeDeleteRatingResponse, TvEpisodeDetailsData, TvEpisodeExternalIdsData, TvEpisodeGroupDetailsData, TvEpisodeImagesData, TvEpisodeTranslationsData, TvEpisodeVideosData, TvSeasonAccountStatesData, TvSeasonAggregateCreditsData, TvSeasonChangesByIdData, TvSeasonChangesByIdResponse, TvSeasonCreditsData, TvSeasonDetailsData, TvSeasonExternalIdsData, TvSeasonImagesData, TvSeasonTranslationsData, TvSeasonVideosData, TvSeasonWatchProvidersData, TvSeriesAccountStatesData, TvSeriesAddRatingData, TvSeriesAddRatingResponse, TvSeriesAggregateCreditsData, TvSeriesAiringTodayListData, TvSeriesAiringTodayListResponse, TvSeriesAlternativeTitlesData, TvSeriesChangesData, TvSeriesChangesResponse, TvSeriesContentRatingsData, TvSeriesCreditsData, TvSeriesDeleteRatingData, TvSeriesDeleteRatingResponse, TvSeriesDetailsData, TvSeriesEpisodeGroupsData, TvSeriesExternalIdsData, TvSeriesImagesData, TvSeriesKeywordsData, TvSeriesLatestIdData, TvSeriesOnTheAirListData, TvSeriesOnTheAirListResponse, TvSeriesPopularListData, TvSeriesPopularListResponse, TvSeriesRecommendationsData, TvSeriesRecommendationsResponse, TvSeriesReviewsData, TvSeriesReviewsResponse, TvSeriesScreenedTheatricallyData, TvSeriesSimilarData, TvSeriesSimilarResponse, TvSeriesTopRatedListData, TvSeriesTopRatedListResponse, TvSeriesTranslationsData, TvSeriesVideosData, TvSeriesWatchProvidersData, WatchProvidersAvailableRegionsData, WatchProvidersMovieListData, WatchProviderTvListData } from '../types.gen';
+import type { AccountAddFavoriteData, AccountAddFavoriteResponse, AccountAddToWatchlistData, AccountAddToWatchlistResponse, AccountDetailsData, AccountDetailsResponse, AccountFavoriteTvData, AccountFavoriteTvResponse, AccountGetFavoritesData, AccountGetFavoritesResponse, AccountListsData, AccountListsResponse, AccountRatedMoviesData, AccountRatedMoviesResponse, AccountRatedTvData, AccountRatedTvEpisodesData, AccountRatedTvEpisodesResponse, AccountRatedTvResponse, AccountWatchlistMoviesData, AccountWatchlistMoviesResponse, AccountWatchlistTvData, AccountWatchlistTvResponse, AlternativeNamesCopyData, AlternativeNamesCopyResponse, AuthenticationCreateGuestSessionData, AuthenticationCreateGuestSessionResponse, AuthenticationCreateRequestTokenData, AuthenticationCreateRequestTokenResponse, AuthenticationCreateSessionData, AuthenticationCreateSessionFromLoginData, AuthenticationCreateSessionFromLoginResponse, AuthenticationCreateSessionFromV4TokenData, AuthenticationCreateSessionFromV4TokenResponse, AuthenticationCreateSessionResponse, AuthenticationDeleteSessionData, AuthenticationDeleteSessionResponse, AuthenticationValidateKeyData, AuthenticationValidateKeyError, AuthenticationValidateKeyResponse, CertificationMovieListData, CertificationMovieListResponse, CertificationsTvListData, CertificationsTvListResponse, ChangesMovieListData, ChangesMovieListResponse, ChangesPeopleListData, ChangesPeopleListResponse, ChangesTvListData, ChangesTvListResponse, CollectionDetailsData, CollectionDetailsResponse, CollectionImagesData, CollectionImagesResponse, CollectionTranslationsData, CollectionTranslationsResponse, CompanyAlternativeNamesData, CompanyAlternativeNamesResponse, CompanyDetailsData, CompanyDetailsResponse, CompanyImagesData, CompanyImagesResponse, ConfigurationCountriesData, ConfigurationCountriesResponse, ConfigurationDetailsData, ConfigurationDetailsResponse, ConfigurationJobsData, ConfigurationJobsResponse, ConfigurationLanguagesData, ConfigurationLanguagesResponse, ConfigurationPrimaryTranslationsData, ConfigurationPrimaryTranslationsResponse, ConfigurationTimezonesData, ConfigurationTimezonesResponse, CreditDetailsData, CreditDetailsResponse, DetailsCopyData, DetailsCopyResponse, DiscoverMovieData, DiscoverMovieResponse, DiscoverTvData, DiscoverTvResponse, FindByIdData, FindByIdResponse, GenreMovieListData, GenreMovieListResponse, GenreTvListData, GenreTvListResponse, GuestSessionRatedMoviesData, GuestSessionRatedMoviesResponse, GuestSessionRatedTvData, GuestSessionRatedTvEpisodesData, GuestSessionRatedTvEpisodesResponse, GuestSessionRatedTvResponse, KeywordDetailsData, KeywordDetailsResponse, KeywordMoviesData, KeywordMoviesResponse, ListAddMovieData, ListAddMovieResponse, ListCheckItemStatusData, ListCheckItemStatusResponse, ListClearData, ListClearResponse, ListCreateData, ListCreateResponse, ListDeleteData, ListDeleteResponse, ListDetailsData, ListDetailsResponse, ListRemoveMovieData, ListRemoveMovieResponse, ListsCopyData, ListsCopyResponse, MovieAccountStatesData, MovieAccountStatesResponse, MovieAddRatingData, MovieAddRatingResponse, MovieAlternativeTitlesData, MovieAlternativeTitlesResponse, MovieChangesData, MovieChangesResponse, MovieCreditsData, MovieCreditsResponse, MovieDeleteRatingData, MovieDeleteRatingResponse, MovieDetailsData, MovieDetailsResponse, MovieExternalIdsData, MovieExternalIdsResponse, MovieImagesData, MovieImagesResponse, MovieKeywordsData, MovieKeywordsResponse, MovieLatestIdData, MovieLatestIdResponse, MovieListsData, MovieListsResponse, MovieNowPlayingListData, MovieNowPlayingListResponse, MoviePopularListData, MoviePopularListResponse, MovieRecommendationsData, MovieRecommendationsResponse, MovieReleaseDatesData, MovieReleaseDatesResponse, MovieReviewsData, MovieReviewsResponse, MovieSimilarData, MovieSimilarResponse, MovieTopRatedListData, MovieTopRatedListResponse, MovieTranslationsData, MovieTranslationsResponse, MovieUpcomingListData, MovieUpcomingListResponse, MovieVideosData, MovieVideosResponse, MovieWatchProvidersData, MovieWatchProvidersResponse, NetworkDetailsData, NetworkDetailsResponse, PersonChangesData, PersonChangesResponse, PersonCombinedCreditsData, PersonCombinedCreditsResponse, PersonDetailsData, PersonDetailsResponse, PersonExternalIdsData, PersonExternalIdsResponse, PersonImagesData, PersonImagesResponse, PersonLatestIdData, PersonLatestIdResponse, PersonMovieCreditsData, PersonMovieCreditsResponse, PersonPopularListData, PersonPopularListResponse, PersonTaggedImagesData, PersonTaggedImagesResponse, PersonTvCreditsData, PersonTvCreditsResponse, ReviewDetailsData, ReviewDetailsResponse, SearchCollectionData, SearchCollectionResponse, SearchCompanyData, SearchCompanyResponse, SearchKeywordData, SearchKeywordResponse, SearchMovieData, SearchMovieResponse, SearchMultiData, SearchMultiResponse, SearchPersonData, SearchPersonResponse, SearchTvData, SearchTvResponse, TranslationsData, TranslationsResponse, TrendingAllData, TrendingAllResponse, TrendingMoviesData, TrendingMoviesResponse, TrendingPeopleData, TrendingPeopleResponse, TrendingTvData, TrendingTvResponse, TvEpisodeAccountStatesData, TvEpisodeAccountStatesResponse, TvEpisodeAddRatingData, TvEpisodeAddRatingResponse, TvEpisodeChangesByIdData, TvEpisodeChangesByIdResponse, TvEpisodeCreditsData, TvEpisodeCreditsResponse, TvEpisodeDeleteRatingData, TvEpisodeDeleteRatingResponse, TvEpisodeDetailsData, TvEpisodeDetailsResponse, TvEpisodeExternalIdsData, TvEpisodeExternalIdsResponse, TvEpisodeGroupDetailsData, TvEpisodeGroupDetailsResponse, TvEpisodeImagesData, TvEpisodeImagesResponse, TvEpisodeTranslationsData, TvEpisodeTranslationsResponse, TvEpisodeVideosData, TvEpisodeVideosResponse, TvSeasonAccountStatesData, TvSeasonAccountStatesResponse, TvSeasonAggregateCreditsData, TvSeasonAggregateCreditsResponse, TvSeasonChangesByIdData, TvSeasonChangesByIdResponse, TvSeasonCreditsData, TvSeasonCreditsResponse, TvSeasonDetailsData, TvSeasonDetailsResponse, TvSeasonExternalIdsData, TvSeasonExternalIdsResponse, TvSeasonImagesData, TvSeasonImagesResponse, TvSeasonTranslationsData, TvSeasonTranslationsResponse, TvSeasonVideosData, TvSeasonVideosResponse, TvSeasonWatchProvidersData, TvSeasonWatchProvidersResponse, TvSeriesAccountStatesData, TvSeriesAccountStatesResponse, TvSeriesAddRatingData, TvSeriesAddRatingResponse, TvSeriesAggregateCreditsData, TvSeriesAggregateCreditsResponse, TvSeriesAiringTodayListData, TvSeriesAiringTodayListResponse, TvSeriesAlternativeTitlesData, TvSeriesAlternativeTitlesResponse, TvSeriesChangesData, TvSeriesChangesResponse, TvSeriesContentRatingsData, TvSeriesContentRatingsResponse, TvSeriesCreditsData, TvSeriesCreditsResponse, TvSeriesDeleteRatingData, TvSeriesDeleteRatingResponse, TvSeriesDetailsData, TvSeriesDetailsResponse, TvSeriesEpisodeGroupsData, TvSeriesEpisodeGroupsResponse, TvSeriesExternalIdsData, TvSeriesExternalIdsResponse, TvSeriesImagesData, TvSeriesImagesResponse, TvSeriesKeywordsData, TvSeriesKeywordsResponse, TvSeriesLatestIdData, TvSeriesLatestIdResponse, TvSeriesOnTheAirListData, TvSeriesOnTheAirListResponse, TvSeriesPopularListData, TvSeriesPopularListResponse, TvSeriesRecommendationsData, TvSeriesRecommendationsResponse, TvSeriesReviewsData, TvSeriesReviewsResponse, TvSeriesScreenedTheatricallyData, TvSeriesScreenedTheatricallyResponse, TvSeriesSimilarData, TvSeriesSimilarResponse, TvSeriesTopRatedListData, TvSeriesTopRatedListResponse, TvSeriesTranslationsData, TvSeriesTranslationsResponse, TvSeriesVideosData, TvSeriesVideosResponse, TvSeriesWatchProvidersData, TvSeriesWatchProvidersResponse, WatchProvidersAvailableRegionsData, WatchProvidersAvailableRegionsResponse, WatchProvidersMovieListData, WatchProvidersMovieListResponse, WatchProviderTvListData, WatchProviderTvListResponse } from '../types.gen';
 
 export type QueryKey<TOptions extends Options> = [
     Pick<TOptions, 'baseUrl' | 'body' | 'headers' | 'path' | 'query'> & {
@@ -41,14 +41,14 @@ const createQueryKey = <TOptions extends Options>(id: string, options?: TOptions
     ];
 };
 
-export const authenticationValidateKeyQueryKey = (options?: Options<AuthenticationValidateKeyData>) => createQueryKey('authenticationValidateKey', options);
+export const authenticationValidateKeyQueryKey = (options?: Options<AuthenticationValidateKeyData>) => createQueryKey("authenticationValidateKey", options);
 
 /**
  * Validate Key
  *
  * Test your API Key to see if it's valid.
  */
-export const authenticationValidateKeyOptions = (options?: Options<AuthenticationValidateKeyData>) => queryOptions({
+export const authenticationValidateKeyOptions = (options?: Options<AuthenticationValidateKeyData>) => queryOptions<AuthenticationValidateKeyResponse, AuthenticationValidateKeyError, AuthenticationValidateKeyResponse, ReturnType<typeof authenticationValidateKeyQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await authenticationValidateKey({
             ...options,
@@ -61,14 +61,14 @@ export const authenticationValidateKeyOptions = (options?: Options<Authenticatio
     queryKey: authenticationValidateKeyQueryKey(options)
 });
 
-export const accountDetailsQueryKey = (options: Options<AccountDetailsData>) => createQueryKey('accountDetails', options);
+export const accountDetailsQueryKey = (options: Options<AccountDetailsData>) => createQueryKey("accountDetails", options);
 
 /**
  * Details
  *
  * Get the public details of an account on TMDB.
  */
-export const accountDetailsOptions = (options: Options<AccountDetailsData>) => queryOptions({
+export const accountDetailsOptions = (options: Options<AccountDetailsData>) => queryOptions<AccountDetailsResponse, DefaultError, AccountDetailsResponse, ReturnType<typeof accountDetailsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await accountDetails({
             ...options,
@@ -119,14 +119,14 @@ export const accountAddToWatchlistMutation = (options?: Partial<Options<AccountA
     return mutationOptions;
 };
 
-export const accountGetFavoritesQueryKey = (options: Options<AccountGetFavoritesData>) => createQueryKey('accountGetFavorites', options);
+export const accountGetFavoritesQueryKey = (options: Options<AccountGetFavoritesData>) => createQueryKey("accountGetFavorites", options);
 
 /**
  * Favorite Movies
  *
  * Get a users list of favourite movies.
  */
-export const accountGetFavoritesOptions = (options: Options<AccountGetFavoritesData>) => queryOptions({
+export const accountGetFavoritesOptions = (options: Options<AccountGetFavoritesData>) => queryOptions<AccountGetFavoritesResponse, DefaultError, AccountGetFavoritesResponse, ReturnType<typeof accountGetFavoritesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await accountGetFavorites({
             ...options,
@@ -170,7 +170,7 @@ const createInfiniteParams = <K extends Pick<QueryKey<Options>[0], 'body' | 'hea
     return params as unknown as typeof page;
 };
 
-export const accountGetFavoritesInfiniteQueryKey = (options: Options<AccountGetFavoritesData>): QueryKey<Options<AccountGetFavoritesData>> => createQueryKey('accountGetFavorites', options, true);
+export const accountGetFavoritesInfiniteQueryKey = (options: Options<AccountGetFavoritesData>): QueryKey<Options<AccountGetFavoritesData>> => createQueryKey("accountGetFavorites", options, true);
 
 /**
  * Favorite Movies
@@ -201,14 +201,14 @@ export const accountGetFavoritesInfiniteOptions = (options: Options<AccountGetFa
     });
 };
 
-export const accountFavoriteTvQueryKey = (options: Options<AccountFavoriteTvData>) => createQueryKey('accountFavoriteTv', options);
+export const accountFavoriteTvQueryKey = (options: Options<AccountFavoriteTvData>) => createQueryKey("accountFavoriteTv", options);
 
 /**
  * Favorite TV
  *
  * Get a users list of favourite TV shows.
  */
-export const accountFavoriteTvOptions = (options: Options<AccountFavoriteTvData>) => queryOptions({
+export const accountFavoriteTvOptions = (options: Options<AccountFavoriteTvData>) => queryOptions<AccountFavoriteTvResponse, DefaultError, AccountFavoriteTvResponse, ReturnType<typeof accountFavoriteTvQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await accountFavoriteTv({
             ...options,
@@ -221,7 +221,7 @@ export const accountFavoriteTvOptions = (options: Options<AccountFavoriteTvData>
     queryKey: accountFavoriteTvQueryKey(options)
 });
 
-export const accountFavoriteTvInfiniteQueryKey = (options: Options<AccountFavoriteTvData>): QueryKey<Options<AccountFavoriteTvData>> => createQueryKey('accountFavoriteTv', options, true);
+export const accountFavoriteTvInfiniteQueryKey = (options: Options<AccountFavoriteTvData>): QueryKey<Options<AccountFavoriteTvData>> => createQueryKey("accountFavoriteTv", options, true);
 
 /**
  * Favorite TV
@@ -252,14 +252,14 @@ export const accountFavoriteTvInfiniteOptions = (options: Options<AccountFavorit
     });
 };
 
-export const accountListsQueryKey = (options: Options<AccountListsData>) => createQueryKey('accountLists', options);
+export const accountListsQueryKey = (options: Options<AccountListsData>) => createQueryKey("accountLists", options);
 
 /**
  * Lists
  *
  * Get a users list of custom lists.
  */
-export const accountListsOptions = (options: Options<AccountListsData>) => queryOptions({
+export const accountListsOptions = (options: Options<AccountListsData>) => queryOptions<AccountListsResponse, DefaultError, AccountListsResponse, ReturnType<typeof accountListsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await accountLists({
             ...options,
@@ -272,7 +272,7 @@ export const accountListsOptions = (options: Options<AccountListsData>) => query
     queryKey: accountListsQueryKey(options)
 });
 
-export const accountListsInfiniteQueryKey = (options: Options<AccountListsData>): QueryKey<Options<AccountListsData>> => createQueryKey('accountLists', options, true);
+export const accountListsInfiniteQueryKey = (options: Options<AccountListsData>): QueryKey<Options<AccountListsData>> => createQueryKey("accountLists", options, true);
 
 /**
  * Lists
@@ -303,14 +303,14 @@ export const accountListsInfiniteOptions = (options: Options<AccountListsData>) 
     });
 };
 
-export const accountRatedMoviesQueryKey = (options: Options<AccountRatedMoviesData>) => createQueryKey('accountRatedMovies', options);
+export const accountRatedMoviesQueryKey = (options: Options<AccountRatedMoviesData>) => createQueryKey("accountRatedMovies", options);
 
 /**
  * Rated Movies
  *
  * Get a users list of rated movies.
  */
-export const accountRatedMoviesOptions = (options: Options<AccountRatedMoviesData>) => queryOptions({
+export const accountRatedMoviesOptions = (options: Options<AccountRatedMoviesData>) => queryOptions<AccountRatedMoviesResponse, DefaultError, AccountRatedMoviesResponse, ReturnType<typeof accountRatedMoviesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await accountRatedMovies({
             ...options,
@@ -323,7 +323,7 @@ export const accountRatedMoviesOptions = (options: Options<AccountRatedMoviesDat
     queryKey: accountRatedMoviesQueryKey(options)
 });
 
-export const accountRatedMoviesInfiniteQueryKey = (options: Options<AccountRatedMoviesData>): QueryKey<Options<AccountRatedMoviesData>> => createQueryKey('accountRatedMovies', options, true);
+export const accountRatedMoviesInfiniteQueryKey = (options: Options<AccountRatedMoviesData>): QueryKey<Options<AccountRatedMoviesData>> => createQueryKey("accountRatedMovies", options, true);
 
 /**
  * Rated Movies
@@ -354,14 +354,14 @@ export const accountRatedMoviesInfiniteOptions = (options: Options<AccountRatedM
     });
 };
 
-export const accountRatedTvQueryKey = (options: Options<AccountRatedTvData>) => createQueryKey('accountRatedTv', options);
+export const accountRatedTvQueryKey = (options: Options<AccountRatedTvData>) => createQueryKey("accountRatedTv", options);
 
 /**
  * Rated TV
  *
  * Get a users list of rated TV shows.
  */
-export const accountRatedTvOptions = (options: Options<AccountRatedTvData>) => queryOptions({
+export const accountRatedTvOptions = (options: Options<AccountRatedTvData>) => queryOptions<AccountRatedTvResponse, DefaultError, AccountRatedTvResponse, ReturnType<typeof accountRatedTvQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await accountRatedTv({
             ...options,
@@ -374,7 +374,7 @@ export const accountRatedTvOptions = (options: Options<AccountRatedTvData>) => q
     queryKey: accountRatedTvQueryKey(options)
 });
 
-export const accountRatedTvInfiniteQueryKey = (options: Options<AccountRatedTvData>): QueryKey<Options<AccountRatedTvData>> => createQueryKey('accountRatedTv', options, true);
+export const accountRatedTvInfiniteQueryKey = (options: Options<AccountRatedTvData>): QueryKey<Options<AccountRatedTvData>> => createQueryKey("accountRatedTv", options, true);
 
 /**
  * Rated TV
@@ -405,14 +405,14 @@ export const accountRatedTvInfiniteOptions = (options: Options<AccountRatedTvDat
     });
 };
 
-export const accountRatedTvEpisodesQueryKey = (options: Options<AccountRatedTvEpisodesData>) => createQueryKey('accountRatedTvEpisodes', options);
+export const accountRatedTvEpisodesQueryKey = (options: Options<AccountRatedTvEpisodesData>) => createQueryKey("accountRatedTvEpisodes", options);
 
 /**
  * Rated TV Episodes
  *
  * Get a users list of rated TV episodes.
  */
-export const accountRatedTvEpisodesOptions = (options: Options<AccountRatedTvEpisodesData>) => queryOptions({
+export const accountRatedTvEpisodesOptions = (options: Options<AccountRatedTvEpisodesData>) => queryOptions<AccountRatedTvEpisodesResponse, DefaultError, AccountRatedTvEpisodesResponse, ReturnType<typeof accountRatedTvEpisodesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await accountRatedTvEpisodes({
             ...options,
@@ -425,7 +425,7 @@ export const accountRatedTvEpisodesOptions = (options: Options<AccountRatedTvEpi
     queryKey: accountRatedTvEpisodesQueryKey(options)
 });
 
-export const accountRatedTvEpisodesInfiniteQueryKey = (options: Options<AccountRatedTvEpisodesData>): QueryKey<Options<AccountRatedTvEpisodesData>> => createQueryKey('accountRatedTvEpisodes', options, true);
+export const accountRatedTvEpisodesInfiniteQueryKey = (options: Options<AccountRatedTvEpisodesData>): QueryKey<Options<AccountRatedTvEpisodesData>> => createQueryKey("accountRatedTvEpisodes", options, true);
 
 /**
  * Rated TV Episodes
@@ -456,14 +456,14 @@ export const accountRatedTvEpisodesInfiniteOptions = (options: Options<AccountRa
     });
 };
 
-export const accountWatchlistMoviesQueryKey = (options: Options<AccountWatchlistMoviesData>) => createQueryKey('accountWatchlistMovies', options);
+export const accountWatchlistMoviesQueryKey = (options: Options<AccountWatchlistMoviesData>) => createQueryKey("accountWatchlistMovies", options);
 
 /**
  * Watchlist Movies
  *
  * Get a list of movies added to a users watchlist.
  */
-export const accountWatchlistMoviesOptions = (options: Options<AccountWatchlistMoviesData>) => queryOptions({
+export const accountWatchlistMoviesOptions = (options: Options<AccountWatchlistMoviesData>) => queryOptions<AccountWatchlistMoviesResponse, DefaultError, AccountWatchlistMoviesResponse, ReturnType<typeof accountWatchlistMoviesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await accountWatchlistMovies({
             ...options,
@@ -476,7 +476,7 @@ export const accountWatchlistMoviesOptions = (options: Options<AccountWatchlistM
     queryKey: accountWatchlistMoviesQueryKey(options)
 });
 
-export const accountWatchlistMoviesInfiniteQueryKey = (options: Options<AccountWatchlistMoviesData>): QueryKey<Options<AccountWatchlistMoviesData>> => createQueryKey('accountWatchlistMovies', options, true);
+export const accountWatchlistMoviesInfiniteQueryKey = (options: Options<AccountWatchlistMoviesData>): QueryKey<Options<AccountWatchlistMoviesData>> => createQueryKey("accountWatchlistMovies", options, true);
 
 /**
  * Watchlist Movies
@@ -507,14 +507,14 @@ export const accountWatchlistMoviesInfiniteOptions = (options: Options<AccountWa
     });
 };
 
-export const accountWatchlistTvQueryKey = (options: Options<AccountWatchlistTvData>) => createQueryKey('accountWatchlistTv', options);
+export const accountWatchlistTvQueryKey = (options: Options<AccountWatchlistTvData>) => createQueryKey("accountWatchlistTv", options);
 
 /**
  * Watchlist TV
  *
  * Get a list of TV shows added to a users watchlist.
  */
-export const accountWatchlistTvOptions = (options: Options<AccountWatchlistTvData>) => queryOptions({
+export const accountWatchlistTvOptions = (options: Options<AccountWatchlistTvData>) => queryOptions<AccountWatchlistTvResponse, DefaultError, AccountWatchlistTvResponse, ReturnType<typeof accountWatchlistTvQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await accountWatchlistTv({
             ...options,
@@ -527,7 +527,7 @@ export const accountWatchlistTvOptions = (options: Options<AccountWatchlistTvDat
     queryKey: accountWatchlistTvQueryKey(options)
 });
 
-export const accountWatchlistTvInfiniteQueryKey = (options: Options<AccountWatchlistTvData>): QueryKey<Options<AccountWatchlistTvData>> => createQueryKey('accountWatchlistTv', options, true);
+export const accountWatchlistTvInfiniteQueryKey = (options: Options<AccountWatchlistTvData>): QueryKey<Options<AccountWatchlistTvData>> => createQueryKey("accountWatchlistTv", options, true);
 
 /**
  * Watchlist TV
@@ -558,12 +558,12 @@ export const accountWatchlistTvInfiniteOptions = (options: Options<AccountWatchl
     });
 };
 
-export const authenticationCreateGuestSessionQueryKey = (options?: Options<AuthenticationCreateGuestSessionData>) => createQueryKey('authenticationCreateGuestSession', options);
+export const authenticationCreateGuestSessionQueryKey = (options?: Options<AuthenticationCreateGuestSessionData>) => createQueryKey("authenticationCreateGuestSession", options);
 
 /**
  * Create Guest Session
  */
-export const authenticationCreateGuestSessionOptions = (options?: Options<AuthenticationCreateGuestSessionData>) => queryOptions({
+export const authenticationCreateGuestSessionOptions = (options?: Options<AuthenticationCreateGuestSessionData>) => queryOptions<AuthenticationCreateGuestSessionResponse, DefaultError, AuthenticationCreateGuestSessionResponse, ReturnType<typeof authenticationCreateGuestSessionQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await authenticationCreateGuestSession({
             ...options,
@@ -576,12 +576,12 @@ export const authenticationCreateGuestSessionOptions = (options?: Options<Authen
     queryKey: authenticationCreateGuestSessionQueryKey(options)
 });
 
-export const authenticationCreateRequestTokenQueryKey = (options?: Options<AuthenticationCreateRequestTokenData>) => createQueryKey('authenticationCreateRequestToken', options);
+export const authenticationCreateRequestTokenQueryKey = (options?: Options<AuthenticationCreateRequestTokenData>) => createQueryKey("authenticationCreateRequestToken", options);
 
 /**
  * Create Request Token
  */
-export const authenticationCreateRequestTokenOptions = (options?: Options<AuthenticationCreateRequestTokenData>) => queryOptions({
+export const authenticationCreateRequestTokenOptions = (options?: Options<AuthenticationCreateRequestTokenData>) => queryOptions<AuthenticationCreateRequestTokenResponse, DefaultError, AuthenticationCreateRequestTokenResponse, ReturnType<typeof authenticationCreateRequestTokenQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await authenticationCreateRequestToken({
             ...options,
@@ -664,14 +664,14 @@ export const authenticationDeleteSessionMutation = (options?: Partial<Options<Au
     return mutationOptions;
 };
 
-export const certificationMovieListQueryKey = (options?: Options<CertificationMovieListData>) => createQueryKey('certificationMovieList', options);
+export const certificationMovieListQueryKey = (options?: Options<CertificationMovieListData>) => createQueryKey("certificationMovieList", options);
 
 /**
  * Movie Certifications
  *
  * Get an up to date list of the officially supported movie certifications on TMDB.
  */
-export const certificationMovieListOptions = (options?: Options<CertificationMovieListData>) => queryOptions({
+export const certificationMovieListOptions = (options?: Options<CertificationMovieListData>) => queryOptions<CertificationMovieListResponse, DefaultError, CertificationMovieListResponse, ReturnType<typeof certificationMovieListQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await certificationMovieList({
             ...options,
@@ -684,12 +684,12 @@ export const certificationMovieListOptions = (options?: Options<CertificationMov
     queryKey: certificationMovieListQueryKey(options)
 });
 
-export const certificationsTvListQueryKey = (options?: Options<CertificationsTvListData>) => createQueryKey('certificationsTvList', options);
+export const certificationsTvListQueryKey = (options?: Options<CertificationsTvListData>) => createQueryKey("certificationsTvList", options);
 
 /**
  * TV Certifications
  */
-export const certificationsTvListOptions = (options?: Options<CertificationsTvListData>) => queryOptions({
+export const certificationsTvListOptions = (options?: Options<CertificationsTvListData>) => queryOptions<CertificationsTvListResponse, DefaultError, CertificationsTvListResponse, ReturnType<typeof certificationsTvListQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await certificationsTvList({
             ...options,
@@ -702,14 +702,14 @@ export const certificationsTvListOptions = (options?: Options<CertificationsTvLi
     queryKey: certificationsTvListQueryKey(options)
 });
 
-export const changesMovieListQueryKey = (options?: Options<ChangesMovieListData>) => createQueryKey('changesMovieList', options);
+export const changesMovieListQueryKey = (options?: Options<ChangesMovieListData>) => createQueryKey("changesMovieList", options);
 
 /**
  * Movie List
  *
  * Get a list of all of the movie ids that have been changed in the past 24 hours.
  */
-export const changesMovieListOptions = (options?: Options<ChangesMovieListData>) => queryOptions({
+export const changesMovieListOptions = (options?: Options<ChangesMovieListData>) => queryOptions<ChangesMovieListResponse, DefaultError, ChangesMovieListResponse, ReturnType<typeof changesMovieListQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await changesMovieList({
             ...options,
@@ -722,7 +722,7 @@ export const changesMovieListOptions = (options?: Options<ChangesMovieListData>)
     queryKey: changesMovieListQueryKey(options)
 });
 
-export const changesMovieListInfiniteQueryKey = (options?: Options<ChangesMovieListData>): QueryKey<Options<ChangesMovieListData>> => createQueryKey('changesMovieList', options, true);
+export const changesMovieListInfiniteQueryKey = (options?: Options<ChangesMovieListData>): QueryKey<Options<ChangesMovieListData>> => createQueryKey("changesMovieList", options, true);
 
 /**
  * Movie List
@@ -753,12 +753,12 @@ export const changesMovieListInfiniteOptions = (options?: Options<ChangesMovieLi
     });
 };
 
-export const changesPeopleListQueryKey = (options?: Options<ChangesPeopleListData>) => createQueryKey('changesPeopleList', options);
+export const changesPeopleListQueryKey = (options?: Options<ChangesPeopleListData>) => createQueryKey("changesPeopleList", options);
 
 /**
  * People List
  */
-export const changesPeopleListOptions = (options?: Options<ChangesPeopleListData>) => queryOptions({
+export const changesPeopleListOptions = (options?: Options<ChangesPeopleListData>) => queryOptions<ChangesPeopleListResponse, DefaultError, ChangesPeopleListResponse, ReturnType<typeof changesPeopleListQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await changesPeopleList({
             ...options,
@@ -771,7 +771,7 @@ export const changesPeopleListOptions = (options?: Options<ChangesPeopleListData
     queryKey: changesPeopleListQueryKey(options)
 });
 
-export const changesPeopleListInfiniteQueryKey = (options?: Options<ChangesPeopleListData>): QueryKey<Options<ChangesPeopleListData>> => createQueryKey('changesPeopleList', options, true);
+export const changesPeopleListInfiniteQueryKey = (options?: Options<ChangesPeopleListData>): QueryKey<Options<ChangesPeopleListData>> => createQueryKey("changesPeopleList", options, true);
 
 /**
  * People List
@@ -800,12 +800,12 @@ export const changesPeopleListInfiniteOptions = (options?: Options<ChangesPeople
     });
 };
 
-export const changesTvListQueryKey = (options?: Options<ChangesTvListData>) => createQueryKey('changesTvList', options);
+export const changesTvListQueryKey = (options?: Options<ChangesTvListData>) => createQueryKey("changesTvList", options);
 
 /**
  * TV List
  */
-export const changesTvListOptions = (options?: Options<ChangesTvListData>) => queryOptions({
+export const changesTvListOptions = (options?: Options<ChangesTvListData>) => queryOptions<ChangesTvListResponse, DefaultError, ChangesTvListResponse, ReturnType<typeof changesTvListQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await changesTvList({
             ...options,
@@ -818,7 +818,7 @@ export const changesTvListOptions = (options?: Options<ChangesTvListData>) => qu
     queryKey: changesTvListQueryKey(options)
 });
 
-export const changesTvListInfiniteQueryKey = (options?: Options<ChangesTvListData>): QueryKey<Options<ChangesTvListData>> => createQueryKey('changesTvList', options, true);
+export const changesTvListInfiniteQueryKey = (options?: Options<ChangesTvListData>): QueryKey<Options<ChangesTvListData>> => createQueryKey("changesTvList", options, true);
 
 /**
  * TV List
@@ -847,14 +847,14 @@ export const changesTvListInfiniteOptions = (options?: Options<ChangesTvListData
     });
 };
 
-export const collectionDetailsQueryKey = (options: Options<CollectionDetailsData>) => createQueryKey('collectionDetails', options);
+export const collectionDetailsQueryKey = (options: Options<CollectionDetailsData>) => createQueryKey("collectionDetails", options);
 
 /**
  * Details
  *
  * Get collection details by ID.
  */
-export const collectionDetailsOptions = (options: Options<CollectionDetailsData>) => queryOptions({
+export const collectionDetailsOptions = (options: Options<CollectionDetailsData>) => queryOptions<CollectionDetailsResponse, DefaultError, CollectionDetailsResponse, ReturnType<typeof collectionDetailsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await collectionDetails({
             ...options,
@@ -867,14 +867,14 @@ export const collectionDetailsOptions = (options: Options<CollectionDetailsData>
     queryKey: collectionDetailsQueryKey(options)
 });
 
-export const collectionImagesQueryKey = (options: Options<CollectionImagesData>) => createQueryKey('collectionImages', options);
+export const collectionImagesQueryKey = (options: Options<CollectionImagesData>) => createQueryKey("collectionImages", options);
 
 /**
  * Images
  *
  * Get the images that belong to a collection.
  */
-export const collectionImagesOptions = (options: Options<CollectionImagesData>) => queryOptions({
+export const collectionImagesOptions = (options: Options<CollectionImagesData>) => queryOptions<CollectionImagesResponse, DefaultError, CollectionImagesResponse, ReturnType<typeof collectionImagesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await collectionImages({
             ...options,
@@ -887,12 +887,12 @@ export const collectionImagesOptions = (options: Options<CollectionImagesData>) 
     queryKey: collectionImagesQueryKey(options)
 });
 
-export const collectionTranslationsQueryKey = (options: Options<CollectionTranslationsData>) => createQueryKey('collectionTranslations', options);
+export const collectionTranslationsQueryKey = (options: Options<CollectionTranslationsData>) => createQueryKey("collectionTranslations", options);
 
 /**
  * Translations
  */
-export const collectionTranslationsOptions = (options: Options<CollectionTranslationsData>) => queryOptions({
+export const collectionTranslationsOptions = (options: Options<CollectionTranslationsData>) => queryOptions<CollectionTranslationsResponse, DefaultError, CollectionTranslationsResponse, ReturnType<typeof collectionTranslationsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await collectionTranslations({
             ...options,
@@ -905,14 +905,14 @@ export const collectionTranslationsOptions = (options: Options<CollectionTransla
     queryKey: collectionTranslationsQueryKey(options)
 });
 
-export const companyDetailsQueryKey = (options: Options<CompanyDetailsData>) => createQueryKey('companyDetails', options);
+export const companyDetailsQueryKey = (options: Options<CompanyDetailsData>) => createQueryKey("companyDetails", options);
 
 /**
  * Details
  *
  * Get the company details by ID.
  */
-export const companyDetailsOptions = (options: Options<CompanyDetailsData>) => queryOptions({
+export const companyDetailsOptions = (options: Options<CompanyDetailsData>) => queryOptions<CompanyDetailsResponse, DefaultError, CompanyDetailsResponse, ReturnType<typeof companyDetailsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await companyDetails({
             ...options,
@@ -925,14 +925,14 @@ export const companyDetailsOptions = (options: Options<CompanyDetailsData>) => q
     queryKey: companyDetailsQueryKey(options)
 });
 
-export const companyAlternativeNamesQueryKey = (options: Options<CompanyAlternativeNamesData>) => createQueryKey('companyAlternativeNames', options);
+export const companyAlternativeNamesQueryKey = (options: Options<CompanyAlternativeNamesData>) => createQueryKey("companyAlternativeNames", options);
 
 /**
  * Alternative Names
  *
  * Get the company details by ID.
  */
-export const companyAlternativeNamesOptions = (options: Options<CompanyAlternativeNamesData>) => queryOptions({
+export const companyAlternativeNamesOptions = (options: Options<CompanyAlternativeNamesData>) => queryOptions<CompanyAlternativeNamesResponse, DefaultError, CompanyAlternativeNamesResponse, ReturnType<typeof companyAlternativeNamesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await companyAlternativeNames({
             ...options,
@@ -945,14 +945,14 @@ export const companyAlternativeNamesOptions = (options: Options<CompanyAlternati
     queryKey: companyAlternativeNamesQueryKey(options)
 });
 
-export const companyImagesQueryKey = (options: Options<CompanyImagesData>) => createQueryKey('companyImages', options);
+export const companyImagesQueryKey = (options: Options<CompanyImagesData>) => createQueryKey("companyImages", options);
 
 /**
  * Images
  *
  * Get the company logos by id.
  */
-export const companyImagesOptions = (options: Options<CompanyImagesData>) => queryOptions({
+export const companyImagesOptions = (options: Options<CompanyImagesData>) => queryOptions<CompanyImagesResponse, DefaultError, CompanyImagesResponse, ReturnType<typeof companyImagesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await companyImages({
             ...options,
@@ -965,14 +965,14 @@ export const companyImagesOptions = (options: Options<CompanyImagesData>) => que
     queryKey: companyImagesQueryKey(options)
 });
 
-export const configurationDetailsQueryKey = (options?: Options<ConfigurationDetailsData>) => createQueryKey('configurationDetails', options);
+export const configurationDetailsQueryKey = (options?: Options<ConfigurationDetailsData>) => createQueryKey("configurationDetails", options);
 
 /**
  * Details
  *
  * Query the API configuration details.
  */
-export const configurationDetailsOptions = (options?: Options<ConfigurationDetailsData>) => queryOptions({
+export const configurationDetailsOptions = (options?: Options<ConfigurationDetailsData>) => queryOptions<ConfigurationDetailsResponse, DefaultError, ConfigurationDetailsResponse, ReturnType<typeof configurationDetailsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await configurationDetails({
             ...options,
@@ -985,14 +985,14 @@ export const configurationDetailsOptions = (options?: Options<ConfigurationDetai
     queryKey: configurationDetailsQueryKey(options)
 });
 
-export const configurationCountriesQueryKey = (options?: Options<ConfigurationCountriesData>) => createQueryKey('configurationCountries', options);
+export const configurationCountriesQueryKey = (options?: Options<ConfigurationCountriesData>) => createQueryKey("configurationCountries", options);
 
 /**
  * Countries
  *
  * Get the list of countries (ISO 3166-1 tags) used throughout TMDB.
  */
-export const configurationCountriesOptions = (options?: Options<ConfigurationCountriesData>) => queryOptions({
+export const configurationCountriesOptions = (options?: Options<ConfigurationCountriesData>) => queryOptions<ConfigurationCountriesResponse, DefaultError, ConfigurationCountriesResponse, ReturnType<typeof configurationCountriesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await configurationCountries({
             ...options,
@@ -1005,14 +1005,14 @@ export const configurationCountriesOptions = (options?: Options<ConfigurationCou
     queryKey: configurationCountriesQueryKey(options)
 });
 
-export const configurationJobsQueryKey = (options?: Options<ConfigurationJobsData>) => createQueryKey('configurationJobs', options);
+export const configurationJobsQueryKey = (options?: Options<ConfigurationJobsData>) => createQueryKey("configurationJobs", options);
 
 /**
  * Jobs
  *
  * Get the list of the jobs and departments we use on TMDB.
  */
-export const configurationJobsOptions = (options?: Options<ConfigurationJobsData>) => queryOptions({
+export const configurationJobsOptions = (options?: Options<ConfigurationJobsData>) => queryOptions<ConfigurationJobsResponse, DefaultError, ConfigurationJobsResponse, ReturnType<typeof configurationJobsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await configurationJobs({
             ...options,
@@ -1025,14 +1025,14 @@ export const configurationJobsOptions = (options?: Options<ConfigurationJobsData
     queryKey: configurationJobsQueryKey(options)
 });
 
-export const configurationLanguagesQueryKey = (options?: Options<ConfigurationLanguagesData>) => createQueryKey('configurationLanguages', options);
+export const configurationLanguagesQueryKey = (options?: Options<ConfigurationLanguagesData>) => createQueryKey("configurationLanguages", options);
 
 /**
  * Languages
  *
  * Get the list of languages (ISO 639-1 tags) used throughout TMDB.
  */
-export const configurationLanguagesOptions = (options?: Options<ConfigurationLanguagesData>) => queryOptions({
+export const configurationLanguagesOptions = (options?: Options<ConfigurationLanguagesData>) => queryOptions<ConfigurationLanguagesResponse, DefaultError, ConfigurationLanguagesResponse, ReturnType<typeof configurationLanguagesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await configurationLanguages({
             ...options,
@@ -1045,14 +1045,14 @@ export const configurationLanguagesOptions = (options?: Options<ConfigurationLan
     queryKey: configurationLanguagesQueryKey(options)
 });
 
-export const configurationPrimaryTranslationsQueryKey = (options?: Options<ConfigurationPrimaryTranslationsData>) => createQueryKey('configurationPrimaryTranslations', options);
+export const configurationPrimaryTranslationsQueryKey = (options?: Options<ConfigurationPrimaryTranslationsData>) => createQueryKey("configurationPrimaryTranslations", options);
 
 /**
  * Primary Translations
  *
  * Get a list of the officially supported translations on TMDB.
  */
-export const configurationPrimaryTranslationsOptions = (options?: Options<ConfigurationPrimaryTranslationsData>) => queryOptions({
+export const configurationPrimaryTranslationsOptions = (options?: Options<ConfigurationPrimaryTranslationsData>) => queryOptions<ConfigurationPrimaryTranslationsResponse, DefaultError, ConfigurationPrimaryTranslationsResponse, ReturnType<typeof configurationPrimaryTranslationsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await configurationPrimaryTranslations({
             ...options,
@@ -1065,14 +1065,14 @@ export const configurationPrimaryTranslationsOptions = (options?: Options<Config
     queryKey: configurationPrimaryTranslationsQueryKey(options)
 });
 
-export const configurationTimezonesQueryKey = (options?: Options<ConfigurationTimezonesData>) => createQueryKey('configurationTimezones', options);
+export const configurationTimezonesQueryKey = (options?: Options<ConfigurationTimezonesData>) => createQueryKey("configurationTimezones", options);
 
 /**
  * Timezones
  *
  * Get the list of timezones used throughout TMDB.
  */
-export const configurationTimezonesOptions = (options?: Options<ConfigurationTimezonesData>) => queryOptions({
+export const configurationTimezonesOptions = (options?: Options<ConfigurationTimezonesData>) => queryOptions<ConfigurationTimezonesResponse, DefaultError, ConfigurationTimezonesResponse, ReturnType<typeof configurationTimezonesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await configurationTimezones({
             ...options,
@@ -1085,14 +1085,14 @@ export const configurationTimezonesOptions = (options?: Options<ConfigurationTim
     queryKey: configurationTimezonesQueryKey(options)
 });
 
-export const creditDetailsQueryKey = (options: Options<CreditDetailsData>) => createQueryKey('creditDetails', options);
+export const creditDetailsQueryKey = (options: Options<CreditDetailsData>) => createQueryKey("creditDetails", options);
 
 /**
  * Details
  *
  * Get a movie or TV credit details by ID.
  */
-export const creditDetailsOptions = (options: Options<CreditDetailsData>) => queryOptions({
+export const creditDetailsOptions = (options: Options<CreditDetailsData>) => queryOptions<CreditDetailsResponse, DefaultError, CreditDetailsResponse, ReturnType<typeof creditDetailsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await creditDetails({
             ...options,
@@ -1105,14 +1105,14 @@ export const creditDetailsOptions = (options: Options<CreditDetailsData>) => que
     queryKey: creditDetailsQueryKey(options)
 });
 
-export const discoverMovieQueryKey = (options?: Options<DiscoverMovieData>) => createQueryKey('discoverMovie', options);
+export const discoverMovieQueryKey = (options?: Options<DiscoverMovieData>) => createQueryKey("discoverMovie", options);
 
 /**
  * Movie
  *
  * Find movies using over 30 filters and sort options.
  */
-export const discoverMovieOptions = (options?: Options<DiscoverMovieData>) => queryOptions({
+export const discoverMovieOptions = (options?: Options<DiscoverMovieData>) => queryOptions<DiscoverMovieResponse, DefaultError, DiscoverMovieResponse, ReturnType<typeof discoverMovieQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await discoverMovie({
             ...options,
@@ -1125,7 +1125,7 @@ export const discoverMovieOptions = (options?: Options<DiscoverMovieData>) => qu
     queryKey: discoverMovieQueryKey(options)
 });
 
-export const discoverMovieInfiniteQueryKey = (options?: Options<DiscoverMovieData>): QueryKey<Options<DiscoverMovieData>> => createQueryKey('discoverMovie', options, true);
+export const discoverMovieInfiniteQueryKey = (options?: Options<DiscoverMovieData>): QueryKey<Options<DiscoverMovieData>> => createQueryKey("discoverMovie", options, true);
 
 /**
  * Movie
@@ -1156,14 +1156,14 @@ export const discoverMovieInfiniteOptions = (options?: Options<DiscoverMovieData
     });
 };
 
-export const discoverTvQueryKey = (options?: Options<DiscoverTvData>) => createQueryKey('discoverTv', options);
+export const discoverTvQueryKey = (options?: Options<DiscoverTvData>) => createQueryKey("discoverTv", options);
 
 /**
  * TV
  *
  * Find TV shows using over 30 filters and sort options.
  */
-export const discoverTvOptions = (options?: Options<DiscoverTvData>) => queryOptions({
+export const discoverTvOptions = (options?: Options<DiscoverTvData>) => queryOptions<DiscoverTvResponse, DefaultError, DiscoverTvResponse, ReturnType<typeof discoverTvQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await discoverTv({
             ...options,
@@ -1176,7 +1176,7 @@ export const discoverTvOptions = (options?: Options<DiscoverTvData>) => queryOpt
     queryKey: discoverTvQueryKey(options)
 });
 
-export const discoverTvInfiniteQueryKey = (options?: Options<DiscoverTvData>): QueryKey<Options<DiscoverTvData>> => createQueryKey('discoverTv', options, true);
+export const discoverTvInfiniteQueryKey = (options?: Options<DiscoverTvData>): QueryKey<Options<DiscoverTvData>> => createQueryKey("discoverTv", options, true);
 
 /**
  * TV
@@ -1207,14 +1207,14 @@ export const discoverTvInfiniteOptions = (options?: Options<DiscoverTvData>) => 
     });
 };
 
-export const findByIdQueryKey = (options: Options<FindByIdData>) => createQueryKey('findById', options);
+export const findByIdQueryKey = (options: Options<FindByIdData>) => createQueryKey("findById", options);
 
 /**
  * Find By ID
  *
  * Find data by external ID's.
  */
-export const findByIdOptions = (options: Options<FindByIdData>) => queryOptions({
+export const findByIdOptions = (options: Options<FindByIdData>) => queryOptions<FindByIdResponse, DefaultError, FindByIdResponse, ReturnType<typeof findByIdQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await findById({
             ...options,
@@ -1227,14 +1227,14 @@ export const findByIdOptions = (options: Options<FindByIdData>) => queryOptions(
     queryKey: findByIdQueryKey(options)
 });
 
-export const genreMovieListQueryKey = (options?: Options<GenreMovieListData>) => createQueryKey('genreMovieList', options);
+export const genreMovieListQueryKey = (options?: Options<GenreMovieListData>) => createQueryKey("genreMovieList", options);
 
 /**
  * Movie List
  *
  * Get the list of official genres for movies.
  */
-export const genreMovieListOptions = (options?: Options<GenreMovieListData>) => queryOptions({
+export const genreMovieListOptions = (options?: Options<GenreMovieListData>) => queryOptions<GenreMovieListResponse, DefaultError, GenreMovieListResponse, ReturnType<typeof genreMovieListQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await genreMovieList({
             ...options,
@@ -1247,14 +1247,14 @@ export const genreMovieListOptions = (options?: Options<GenreMovieListData>) => 
     queryKey: genreMovieListQueryKey(options)
 });
 
-export const genreTvListQueryKey = (options?: Options<GenreTvListData>) => createQueryKey('genreTvList', options);
+export const genreTvListQueryKey = (options?: Options<GenreTvListData>) => createQueryKey("genreTvList", options);
 
 /**
  * TV List
  *
  * Get the list of official genres for TV shows.
  */
-export const genreTvListOptions = (options?: Options<GenreTvListData>) => queryOptions({
+export const genreTvListOptions = (options?: Options<GenreTvListData>) => queryOptions<GenreTvListResponse, DefaultError, GenreTvListResponse, ReturnType<typeof genreTvListQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await genreTvList({
             ...options,
@@ -1267,14 +1267,14 @@ export const genreTvListOptions = (options?: Options<GenreTvListData>) => queryO
     queryKey: genreTvListQueryKey(options)
 });
 
-export const guestSessionRatedMoviesQueryKey = (options: Options<GuestSessionRatedMoviesData>) => createQueryKey('guestSessionRatedMovies', options);
+export const guestSessionRatedMoviesQueryKey = (options: Options<GuestSessionRatedMoviesData>) => createQueryKey("guestSessionRatedMovies", options);
 
 /**
  * Rated Movies
  *
  * Get the rated movies for a guest session.
  */
-export const guestSessionRatedMoviesOptions = (options: Options<GuestSessionRatedMoviesData>) => queryOptions({
+export const guestSessionRatedMoviesOptions = (options: Options<GuestSessionRatedMoviesData>) => queryOptions<GuestSessionRatedMoviesResponse, DefaultError, GuestSessionRatedMoviesResponse, ReturnType<typeof guestSessionRatedMoviesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await guestSessionRatedMovies({
             ...options,
@@ -1287,7 +1287,7 @@ export const guestSessionRatedMoviesOptions = (options: Options<GuestSessionRate
     queryKey: guestSessionRatedMoviesQueryKey(options)
 });
 
-export const guestSessionRatedMoviesInfiniteQueryKey = (options: Options<GuestSessionRatedMoviesData>): QueryKey<Options<GuestSessionRatedMoviesData>> => createQueryKey('guestSessionRatedMovies', options, true);
+export const guestSessionRatedMoviesInfiniteQueryKey = (options: Options<GuestSessionRatedMoviesData>): QueryKey<Options<GuestSessionRatedMoviesData>> => createQueryKey("guestSessionRatedMovies", options, true);
 
 /**
  * Rated Movies
@@ -1318,14 +1318,14 @@ export const guestSessionRatedMoviesInfiniteOptions = (options: Options<GuestSes
     });
 };
 
-export const guestSessionRatedTvQueryKey = (options: Options<GuestSessionRatedTvData>) => createQueryKey('guestSessionRatedTv', options);
+export const guestSessionRatedTvQueryKey = (options: Options<GuestSessionRatedTvData>) => createQueryKey("guestSessionRatedTv", options);
 
 /**
  * Rated TV
  *
  * Get the rated TV shows for a guest session.
  */
-export const guestSessionRatedTvOptions = (options: Options<GuestSessionRatedTvData>) => queryOptions({
+export const guestSessionRatedTvOptions = (options: Options<GuestSessionRatedTvData>) => queryOptions<GuestSessionRatedTvResponse, DefaultError, GuestSessionRatedTvResponse, ReturnType<typeof guestSessionRatedTvQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await guestSessionRatedTv({
             ...options,
@@ -1338,7 +1338,7 @@ export const guestSessionRatedTvOptions = (options: Options<GuestSessionRatedTvD
     queryKey: guestSessionRatedTvQueryKey(options)
 });
 
-export const guestSessionRatedTvInfiniteQueryKey = (options: Options<GuestSessionRatedTvData>): QueryKey<Options<GuestSessionRatedTvData>> => createQueryKey('guestSessionRatedTv', options, true);
+export const guestSessionRatedTvInfiniteQueryKey = (options: Options<GuestSessionRatedTvData>): QueryKey<Options<GuestSessionRatedTvData>> => createQueryKey("guestSessionRatedTv", options, true);
 
 /**
  * Rated TV
@@ -1369,14 +1369,14 @@ export const guestSessionRatedTvInfiniteOptions = (options: Options<GuestSession
     });
 };
 
-export const guestSessionRatedTvEpisodesQueryKey = (options: Options<GuestSessionRatedTvEpisodesData>) => createQueryKey('guestSessionRatedTvEpisodes', options);
+export const guestSessionRatedTvEpisodesQueryKey = (options: Options<GuestSessionRatedTvEpisodesData>) => createQueryKey("guestSessionRatedTvEpisodes", options);
 
 /**
  * Rated TV Episodes
  *
  * Get the rated TV episodes for a guest session.
  */
-export const guestSessionRatedTvEpisodesOptions = (options: Options<GuestSessionRatedTvEpisodesData>) => queryOptions({
+export const guestSessionRatedTvEpisodesOptions = (options: Options<GuestSessionRatedTvEpisodesData>) => queryOptions<GuestSessionRatedTvEpisodesResponse, DefaultError, GuestSessionRatedTvEpisodesResponse, ReturnType<typeof guestSessionRatedTvEpisodesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await guestSessionRatedTvEpisodes({
             ...options,
@@ -1389,7 +1389,7 @@ export const guestSessionRatedTvEpisodesOptions = (options: Options<GuestSession
     queryKey: guestSessionRatedTvEpisodesQueryKey(options)
 });
 
-export const guestSessionRatedTvEpisodesInfiniteQueryKey = (options: Options<GuestSessionRatedTvEpisodesData>): QueryKey<Options<GuestSessionRatedTvEpisodesData>> => createQueryKey('guestSessionRatedTvEpisodes', options, true);
+export const guestSessionRatedTvEpisodesInfiniteQueryKey = (options: Options<GuestSessionRatedTvEpisodesData>): QueryKey<Options<GuestSessionRatedTvEpisodesData>> => createQueryKey("guestSessionRatedTvEpisodes", options, true);
 
 /**
  * Rated TV Episodes
@@ -1420,12 +1420,12 @@ export const guestSessionRatedTvEpisodesInfiniteOptions = (options: Options<Gues
     });
 };
 
-export const keywordDetailsQueryKey = (options: Options<KeywordDetailsData>) => createQueryKey('keywordDetails', options);
+export const keywordDetailsQueryKey = (options: Options<KeywordDetailsData>) => createQueryKey("keywordDetails", options);
 
 /**
  * Details
  */
-export const keywordDetailsOptions = (options: Options<KeywordDetailsData>) => queryOptions({
+export const keywordDetailsOptions = (options: Options<KeywordDetailsData>) => queryOptions<KeywordDetailsResponse, DefaultError, KeywordDetailsResponse, ReturnType<typeof keywordDetailsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await keywordDetails({
             ...options,
@@ -1438,12 +1438,12 @@ export const keywordDetailsOptions = (options: Options<KeywordDetailsData>) => q
     queryKey: keywordDetailsQueryKey(options)
 });
 
-export const keywordMoviesQueryKey = (options: Options<KeywordMoviesData>) => createQueryKey('keywordMovies', options);
+export const keywordMoviesQueryKey = (options: Options<KeywordMoviesData>) => createQueryKey("keywordMovies", options);
 
 /**
  * Movies
  */
-export const keywordMoviesOptions = (options: Options<KeywordMoviesData>) => queryOptions({
+export const keywordMoviesOptions = (options: Options<KeywordMoviesData>) => queryOptions<KeywordMoviesResponse, DefaultError, KeywordMoviesResponse, ReturnType<typeof keywordMoviesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await keywordMovies({
             ...options,
@@ -1456,7 +1456,7 @@ export const keywordMoviesOptions = (options: Options<KeywordMoviesData>) => que
     queryKey: keywordMoviesQueryKey(options)
 });
 
-export const keywordMoviesInfiniteQueryKey = (options: Options<KeywordMoviesData>): QueryKey<Options<KeywordMoviesData>> => createQueryKey('keywordMovies', options, true);
+export const keywordMoviesInfiniteQueryKey = (options: Options<KeywordMoviesData>): QueryKey<Options<KeywordMoviesData>> => createQueryKey("keywordMovies", options, true);
 
 /**
  * Movies
@@ -1504,14 +1504,14 @@ export const listAddMovieMutation = (options?: Partial<Options<ListAddMovieData>
     return mutationOptions;
 };
 
-export const listCheckItemStatusQueryKey = (options: Options<ListCheckItemStatusData>) => createQueryKey('listCheckItemStatus', options);
+export const listCheckItemStatusQueryKey = (options: Options<ListCheckItemStatusData>) => createQueryKey("listCheckItemStatus", options);
 
 /**
  * Check Item Status
  *
  * Use this method to check if an item has already been added to the list.
  */
-export const listCheckItemStatusOptions = (options: Options<ListCheckItemStatusData>) => queryOptions({
+export const listCheckItemStatusOptions = (options: Options<ListCheckItemStatusData>) => queryOptions<ListCheckItemStatusResponse, DefaultError, ListCheckItemStatusResponse, ReturnType<typeof listCheckItemStatusQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await listCheckItemStatus({
             ...options,
@@ -1579,12 +1579,12 @@ export const listDeleteMutation = (options?: Partial<Options<ListDeleteData>>): 
     return mutationOptions;
 };
 
-export const listDetailsQueryKey = (options: Options<ListDetailsData>) => createQueryKey('listDetails', options);
+export const listDetailsQueryKey = (options: Options<ListDetailsData>) => createQueryKey("listDetails", options);
 
 /**
  * Details
  */
-export const listDetailsOptions = (options: Options<ListDetailsData>) => queryOptions({
+export const listDetailsOptions = (options: Options<ListDetailsData>) => queryOptions<ListDetailsResponse, DefaultError, ListDetailsResponse, ReturnType<typeof listDetailsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await listDetails({
             ...options,
@@ -1597,7 +1597,7 @@ export const listDetailsOptions = (options: Options<ListDetailsData>) => queryOp
     queryKey: listDetailsQueryKey(options)
 });
 
-export const listDetailsInfiniteQueryKey = (options: Options<ListDetailsData>): QueryKey<Options<ListDetailsData>> => createQueryKey('listDetails', options, true);
+export const listDetailsInfiniteQueryKey = (options: Options<ListDetailsData>): QueryKey<Options<ListDetailsData>> => createQueryKey("listDetails", options, true);
 
 /**
  * Details
@@ -1645,14 +1645,14 @@ export const listRemoveMovieMutation = (options?: Partial<Options<ListRemoveMovi
     return mutationOptions;
 };
 
-export const movieNowPlayingListQueryKey = (options?: Options<MovieNowPlayingListData>) => createQueryKey('movieNowPlayingList', options);
+export const movieNowPlayingListQueryKey = (options?: Options<MovieNowPlayingListData>) => createQueryKey("movieNowPlayingList", options);
 
 /**
  * Now Playing
  *
  * Get a list of movies that are currently in theatres.
  */
-export const movieNowPlayingListOptions = (options?: Options<MovieNowPlayingListData>) => queryOptions({
+export const movieNowPlayingListOptions = (options?: Options<MovieNowPlayingListData>) => queryOptions<MovieNowPlayingListResponse, DefaultError, MovieNowPlayingListResponse, ReturnType<typeof movieNowPlayingListQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await movieNowPlayingList({
             ...options,
@@ -1665,7 +1665,7 @@ export const movieNowPlayingListOptions = (options?: Options<MovieNowPlayingList
     queryKey: movieNowPlayingListQueryKey(options)
 });
 
-export const movieNowPlayingListInfiniteQueryKey = (options?: Options<MovieNowPlayingListData>): QueryKey<Options<MovieNowPlayingListData>> => createQueryKey('movieNowPlayingList', options, true);
+export const movieNowPlayingListInfiniteQueryKey = (options?: Options<MovieNowPlayingListData>): QueryKey<Options<MovieNowPlayingListData>> => createQueryKey("movieNowPlayingList", options, true);
 
 /**
  * Now Playing
@@ -1696,14 +1696,14 @@ export const movieNowPlayingListInfiniteOptions = (options?: Options<MovieNowPla
     });
 };
 
-export const moviePopularListQueryKey = (options?: Options<MoviePopularListData>) => createQueryKey('moviePopularList', options);
+export const moviePopularListQueryKey = (options?: Options<MoviePopularListData>) => createQueryKey("moviePopularList", options);
 
 /**
  * Popular
  *
  * Get a list of movies ordered by popularity.
  */
-export const moviePopularListOptions = (options?: Options<MoviePopularListData>) => queryOptions({
+export const moviePopularListOptions = (options?: Options<MoviePopularListData>) => queryOptions<MoviePopularListResponse, DefaultError, MoviePopularListResponse, ReturnType<typeof moviePopularListQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await moviePopularList({
             ...options,
@@ -1716,7 +1716,7 @@ export const moviePopularListOptions = (options?: Options<MoviePopularListData>)
     queryKey: moviePopularListQueryKey(options)
 });
 
-export const moviePopularListInfiniteQueryKey = (options?: Options<MoviePopularListData>): QueryKey<Options<MoviePopularListData>> => createQueryKey('moviePopularList', options, true);
+export const moviePopularListInfiniteQueryKey = (options?: Options<MoviePopularListData>): QueryKey<Options<MoviePopularListData>> => createQueryKey("moviePopularList", options, true);
 
 /**
  * Popular
@@ -1747,14 +1747,14 @@ export const moviePopularListInfiniteOptions = (options?: Options<MoviePopularLi
     });
 };
 
-export const movieTopRatedListQueryKey = (options?: Options<MovieTopRatedListData>) => createQueryKey('movieTopRatedList', options);
+export const movieTopRatedListQueryKey = (options?: Options<MovieTopRatedListData>) => createQueryKey("movieTopRatedList", options);
 
 /**
  * Top Rated
  *
  * Get a list of movies ordered by rating.
  */
-export const movieTopRatedListOptions = (options?: Options<MovieTopRatedListData>) => queryOptions({
+export const movieTopRatedListOptions = (options?: Options<MovieTopRatedListData>) => queryOptions<MovieTopRatedListResponse, DefaultError, MovieTopRatedListResponse, ReturnType<typeof movieTopRatedListQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await movieTopRatedList({
             ...options,
@@ -1767,7 +1767,7 @@ export const movieTopRatedListOptions = (options?: Options<MovieTopRatedListData
     queryKey: movieTopRatedListQueryKey(options)
 });
 
-export const movieTopRatedListInfiniteQueryKey = (options?: Options<MovieTopRatedListData>): QueryKey<Options<MovieTopRatedListData>> => createQueryKey('movieTopRatedList', options, true);
+export const movieTopRatedListInfiniteQueryKey = (options?: Options<MovieTopRatedListData>): QueryKey<Options<MovieTopRatedListData>> => createQueryKey("movieTopRatedList", options, true);
 
 /**
  * Top Rated
@@ -1798,14 +1798,14 @@ export const movieTopRatedListInfiniteOptions = (options?: Options<MovieTopRated
     });
 };
 
-export const movieUpcomingListQueryKey = (options?: Options<MovieUpcomingListData>) => createQueryKey('movieUpcomingList', options);
+export const movieUpcomingListQueryKey = (options?: Options<MovieUpcomingListData>) => createQueryKey("movieUpcomingList", options);
 
 /**
  * Upcoming
  *
  * Get a list of movies that are being released soon.
  */
-export const movieUpcomingListOptions = (options?: Options<MovieUpcomingListData>) => queryOptions({
+export const movieUpcomingListOptions = (options?: Options<MovieUpcomingListData>) => queryOptions<MovieUpcomingListResponse, DefaultError, MovieUpcomingListResponse, ReturnType<typeof movieUpcomingListQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await movieUpcomingList({
             ...options,
@@ -1818,7 +1818,7 @@ export const movieUpcomingListOptions = (options?: Options<MovieUpcomingListData
     queryKey: movieUpcomingListQueryKey(options)
 });
 
-export const movieUpcomingListInfiniteQueryKey = (options?: Options<MovieUpcomingListData>): QueryKey<Options<MovieUpcomingListData>> => createQueryKey('movieUpcomingList', options, true);
+export const movieUpcomingListInfiniteQueryKey = (options?: Options<MovieUpcomingListData>): QueryKey<Options<MovieUpcomingListData>> => createQueryKey("movieUpcomingList", options, true);
 
 /**
  * Upcoming
@@ -1849,14 +1849,14 @@ export const movieUpcomingListInfiniteOptions = (options?: Options<MovieUpcoming
     });
 };
 
-export const movieDetailsQueryKey = (options: Options<MovieDetailsData>) => createQueryKey('movieDetails', options);
+export const movieDetailsQueryKey = (options: Options<MovieDetailsData>) => createQueryKey("movieDetails", options);
 
 /**
  * Details
  *
  * Get the top level details of a movie by ID.
  */
-export const movieDetailsOptions = (options: Options<MovieDetailsData>) => queryOptions({
+export const movieDetailsOptions = (options: Options<MovieDetailsData>) => queryOptions<MovieDetailsResponse, DefaultError, MovieDetailsResponse, ReturnType<typeof movieDetailsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await movieDetails({
             ...options,
@@ -1869,14 +1869,14 @@ export const movieDetailsOptions = (options: Options<MovieDetailsData>) => query
     queryKey: movieDetailsQueryKey(options)
 });
 
-export const movieAccountStatesQueryKey = (options: Options<MovieAccountStatesData>) => createQueryKey('movieAccountStates', options);
+export const movieAccountStatesQueryKey = (options: Options<MovieAccountStatesData>) => createQueryKey("movieAccountStates", options);
 
 /**
  * Account States
  *
  * Get the rating, watchlist and favourite status of an account.
  */
-export const movieAccountStatesOptions = (options: Options<MovieAccountStatesData>) => queryOptions({
+export const movieAccountStatesOptions = (options: Options<MovieAccountStatesData>) => queryOptions<MovieAccountStatesResponse, DefaultError, MovieAccountStatesResponse, ReturnType<typeof movieAccountStatesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await movieAccountStates({
             ...options,
@@ -1889,14 +1889,14 @@ export const movieAccountStatesOptions = (options: Options<MovieAccountStatesDat
     queryKey: movieAccountStatesQueryKey(options)
 });
 
-export const movieAlternativeTitlesQueryKey = (options: Options<MovieAlternativeTitlesData>) => createQueryKey('movieAlternativeTitles', options);
+export const movieAlternativeTitlesQueryKey = (options: Options<MovieAlternativeTitlesData>) => createQueryKey("movieAlternativeTitles", options);
 
 /**
  * Alternative Titles
  *
  * Get the alternative titles for a movie.
  */
-export const movieAlternativeTitlesOptions = (options: Options<MovieAlternativeTitlesData>) => queryOptions({
+export const movieAlternativeTitlesOptions = (options: Options<MovieAlternativeTitlesData>) => queryOptions<MovieAlternativeTitlesResponse, DefaultError, MovieAlternativeTitlesResponse, ReturnType<typeof movieAlternativeTitlesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await movieAlternativeTitles({
             ...options,
@@ -1909,14 +1909,14 @@ export const movieAlternativeTitlesOptions = (options: Options<MovieAlternativeT
     queryKey: movieAlternativeTitlesQueryKey(options)
 });
 
-export const movieChangesQueryKey = (options: Options<MovieChangesData>) => createQueryKey('movieChanges', options);
+export const movieChangesQueryKey = (options: Options<MovieChangesData>) => createQueryKey("movieChanges", options);
 
 /**
  * Changes
  *
  * Get the recent changes for a movie.
  */
-export const movieChangesOptions = (options: Options<MovieChangesData>) => queryOptions({
+export const movieChangesOptions = (options: Options<MovieChangesData>) => queryOptions<MovieChangesResponse, DefaultError, MovieChangesResponse, ReturnType<typeof movieChangesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await movieChanges({
             ...options,
@@ -1929,7 +1929,7 @@ export const movieChangesOptions = (options: Options<MovieChangesData>) => query
     queryKey: movieChangesQueryKey(options)
 });
 
-export const movieChangesInfiniteQueryKey = (options: Options<MovieChangesData>): QueryKey<Options<MovieChangesData>> => createQueryKey('movieChanges', options, true);
+export const movieChangesInfiniteQueryKey = (options: Options<MovieChangesData>): QueryKey<Options<MovieChangesData>> => createQueryKey("movieChanges", options, true);
 
 /**
  * Changes
@@ -1960,12 +1960,12 @@ export const movieChangesInfiniteOptions = (options: Options<MovieChangesData>) 
     });
 };
 
-export const movieCreditsQueryKey = (options: Options<MovieCreditsData>) => createQueryKey('movieCredits', options);
+export const movieCreditsQueryKey = (options: Options<MovieCreditsData>) => createQueryKey("movieCredits", options);
 
 /**
  * Credits
  */
-export const movieCreditsOptions = (options: Options<MovieCreditsData>) => queryOptions({
+export const movieCreditsOptions = (options: Options<MovieCreditsData>) => queryOptions<MovieCreditsResponse, DefaultError, MovieCreditsResponse, ReturnType<typeof movieCreditsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await movieCredits({
             ...options,
@@ -1978,12 +1978,12 @@ export const movieCreditsOptions = (options: Options<MovieCreditsData>) => query
     queryKey: movieCreditsQueryKey(options)
 });
 
-export const movieExternalIdsQueryKey = (options: Options<MovieExternalIdsData>) => createQueryKey('movieExternalIds', options);
+export const movieExternalIdsQueryKey = (options: Options<MovieExternalIdsData>) => createQueryKey("movieExternalIds", options);
 
 /**
  * External IDs
  */
-export const movieExternalIdsOptions = (options: Options<MovieExternalIdsData>) => queryOptions({
+export const movieExternalIdsOptions = (options: Options<MovieExternalIdsData>) => queryOptions<MovieExternalIdsResponse, DefaultError, MovieExternalIdsResponse, ReturnType<typeof movieExternalIdsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await movieExternalIds({
             ...options,
@@ -1996,14 +1996,14 @@ export const movieExternalIdsOptions = (options: Options<MovieExternalIdsData>) 
     queryKey: movieExternalIdsQueryKey(options)
 });
 
-export const movieImagesQueryKey = (options: Options<MovieImagesData>) => createQueryKey('movieImages', options);
+export const movieImagesQueryKey = (options: Options<MovieImagesData>) => createQueryKey("movieImages", options);
 
 /**
  * Images
  *
  * Get the images that belong to a movie.
  */
-export const movieImagesOptions = (options: Options<MovieImagesData>) => queryOptions({
+export const movieImagesOptions = (options: Options<MovieImagesData>) => queryOptions<MovieImagesResponse, DefaultError, MovieImagesResponse, ReturnType<typeof movieImagesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await movieImages({
             ...options,
@@ -2016,12 +2016,12 @@ export const movieImagesOptions = (options: Options<MovieImagesData>) => queryOp
     queryKey: movieImagesQueryKey(options)
 });
 
-export const movieKeywordsQueryKey = (options: Options<MovieKeywordsData>) => createQueryKey('movieKeywords', options);
+export const movieKeywordsQueryKey = (options: Options<MovieKeywordsData>) => createQueryKey("movieKeywords", options);
 
 /**
  * Keywords
  */
-export const movieKeywordsOptions = (options: Options<MovieKeywordsData>) => queryOptions({
+export const movieKeywordsOptions = (options: Options<MovieKeywordsData>) => queryOptions<MovieKeywordsResponse, DefaultError, MovieKeywordsResponse, ReturnType<typeof movieKeywordsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await movieKeywords({
             ...options,
@@ -2034,14 +2034,14 @@ export const movieKeywordsOptions = (options: Options<MovieKeywordsData>) => que
     queryKey: movieKeywordsQueryKey(options)
 });
 
-export const movieLatestIdQueryKey = (options?: Options<MovieLatestIdData>) => createQueryKey('movieLatestId', options);
+export const movieLatestIdQueryKey = (options?: Options<MovieLatestIdData>) => createQueryKey("movieLatestId", options);
 
 /**
  * Latest
  *
  * Get the newest movie ID.
  */
-export const movieLatestIdOptions = (options?: Options<MovieLatestIdData>) => queryOptions({
+export const movieLatestIdOptions = (options?: Options<MovieLatestIdData>) => queryOptions<MovieLatestIdResponse, DefaultError, MovieLatestIdResponse, ReturnType<typeof movieLatestIdQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await movieLatestId({
             ...options,
@@ -2054,14 +2054,14 @@ export const movieLatestIdOptions = (options?: Options<MovieLatestIdData>) => qu
     queryKey: movieLatestIdQueryKey(options)
 });
 
-export const movieListsQueryKey = (options: Options<MovieListsData>) => createQueryKey('movieLists', options);
+export const movieListsQueryKey = (options: Options<MovieListsData>) => createQueryKey("movieLists", options);
 
 /**
  * Lists
  *
  * Get the lists that a movie has been added to.
  */
-export const movieListsOptions = (options: Options<MovieListsData>) => queryOptions({
+export const movieListsOptions = (options: Options<MovieListsData>) => queryOptions<MovieListsResponse, DefaultError, MovieListsResponse, ReturnType<typeof movieListsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await movieLists({
             ...options,
@@ -2074,7 +2074,7 @@ export const movieListsOptions = (options: Options<MovieListsData>) => queryOpti
     queryKey: movieListsQueryKey(options)
 });
 
-export const movieListsInfiniteQueryKey = (options: Options<MovieListsData>): QueryKey<Options<MovieListsData>> => createQueryKey('movieLists', options, true);
+export const movieListsInfiniteQueryKey = (options: Options<MovieListsData>): QueryKey<Options<MovieListsData>> => createQueryKey("movieLists", options, true);
 
 /**
  * Lists
@@ -2105,12 +2105,12 @@ export const movieListsInfiniteOptions = (options: Options<MovieListsData>) => {
     });
 };
 
-export const movieRecommendationsQueryKey = (options: Options<MovieRecommendationsData>) => createQueryKey('movieRecommendations', options);
+export const movieRecommendationsQueryKey = (options: Options<MovieRecommendationsData>) => createQueryKey("movieRecommendations", options);
 
 /**
  * Recommendations
  */
-export const movieRecommendationsOptions = (options: Options<MovieRecommendationsData>) => queryOptions({
+export const movieRecommendationsOptions = (options: Options<MovieRecommendationsData>) => queryOptions<MovieRecommendationsResponse, DefaultError, MovieRecommendationsResponse, ReturnType<typeof movieRecommendationsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await movieRecommendations({
             ...options,
@@ -2123,7 +2123,7 @@ export const movieRecommendationsOptions = (options: Options<MovieRecommendation
     queryKey: movieRecommendationsQueryKey(options)
 });
 
-export const movieRecommendationsInfiniteQueryKey = (options: Options<MovieRecommendationsData>): QueryKey<Options<MovieRecommendationsData>> => createQueryKey('movieRecommendations', options, true);
+export const movieRecommendationsInfiniteQueryKey = (options: Options<MovieRecommendationsData>): QueryKey<Options<MovieRecommendationsData>> => createQueryKey("movieRecommendations", options, true);
 
 /**
  * Recommendations
@@ -2152,14 +2152,14 @@ export const movieRecommendationsInfiniteOptions = (options: Options<MovieRecomm
     });
 };
 
-export const movieReleaseDatesQueryKey = (options: Options<MovieReleaseDatesData>) => createQueryKey('movieReleaseDates', options);
+export const movieReleaseDatesQueryKey = (options: Options<MovieReleaseDatesData>) => createQueryKey("movieReleaseDates", options);
 
 /**
  * Release Dates
  *
  * Get the release dates and certifications for a movie.
  */
-export const movieReleaseDatesOptions = (options: Options<MovieReleaseDatesData>) => queryOptions({
+export const movieReleaseDatesOptions = (options: Options<MovieReleaseDatesData>) => queryOptions<MovieReleaseDatesResponse, DefaultError, MovieReleaseDatesResponse, ReturnType<typeof movieReleaseDatesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await movieReleaseDates({
             ...options,
@@ -2172,14 +2172,14 @@ export const movieReleaseDatesOptions = (options: Options<MovieReleaseDatesData>
     queryKey: movieReleaseDatesQueryKey(options)
 });
 
-export const movieReviewsQueryKey = (options: Options<MovieReviewsData>) => createQueryKey('movieReviews', options);
+export const movieReviewsQueryKey = (options: Options<MovieReviewsData>) => createQueryKey("movieReviews", options);
 
 /**
  * Reviews
  *
  * Get the user reviews for a movie.
  */
-export const movieReviewsOptions = (options: Options<MovieReviewsData>) => queryOptions({
+export const movieReviewsOptions = (options: Options<MovieReviewsData>) => queryOptions<MovieReviewsResponse, DefaultError, MovieReviewsResponse, ReturnType<typeof movieReviewsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await movieReviews({
             ...options,
@@ -2192,7 +2192,7 @@ export const movieReviewsOptions = (options: Options<MovieReviewsData>) => query
     queryKey: movieReviewsQueryKey(options)
 });
 
-export const movieReviewsInfiniteQueryKey = (options: Options<MovieReviewsData>): QueryKey<Options<MovieReviewsData>> => createQueryKey('movieReviews', options, true);
+export const movieReviewsInfiniteQueryKey = (options: Options<MovieReviewsData>): QueryKey<Options<MovieReviewsData>> => createQueryKey("movieReviews", options, true);
 
 /**
  * Reviews
@@ -2223,14 +2223,14 @@ export const movieReviewsInfiniteOptions = (options: Options<MovieReviewsData>) 
     });
 };
 
-export const movieSimilarQueryKey = (options: Options<MovieSimilarData>) => createQueryKey('movieSimilar', options);
+export const movieSimilarQueryKey = (options: Options<MovieSimilarData>) => createQueryKey("movieSimilar", options);
 
 /**
  * Similar
  *
  * Get the similar movies based on genres and keywords.
  */
-export const movieSimilarOptions = (options: Options<MovieSimilarData>) => queryOptions({
+export const movieSimilarOptions = (options: Options<MovieSimilarData>) => queryOptions<MovieSimilarResponse, DefaultError, MovieSimilarResponse, ReturnType<typeof movieSimilarQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await movieSimilar({
             ...options,
@@ -2243,7 +2243,7 @@ export const movieSimilarOptions = (options: Options<MovieSimilarData>) => query
     queryKey: movieSimilarQueryKey(options)
 });
 
-export const movieSimilarInfiniteQueryKey = (options: Options<MovieSimilarData>): QueryKey<Options<MovieSimilarData>> => createQueryKey('movieSimilar', options, true);
+export const movieSimilarInfiniteQueryKey = (options: Options<MovieSimilarData>): QueryKey<Options<MovieSimilarData>> => createQueryKey("movieSimilar", options, true);
 
 /**
  * Similar
@@ -2274,14 +2274,14 @@ export const movieSimilarInfiniteOptions = (options: Options<MovieSimilarData>) 
     });
 };
 
-export const movieTranslationsQueryKey = (options: Options<MovieTranslationsData>) => createQueryKey('movieTranslations', options);
+export const movieTranslationsQueryKey = (options: Options<MovieTranslationsData>) => createQueryKey("movieTranslations", options);
 
 /**
  * Translations
  *
  * Get the translations for a movie.
  */
-export const movieTranslationsOptions = (options: Options<MovieTranslationsData>) => queryOptions({
+export const movieTranslationsOptions = (options: Options<MovieTranslationsData>) => queryOptions<MovieTranslationsResponse, DefaultError, MovieTranslationsResponse, ReturnType<typeof movieTranslationsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await movieTranslations({
             ...options,
@@ -2294,12 +2294,12 @@ export const movieTranslationsOptions = (options: Options<MovieTranslationsData>
     queryKey: movieTranslationsQueryKey(options)
 });
 
-export const movieVideosQueryKey = (options: Options<MovieVideosData>) => createQueryKey('movieVideos', options);
+export const movieVideosQueryKey = (options: Options<MovieVideosData>) => createQueryKey("movieVideos", options);
 
 /**
  * Videos
  */
-export const movieVideosOptions = (options: Options<MovieVideosData>) => queryOptions({
+export const movieVideosOptions = (options: Options<MovieVideosData>) => queryOptions<MovieVideosResponse, DefaultError, MovieVideosResponse, ReturnType<typeof movieVideosQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await movieVideos({
             ...options,
@@ -2312,14 +2312,14 @@ export const movieVideosOptions = (options: Options<MovieVideosData>) => queryOp
     queryKey: movieVideosQueryKey(options)
 });
 
-export const movieWatchProvidersQueryKey = (options: Options<MovieWatchProvidersData>) => createQueryKey('movieWatchProviders', options);
+export const movieWatchProvidersQueryKey = (options: Options<MovieWatchProvidersData>) => createQueryKey("movieWatchProviders", options);
 
 /**
  * Watch Providers
  *
  * Get the list of streaming providers we have for a movie.
  */
-export const movieWatchProvidersOptions = (options: Options<MovieWatchProvidersData>) => queryOptions({
+export const movieWatchProvidersOptions = (options: Options<MovieWatchProvidersData>) => queryOptions<MovieWatchProvidersResponse, DefaultError, MovieWatchProvidersResponse, ReturnType<typeof movieWatchProvidersQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await movieWatchProviders({
             ...options,
@@ -2370,12 +2370,12 @@ export const movieAddRatingMutation = (options?: Partial<Options<MovieAddRatingD
     return mutationOptions;
 };
 
-export const networkDetailsQueryKey = (options: Options<NetworkDetailsData>) => createQueryKey('networkDetails', options);
+export const networkDetailsQueryKey = (options: Options<NetworkDetailsData>) => createQueryKey("networkDetails", options);
 
 /**
  * Details
  */
-export const networkDetailsOptions = (options: Options<NetworkDetailsData>) => queryOptions({
+export const networkDetailsOptions = (options: Options<NetworkDetailsData>) => queryOptions<NetworkDetailsResponse, DefaultError, NetworkDetailsResponse, ReturnType<typeof networkDetailsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await networkDetails({
             ...options,
@@ -2388,14 +2388,14 @@ export const networkDetailsOptions = (options: Options<NetworkDetailsData>) => q
     queryKey: networkDetailsQueryKey(options)
 });
 
-export const detailsCopyQueryKey = (options: Options<DetailsCopyData>) => createQueryKey('detailsCopy', options);
+export const detailsCopyQueryKey = (options: Options<DetailsCopyData>) => createQueryKey("detailsCopy", options);
 
 /**
  * Alternative Names
  *
  * Get the alternative names of a network.
  */
-export const detailsCopyOptions = (options: Options<DetailsCopyData>) => queryOptions({
+export const detailsCopyOptions = (options: Options<DetailsCopyData>) => queryOptions<DetailsCopyResponse, DefaultError, DetailsCopyResponse, ReturnType<typeof detailsCopyQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await detailsCopy({
             ...options,
@@ -2408,14 +2408,14 @@ export const detailsCopyOptions = (options: Options<DetailsCopyData>) => queryOp
     queryKey: detailsCopyQueryKey(options)
 });
 
-export const alternativeNamesCopyQueryKey = (options: Options<AlternativeNamesCopyData>) => createQueryKey('alternativeNamesCopy', options);
+export const alternativeNamesCopyQueryKey = (options: Options<AlternativeNamesCopyData>) => createQueryKey("alternativeNamesCopy", options);
 
 /**
  * Images
  *
  * Get the TV network logos by id.
  */
-export const alternativeNamesCopyOptions = (options: Options<AlternativeNamesCopyData>) => queryOptions({
+export const alternativeNamesCopyOptions = (options: Options<AlternativeNamesCopyData>) => queryOptions<AlternativeNamesCopyResponse, DefaultError, AlternativeNamesCopyResponse, ReturnType<typeof alternativeNamesCopyQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await alternativeNamesCopy({
             ...options,
@@ -2428,14 +2428,14 @@ export const alternativeNamesCopyOptions = (options: Options<AlternativeNamesCop
     queryKey: alternativeNamesCopyQueryKey(options)
 });
 
-export const personPopularListQueryKey = (options?: Options<PersonPopularListData>) => createQueryKey('personPopularList', options);
+export const personPopularListQueryKey = (options?: Options<PersonPopularListData>) => createQueryKey("personPopularList", options);
 
 /**
  * Popular
  *
  * Get a list of people ordered by popularity.
  */
-export const personPopularListOptions = (options?: Options<PersonPopularListData>) => queryOptions({
+export const personPopularListOptions = (options?: Options<PersonPopularListData>) => queryOptions<PersonPopularListResponse, DefaultError, PersonPopularListResponse, ReturnType<typeof personPopularListQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await personPopularList({
             ...options,
@@ -2448,7 +2448,7 @@ export const personPopularListOptions = (options?: Options<PersonPopularListData
     queryKey: personPopularListQueryKey(options)
 });
 
-export const personPopularListInfiniteQueryKey = (options?: Options<PersonPopularListData>): QueryKey<Options<PersonPopularListData>> => createQueryKey('personPopularList', options, true);
+export const personPopularListInfiniteQueryKey = (options?: Options<PersonPopularListData>): QueryKey<Options<PersonPopularListData>> => createQueryKey("personPopularList", options, true);
 
 /**
  * Popular
@@ -2479,14 +2479,14 @@ export const personPopularListInfiniteOptions = (options?: Options<PersonPopular
     });
 };
 
-export const personDetailsQueryKey = (options: Options<PersonDetailsData>) => createQueryKey('personDetails', options);
+export const personDetailsQueryKey = (options: Options<PersonDetailsData>) => createQueryKey("personDetails", options);
 
 /**
  * Details
  *
  * Query the top level details of a person.
  */
-export const personDetailsOptions = (options: Options<PersonDetailsData>) => queryOptions({
+export const personDetailsOptions = (options: Options<PersonDetailsData>) => queryOptions<PersonDetailsResponse, DefaultError, PersonDetailsResponse, ReturnType<typeof personDetailsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await personDetails({
             ...options,
@@ -2499,14 +2499,14 @@ export const personDetailsOptions = (options: Options<PersonDetailsData>) => que
     queryKey: personDetailsQueryKey(options)
 });
 
-export const personChangesQueryKey = (options: Options<PersonChangesData>) => createQueryKey('personChanges', options);
+export const personChangesQueryKey = (options: Options<PersonChangesData>) => createQueryKey("personChanges", options);
 
 /**
  * Changes
  *
  * Get the recent changes for a person.
  */
-export const personChangesOptions = (options: Options<PersonChangesData>) => queryOptions({
+export const personChangesOptions = (options: Options<PersonChangesData>) => queryOptions<PersonChangesResponse, DefaultError, PersonChangesResponse, ReturnType<typeof personChangesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await personChanges({
             ...options,
@@ -2519,7 +2519,7 @@ export const personChangesOptions = (options: Options<PersonChangesData>) => que
     queryKey: personChangesQueryKey(options)
 });
 
-export const personChangesInfiniteQueryKey = (options: Options<PersonChangesData>): QueryKey<Options<PersonChangesData>> => createQueryKey('personChanges', options, true);
+export const personChangesInfiniteQueryKey = (options: Options<PersonChangesData>): QueryKey<Options<PersonChangesData>> => createQueryKey("personChanges", options, true);
 
 /**
  * Changes
@@ -2550,14 +2550,14 @@ export const personChangesInfiniteOptions = (options: Options<PersonChangesData>
     });
 };
 
-export const personCombinedCreditsQueryKey = (options: Options<PersonCombinedCreditsData>) => createQueryKey('personCombinedCredits', options);
+export const personCombinedCreditsQueryKey = (options: Options<PersonCombinedCreditsData>) => createQueryKey("personCombinedCredits", options);
 
 /**
  * Combined Credits
  *
  * Get the combined movie and TV credits that belong to a person.
  */
-export const personCombinedCreditsOptions = (options: Options<PersonCombinedCreditsData>) => queryOptions({
+export const personCombinedCreditsOptions = (options: Options<PersonCombinedCreditsData>) => queryOptions<PersonCombinedCreditsResponse, DefaultError, PersonCombinedCreditsResponse, ReturnType<typeof personCombinedCreditsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await personCombinedCredits({
             ...options,
@@ -2570,14 +2570,14 @@ export const personCombinedCreditsOptions = (options: Options<PersonCombinedCred
     queryKey: personCombinedCreditsQueryKey(options)
 });
 
-export const personExternalIdsQueryKey = (options: Options<PersonExternalIdsData>) => createQueryKey('personExternalIds', options);
+export const personExternalIdsQueryKey = (options: Options<PersonExternalIdsData>) => createQueryKey("personExternalIds", options);
 
 /**
  * External IDs
  *
  * Get the external ID's that belong to a person.
  */
-export const personExternalIdsOptions = (options: Options<PersonExternalIdsData>) => queryOptions({
+export const personExternalIdsOptions = (options: Options<PersonExternalIdsData>) => queryOptions<PersonExternalIdsResponse, DefaultError, PersonExternalIdsResponse, ReturnType<typeof personExternalIdsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await personExternalIds({
             ...options,
@@ -2590,14 +2590,14 @@ export const personExternalIdsOptions = (options: Options<PersonExternalIdsData>
     queryKey: personExternalIdsQueryKey(options)
 });
 
-export const personImagesQueryKey = (options: Options<PersonImagesData>) => createQueryKey('personImages', options);
+export const personImagesQueryKey = (options: Options<PersonImagesData>) => createQueryKey("personImages", options);
 
 /**
  * Images
  *
  * Get the profile images that belong to a person.
  */
-export const personImagesOptions = (options: Options<PersonImagesData>) => queryOptions({
+export const personImagesOptions = (options: Options<PersonImagesData>) => queryOptions<PersonImagesResponse, DefaultError, PersonImagesResponse, ReturnType<typeof personImagesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await personImages({
             ...options,
@@ -2610,14 +2610,14 @@ export const personImagesOptions = (options: Options<PersonImagesData>) => query
     queryKey: personImagesQueryKey(options)
 });
 
-export const personLatestIdQueryKey = (options?: Options<PersonLatestIdData>) => createQueryKey('personLatestId', options);
+export const personLatestIdQueryKey = (options?: Options<PersonLatestIdData>) => createQueryKey("personLatestId", options);
 
 /**
  * Latest
  *
  * Get the newest created person. This is a live response and will continuously change.
  */
-export const personLatestIdOptions = (options?: Options<PersonLatestIdData>) => queryOptions({
+export const personLatestIdOptions = (options?: Options<PersonLatestIdData>) => queryOptions<PersonLatestIdResponse, DefaultError, PersonLatestIdResponse, ReturnType<typeof personLatestIdQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await personLatestId({
             ...options,
@@ -2630,14 +2630,14 @@ export const personLatestIdOptions = (options?: Options<PersonLatestIdData>) => 
     queryKey: personLatestIdQueryKey(options)
 });
 
-export const personMovieCreditsQueryKey = (options: Options<PersonMovieCreditsData>) => createQueryKey('personMovieCredits', options);
+export const personMovieCreditsQueryKey = (options: Options<PersonMovieCreditsData>) => createQueryKey("personMovieCredits", options);
 
 /**
  * Movie Credits
  *
  * Get the movie credits for a person.
  */
-export const personMovieCreditsOptions = (options: Options<PersonMovieCreditsData>) => queryOptions({
+export const personMovieCreditsOptions = (options: Options<PersonMovieCreditsData>) => queryOptions<PersonMovieCreditsResponse, DefaultError, PersonMovieCreditsResponse, ReturnType<typeof personMovieCreditsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await personMovieCredits({
             ...options,
@@ -2650,14 +2650,14 @@ export const personMovieCreditsOptions = (options: Options<PersonMovieCreditsDat
     queryKey: personMovieCreditsQueryKey(options)
 });
 
-export const personTvCreditsQueryKey = (options: Options<PersonTvCreditsData>) => createQueryKey('personTvCredits', options);
+export const personTvCreditsQueryKey = (options: Options<PersonTvCreditsData>) => createQueryKey("personTvCredits", options);
 
 /**
  * TV Credits
  *
  * Get the TV credits that belong to a person.
  */
-export const personTvCreditsOptions = (options: Options<PersonTvCreditsData>) => queryOptions({
+export const personTvCreditsOptions = (options: Options<PersonTvCreditsData>) => queryOptions<PersonTvCreditsResponse, DefaultError, PersonTvCreditsResponse, ReturnType<typeof personTvCreditsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await personTvCredits({
             ...options,
@@ -2670,14 +2670,14 @@ export const personTvCreditsOptions = (options: Options<PersonTvCreditsData>) =>
     queryKey: personTvCreditsQueryKey(options)
 });
 
-export const personTaggedImagesQueryKey = (options: Options<PersonTaggedImagesData>) => createQueryKey('personTaggedImages', options);
+export const personTaggedImagesQueryKey = (options: Options<PersonTaggedImagesData>) => createQueryKey("personTaggedImages", options);
 
 /**
  * Tagged Images
  *
  * Get the tagged images for a person.
  */
-export const personTaggedImagesOptions = (options: Options<PersonTaggedImagesData>) => queryOptions({
+export const personTaggedImagesOptions = (options: Options<PersonTaggedImagesData>) => queryOptions<PersonTaggedImagesResponse, DefaultError, PersonTaggedImagesResponse, ReturnType<typeof personTaggedImagesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await personTaggedImages({
             ...options,
@@ -2690,7 +2690,7 @@ export const personTaggedImagesOptions = (options: Options<PersonTaggedImagesDat
     queryKey: personTaggedImagesQueryKey(options)
 });
 
-export const personTaggedImagesInfiniteQueryKey = (options: Options<PersonTaggedImagesData>): QueryKey<Options<PersonTaggedImagesData>> => createQueryKey('personTaggedImages', options, true);
+export const personTaggedImagesInfiniteQueryKey = (options: Options<PersonTaggedImagesData>): QueryKey<Options<PersonTaggedImagesData>> => createQueryKey("personTaggedImages", options, true);
 
 /**
  * Tagged Images
@@ -2721,14 +2721,14 @@ export const personTaggedImagesInfiniteOptions = (options: Options<PersonTaggedI
     });
 };
 
-export const translationsQueryKey = (options: Options<TranslationsData>) => createQueryKey('translations', options);
+export const translationsQueryKey = (options: Options<TranslationsData>) => createQueryKey("translations", options);
 
 /**
  * Translations
  *
  * Get the translations that belong to a person.
  */
-export const translationsOptions = (options: Options<TranslationsData>) => queryOptions({
+export const translationsOptions = (options: Options<TranslationsData>) => queryOptions<TranslationsResponse, DefaultError, TranslationsResponse, ReturnType<typeof translationsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await translations({
             ...options,
@@ -2741,14 +2741,14 @@ export const translationsOptions = (options: Options<TranslationsData>) => query
     queryKey: translationsQueryKey(options)
 });
 
-export const reviewDetailsQueryKey = (options: Options<ReviewDetailsData>) => createQueryKey('reviewDetails', options);
+export const reviewDetailsQueryKey = (options: Options<ReviewDetailsData>) => createQueryKey("reviewDetails", options);
 
 /**
  * Details
  *
  * Retrieve the details of a movie or TV show review.
  */
-export const reviewDetailsOptions = (options: Options<ReviewDetailsData>) => queryOptions({
+export const reviewDetailsOptions = (options: Options<ReviewDetailsData>) => queryOptions<ReviewDetailsResponse, DefaultError, ReviewDetailsResponse, ReturnType<typeof reviewDetailsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await reviewDetails({
             ...options,
@@ -2761,14 +2761,14 @@ export const reviewDetailsOptions = (options: Options<ReviewDetailsData>) => que
     queryKey: reviewDetailsQueryKey(options)
 });
 
-export const searchCollectionQueryKey = (options: Options<SearchCollectionData>) => createQueryKey('searchCollection', options);
+export const searchCollectionQueryKey = (options: Options<SearchCollectionData>) => createQueryKey("searchCollection", options);
 
 /**
  * Collection
  *
  * Search for collections by their original, translated and alternative names.
  */
-export const searchCollectionOptions = (options: Options<SearchCollectionData>) => queryOptions({
+export const searchCollectionOptions = (options: Options<SearchCollectionData>) => queryOptions<SearchCollectionResponse, DefaultError, SearchCollectionResponse, ReturnType<typeof searchCollectionQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await searchCollection({
             ...options,
@@ -2781,7 +2781,7 @@ export const searchCollectionOptions = (options: Options<SearchCollectionData>) 
     queryKey: searchCollectionQueryKey(options)
 });
 
-export const searchCollectionInfiniteQueryKey = (options: Options<SearchCollectionData>): QueryKey<Options<SearchCollectionData>> => createQueryKey('searchCollection', options, true);
+export const searchCollectionInfiniteQueryKey = (options: Options<SearchCollectionData>): QueryKey<Options<SearchCollectionData>> => createQueryKey("searchCollection", options, true);
 
 /**
  * Collection
@@ -2812,14 +2812,14 @@ export const searchCollectionInfiniteOptions = (options: Options<SearchCollectio
     });
 };
 
-export const searchCompanyQueryKey = (options: Options<SearchCompanyData>) => createQueryKey('searchCompany', options);
+export const searchCompanyQueryKey = (options: Options<SearchCompanyData>) => createQueryKey("searchCompany", options);
 
 /**
  * Company
  *
  * Search for companies by their original and alternative names.
  */
-export const searchCompanyOptions = (options: Options<SearchCompanyData>) => queryOptions({
+export const searchCompanyOptions = (options: Options<SearchCompanyData>) => queryOptions<SearchCompanyResponse, DefaultError, SearchCompanyResponse, ReturnType<typeof searchCompanyQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await searchCompany({
             ...options,
@@ -2832,7 +2832,7 @@ export const searchCompanyOptions = (options: Options<SearchCompanyData>) => que
     queryKey: searchCompanyQueryKey(options)
 });
 
-export const searchCompanyInfiniteQueryKey = (options: Options<SearchCompanyData>): QueryKey<Options<SearchCompanyData>> => createQueryKey('searchCompany', options, true);
+export const searchCompanyInfiniteQueryKey = (options: Options<SearchCompanyData>): QueryKey<Options<SearchCompanyData>> => createQueryKey("searchCompany", options, true);
 
 /**
  * Company
@@ -2863,14 +2863,14 @@ export const searchCompanyInfiniteOptions = (options: Options<SearchCompanyData>
     });
 };
 
-export const searchKeywordQueryKey = (options: Options<SearchKeywordData>) => createQueryKey('searchKeyword', options);
+export const searchKeywordQueryKey = (options: Options<SearchKeywordData>) => createQueryKey("searchKeyword", options);
 
 /**
  * Keyword
  *
  * Search for keywords by their name.
  */
-export const searchKeywordOptions = (options: Options<SearchKeywordData>) => queryOptions({
+export const searchKeywordOptions = (options: Options<SearchKeywordData>) => queryOptions<SearchKeywordResponse, DefaultError, SearchKeywordResponse, ReturnType<typeof searchKeywordQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await searchKeyword({
             ...options,
@@ -2883,7 +2883,7 @@ export const searchKeywordOptions = (options: Options<SearchKeywordData>) => que
     queryKey: searchKeywordQueryKey(options)
 });
 
-export const searchKeywordInfiniteQueryKey = (options: Options<SearchKeywordData>): QueryKey<Options<SearchKeywordData>> => createQueryKey('searchKeyword', options, true);
+export const searchKeywordInfiniteQueryKey = (options: Options<SearchKeywordData>): QueryKey<Options<SearchKeywordData>> => createQueryKey("searchKeyword", options, true);
 
 /**
  * Keyword
@@ -2914,14 +2914,14 @@ export const searchKeywordInfiniteOptions = (options: Options<SearchKeywordData>
     });
 };
 
-export const searchMovieQueryKey = (options: Options<SearchMovieData>) => createQueryKey('searchMovie', options);
+export const searchMovieQueryKey = (options: Options<SearchMovieData>) => createQueryKey("searchMovie", options);
 
 /**
  * Movie
  *
  * Search for movies by their original, translated and alternative titles.
  */
-export const searchMovieOptions = (options: Options<SearchMovieData>) => queryOptions({
+export const searchMovieOptions = (options: Options<SearchMovieData>) => queryOptions<SearchMovieResponse, DefaultError, SearchMovieResponse, ReturnType<typeof searchMovieQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await searchMovie({
             ...options,
@@ -2934,7 +2934,7 @@ export const searchMovieOptions = (options: Options<SearchMovieData>) => queryOp
     queryKey: searchMovieQueryKey(options)
 });
 
-export const searchMovieInfiniteQueryKey = (options: Options<SearchMovieData>): QueryKey<Options<SearchMovieData>> => createQueryKey('searchMovie', options, true);
+export const searchMovieInfiniteQueryKey = (options: Options<SearchMovieData>): QueryKey<Options<SearchMovieData>> => createQueryKey("searchMovie", options, true);
 
 /**
  * Movie
@@ -2965,14 +2965,14 @@ export const searchMovieInfiniteOptions = (options: Options<SearchMovieData>) =>
     });
 };
 
-export const searchMultiQueryKey = (options: Options<SearchMultiData>) => createQueryKey('searchMulti', options);
+export const searchMultiQueryKey = (options: Options<SearchMultiData>) => createQueryKey("searchMulti", options);
 
 /**
  * Multi
  *
  * Use multi search when you want to search for movies, TV shows and people in a single request.
  */
-export const searchMultiOptions = (options: Options<SearchMultiData>) => queryOptions({
+export const searchMultiOptions = (options: Options<SearchMultiData>) => queryOptions<SearchMultiResponse, DefaultError, SearchMultiResponse, ReturnType<typeof searchMultiQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await searchMulti({
             ...options,
@@ -2985,7 +2985,7 @@ export const searchMultiOptions = (options: Options<SearchMultiData>) => queryOp
     queryKey: searchMultiQueryKey(options)
 });
 
-export const searchMultiInfiniteQueryKey = (options: Options<SearchMultiData>): QueryKey<Options<SearchMultiData>> => createQueryKey('searchMulti', options, true);
+export const searchMultiInfiniteQueryKey = (options: Options<SearchMultiData>): QueryKey<Options<SearchMultiData>> => createQueryKey("searchMulti", options, true);
 
 /**
  * Multi
@@ -3016,14 +3016,14 @@ export const searchMultiInfiniteOptions = (options: Options<SearchMultiData>) =>
     });
 };
 
-export const searchPersonQueryKey = (options: Options<SearchPersonData>) => createQueryKey('searchPerson', options);
+export const searchPersonQueryKey = (options: Options<SearchPersonData>) => createQueryKey("searchPerson", options);
 
 /**
  * Person
  *
  * Search for people by their name and also known as names.
  */
-export const searchPersonOptions = (options: Options<SearchPersonData>) => queryOptions({
+export const searchPersonOptions = (options: Options<SearchPersonData>) => queryOptions<SearchPersonResponse, DefaultError, SearchPersonResponse, ReturnType<typeof searchPersonQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await searchPerson({
             ...options,
@@ -3036,7 +3036,7 @@ export const searchPersonOptions = (options: Options<SearchPersonData>) => query
     queryKey: searchPersonQueryKey(options)
 });
 
-export const searchPersonInfiniteQueryKey = (options: Options<SearchPersonData>): QueryKey<Options<SearchPersonData>> => createQueryKey('searchPerson', options, true);
+export const searchPersonInfiniteQueryKey = (options: Options<SearchPersonData>): QueryKey<Options<SearchPersonData>> => createQueryKey("searchPerson", options, true);
 
 /**
  * Person
@@ -3067,14 +3067,14 @@ export const searchPersonInfiniteOptions = (options: Options<SearchPersonData>) 
     });
 };
 
-export const searchTvQueryKey = (options: Options<SearchTvData>) => createQueryKey('searchTv', options);
+export const searchTvQueryKey = (options: Options<SearchTvData>) => createQueryKey("searchTv", options);
 
 /**
  * TV
  *
  * Search for TV shows by their original, translated and also known as names.
  */
-export const searchTvOptions = (options: Options<SearchTvData>) => queryOptions({
+export const searchTvOptions = (options: Options<SearchTvData>) => queryOptions<SearchTvResponse, DefaultError, SearchTvResponse, ReturnType<typeof searchTvQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await searchTv({
             ...options,
@@ -3087,7 +3087,7 @@ export const searchTvOptions = (options: Options<SearchTvData>) => queryOptions(
     queryKey: searchTvQueryKey(options)
 });
 
-export const searchTvInfiniteQueryKey = (options: Options<SearchTvData>): QueryKey<Options<SearchTvData>> => createQueryKey('searchTv', options, true);
+export const searchTvInfiniteQueryKey = (options: Options<SearchTvData>): QueryKey<Options<SearchTvData>> => createQueryKey("searchTv", options, true);
 
 /**
  * TV
@@ -3118,14 +3118,14 @@ export const searchTvInfiniteOptions = (options: Options<SearchTvData>) => {
     });
 };
 
-export const trendingAllQueryKey = (options: Options<TrendingAllData>) => createQueryKey('trendingAll', options);
+export const trendingAllQueryKey = (options: Options<TrendingAllData>) => createQueryKey("trendingAll", options);
 
 /**
  * All
  *
  * Get the trending movies, TV shows and people.
  */
-export const trendingAllOptions = (options: Options<TrendingAllData>) => queryOptions({
+export const trendingAllOptions = (options: Options<TrendingAllData>) => queryOptions<TrendingAllResponse, DefaultError, TrendingAllResponse, ReturnType<typeof trendingAllQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await trendingAll({
             ...options,
@@ -3138,14 +3138,14 @@ export const trendingAllOptions = (options: Options<TrendingAllData>) => queryOp
     queryKey: trendingAllQueryKey(options)
 });
 
-export const trendingMoviesQueryKey = (options: Options<TrendingMoviesData>) => createQueryKey('trendingMovies', options);
+export const trendingMoviesQueryKey = (options: Options<TrendingMoviesData>) => createQueryKey("trendingMovies", options);
 
 /**
  * Movies
  *
  * Get the trending movies on TMDB.
  */
-export const trendingMoviesOptions = (options: Options<TrendingMoviesData>) => queryOptions({
+export const trendingMoviesOptions = (options: Options<TrendingMoviesData>) => queryOptions<TrendingMoviesResponse, DefaultError, TrendingMoviesResponse, ReturnType<typeof trendingMoviesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await trendingMovies({
             ...options,
@@ -3158,14 +3158,14 @@ export const trendingMoviesOptions = (options: Options<TrendingMoviesData>) => q
     queryKey: trendingMoviesQueryKey(options)
 });
 
-export const trendingPeopleQueryKey = (options: Options<TrendingPeopleData>) => createQueryKey('trendingPeople', options);
+export const trendingPeopleQueryKey = (options: Options<TrendingPeopleData>) => createQueryKey("trendingPeople", options);
 
 /**
  * People
  *
  * Get the trending people on TMDB.
  */
-export const trendingPeopleOptions = (options: Options<TrendingPeopleData>) => queryOptions({
+export const trendingPeopleOptions = (options: Options<TrendingPeopleData>) => queryOptions<TrendingPeopleResponse, DefaultError, TrendingPeopleResponse, ReturnType<typeof trendingPeopleQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await trendingPeople({
             ...options,
@@ -3178,14 +3178,14 @@ export const trendingPeopleOptions = (options: Options<TrendingPeopleData>) => q
     queryKey: trendingPeopleQueryKey(options)
 });
 
-export const trendingTvQueryKey = (options: Options<TrendingTvData>) => createQueryKey('trendingTv', options);
+export const trendingTvQueryKey = (options: Options<TrendingTvData>) => createQueryKey("trendingTv", options);
 
 /**
  * TV
  *
  * Get the trending TV shows on TMDB.
  */
-export const trendingTvOptions = (options: Options<TrendingTvData>) => queryOptions({
+export const trendingTvOptions = (options: Options<TrendingTvData>) => queryOptions<TrendingTvResponse, DefaultError, TrendingTvResponse, ReturnType<typeof trendingTvQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await trendingTv({
             ...options,
@@ -3198,14 +3198,14 @@ export const trendingTvOptions = (options: Options<TrendingTvData>) => queryOpti
     queryKey: trendingTvQueryKey(options)
 });
 
-export const tvSeriesAiringTodayListQueryKey = (options?: Options<TvSeriesAiringTodayListData>) => createQueryKey('tvSeriesAiringTodayList', options);
+export const tvSeriesAiringTodayListQueryKey = (options?: Options<TvSeriesAiringTodayListData>) => createQueryKey("tvSeriesAiringTodayList", options);
 
 /**
  * Airing Today
  *
  * Get a list of TV shows airing today.
  */
-export const tvSeriesAiringTodayListOptions = (options?: Options<TvSeriesAiringTodayListData>) => queryOptions({
+export const tvSeriesAiringTodayListOptions = (options?: Options<TvSeriesAiringTodayListData>) => queryOptions<TvSeriesAiringTodayListResponse, DefaultError, TvSeriesAiringTodayListResponse, ReturnType<typeof tvSeriesAiringTodayListQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeriesAiringTodayList({
             ...options,
@@ -3218,7 +3218,7 @@ export const tvSeriesAiringTodayListOptions = (options?: Options<TvSeriesAiringT
     queryKey: tvSeriesAiringTodayListQueryKey(options)
 });
 
-export const tvSeriesAiringTodayListInfiniteQueryKey = (options?: Options<TvSeriesAiringTodayListData>): QueryKey<Options<TvSeriesAiringTodayListData>> => createQueryKey('tvSeriesAiringTodayList', options, true);
+export const tvSeriesAiringTodayListInfiniteQueryKey = (options?: Options<TvSeriesAiringTodayListData>): QueryKey<Options<TvSeriesAiringTodayListData>> => createQueryKey("tvSeriesAiringTodayList", options, true);
 
 /**
  * Airing Today
@@ -3249,14 +3249,14 @@ export const tvSeriesAiringTodayListInfiniteOptions = (options?: Options<TvSerie
     });
 };
 
-export const tvSeriesOnTheAirListQueryKey = (options?: Options<TvSeriesOnTheAirListData>) => createQueryKey('tvSeriesOnTheAirList', options);
+export const tvSeriesOnTheAirListQueryKey = (options?: Options<TvSeriesOnTheAirListData>) => createQueryKey("tvSeriesOnTheAirList", options);
 
 /**
  * On The Air
  *
  * Get a list of TV shows that air in the next 7 days.
  */
-export const tvSeriesOnTheAirListOptions = (options?: Options<TvSeriesOnTheAirListData>) => queryOptions({
+export const tvSeriesOnTheAirListOptions = (options?: Options<TvSeriesOnTheAirListData>) => queryOptions<TvSeriesOnTheAirListResponse, DefaultError, TvSeriesOnTheAirListResponse, ReturnType<typeof tvSeriesOnTheAirListQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeriesOnTheAirList({
             ...options,
@@ -3269,7 +3269,7 @@ export const tvSeriesOnTheAirListOptions = (options?: Options<TvSeriesOnTheAirLi
     queryKey: tvSeriesOnTheAirListQueryKey(options)
 });
 
-export const tvSeriesOnTheAirListInfiniteQueryKey = (options?: Options<TvSeriesOnTheAirListData>): QueryKey<Options<TvSeriesOnTheAirListData>> => createQueryKey('tvSeriesOnTheAirList', options, true);
+export const tvSeriesOnTheAirListInfiniteQueryKey = (options?: Options<TvSeriesOnTheAirListData>): QueryKey<Options<TvSeriesOnTheAirListData>> => createQueryKey("tvSeriesOnTheAirList", options, true);
 
 /**
  * On The Air
@@ -3300,14 +3300,14 @@ export const tvSeriesOnTheAirListInfiniteOptions = (options?: Options<TvSeriesOn
     });
 };
 
-export const tvSeriesPopularListQueryKey = (options?: Options<TvSeriesPopularListData>) => createQueryKey('tvSeriesPopularList', options);
+export const tvSeriesPopularListQueryKey = (options?: Options<TvSeriesPopularListData>) => createQueryKey("tvSeriesPopularList", options);
 
 /**
  * Popular
  *
  * Get a list of TV shows ordered by popularity.
  */
-export const tvSeriesPopularListOptions = (options?: Options<TvSeriesPopularListData>) => queryOptions({
+export const tvSeriesPopularListOptions = (options?: Options<TvSeriesPopularListData>) => queryOptions<TvSeriesPopularListResponse, DefaultError, TvSeriesPopularListResponse, ReturnType<typeof tvSeriesPopularListQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeriesPopularList({
             ...options,
@@ -3320,7 +3320,7 @@ export const tvSeriesPopularListOptions = (options?: Options<TvSeriesPopularList
     queryKey: tvSeriesPopularListQueryKey(options)
 });
 
-export const tvSeriesPopularListInfiniteQueryKey = (options?: Options<TvSeriesPopularListData>): QueryKey<Options<TvSeriesPopularListData>> => createQueryKey('tvSeriesPopularList', options, true);
+export const tvSeriesPopularListInfiniteQueryKey = (options?: Options<TvSeriesPopularListData>): QueryKey<Options<TvSeriesPopularListData>> => createQueryKey("tvSeriesPopularList", options, true);
 
 /**
  * Popular
@@ -3351,14 +3351,14 @@ export const tvSeriesPopularListInfiniteOptions = (options?: Options<TvSeriesPop
     });
 };
 
-export const tvSeriesTopRatedListQueryKey = (options?: Options<TvSeriesTopRatedListData>) => createQueryKey('tvSeriesTopRatedList', options);
+export const tvSeriesTopRatedListQueryKey = (options?: Options<TvSeriesTopRatedListData>) => createQueryKey("tvSeriesTopRatedList", options);
 
 /**
  * Top Rated
  *
  * Get a list of TV shows ordered by rating.
  */
-export const tvSeriesTopRatedListOptions = (options?: Options<TvSeriesTopRatedListData>) => queryOptions({
+export const tvSeriesTopRatedListOptions = (options?: Options<TvSeriesTopRatedListData>) => queryOptions<TvSeriesTopRatedListResponse, DefaultError, TvSeriesTopRatedListResponse, ReturnType<typeof tvSeriesTopRatedListQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeriesTopRatedList({
             ...options,
@@ -3371,7 +3371,7 @@ export const tvSeriesTopRatedListOptions = (options?: Options<TvSeriesTopRatedLi
     queryKey: tvSeriesTopRatedListQueryKey(options)
 });
 
-export const tvSeriesTopRatedListInfiniteQueryKey = (options?: Options<TvSeriesTopRatedListData>): QueryKey<Options<TvSeriesTopRatedListData>> => createQueryKey('tvSeriesTopRatedList', options, true);
+export const tvSeriesTopRatedListInfiniteQueryKey = (options?: Options<TvSeriesTopRatedListData>): QueryKey<Options<TvSeriesTopRatedListData>> => createQueryKey("tvSeriesTopRatedList", options, true);
 
 /**
  * Top Rated
@@ -3402,14 +3402,14 @@ export const tvSeriesTopRatedListInfiniteOptions = (options?: Options<TvSeriesTo
     });
 };
 
-export const tvSeriesDetailsQueryKey = (options: Options<TvSeriesDetailsData>) => createQueryKey('tvSeriesDetails', options);
+export const tvSeriesDetailsQueryKey = (options: Options<TvSeriesDetailsData>) => createQueryKey("tvSeriesDetails", options);
 
 /**
  * Details
  *
  * Get the details of a TV show.
  */
-export const tvSeriesDetailsOptions = (options: Options<TvSeriesDetailsData>) => queryOptions({
+export const tvSeriesDetailsOptions = (options: Options<TvSeriesDetailsData>) => queryOptions<TvSeriesDetailsResponse, DefaultError, TvSeriesDetailsResponse, ReturnType<typeof tvSeriesDetailsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeriesDetails({
             ...options,
@@ -3422,14 +3422,14 @@ export const tvSeriesDetailsOptions = (options: Options<TvSeriesDetailsData>) =>
     queryKey: tvSeriesDetailsQueryKey(options)
 });
 
-export const tvSeriesAccountStatesQueryKey = (options: Options<TvSeriesAccountStatesData>) => createQueryKey('tvSeriesAccountStates', options);
+export const tvSeriesAccountStatesQueryKey = (options: Options<TvSeriesAccountStatesData>) => createQueryKey("tvSeriesAccountStates", options);
 
 /**
  * Account States
  *
  * Get the rating, watchlist and favourite status.
  */
-export const tvSeriesAccountStatesOptions = (options: Options<TvSeriesAccountStatesData>) => queryOptions({
+export const tvSeriesAccountStatesOptions = (options: Options<TvSeriesAccountStatesData>) => queryOptions<TvSeriesAccountStatesResponse, DefaultError, TvSeriesAccountStatesResponse, ReturnType<typeof tvSeriesAccountStatesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeriesAccountStates({
             ...options,
@@ -3442,14 +3442,14 @@ export const tvSeriesAccountStatesOptions = (options: Options<TvSeriesAccountSta
     queryKey: tvSeriesAccountStatesQueryKey(options)
 });
 
-export const tvSeriesAggregateCreditsQueryKey = (options: Options<TvSeriesAggregateCreditsData>) => createQueryKey('tvSeriesAggregateCredits', options);
+export const tvSeriesAggregateCreditsQueryKey = (options: Options<TvSeriesAggregateCreditsData>) => createQueryKey("tvSeriesAggregateCredits", options);
 
 /**
  * Aggregate Credits
  *
  * Get the aggregate credits (cast and crew) that have been added to a TV show.
  */
-export const tvSeriesAggregateCreditsOptions = (options: Options<TvSeriesAggregateCreditsData>) => queryOptions({
+export const tvSeriesAggregateCreditsOptions = (options: Options<TvSeriesAggregateCreditsData>) => queryOptions<TvSeriesAggregateCreditsResponse, DefaultError, TvSeriesAggregateCreditsResponse, ReturnType<typeof tvSeriesAggregateCreditsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeriesAggregateCredits({
             ...options,
@@ -3462,14 +3462,14 @@ export const tvSeriesAggregateCreditsOptions = (options: Options<TvSeriesAggrega
     queryKey: tvSeriesAggregateCreditsQueryKey(options)
 });
 
-export const tvSeriesAlternativeTitlesQueryKey = (options: Options<TvSeriesAlternativeTitlesData>) => createQueryKey('tvSeriesAlternativeTitles', options);
+export const tvSeriesAlternativeTitlesQueryKey = (options: Options<TvSeriesAlternativeTitlesData>) => createQueryKey("tvSeriesAlternativeTitles", options);
 
 /**
  * Alternative Titles
  *
  * Get the alternative titles that have been added to a TV show.
  */
-export const tvSeriesAlternativeTitlesOptions = (options: Options<TvSeriesAlternativeTitlesData>) => queryOptions({
+export const tvSeriesAlternativeTitlesOptions = (options: Options<TvSeriesAlternativeTitlesData>) => queryOptions<TvSeriesAlternativeTitlesResponse, DefaultError, TvSeriesAlternativeTitlesResponse, ReturnType<typeof tvSeriesAlternativeTitlesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeriesAlternativeTitles({
             ...options,
@@ -3482,14 +3482,14 @@ export const tvSeriesAlternativeTitlesOptions = (options: Options<TvSeriesAltern
     queryKey: tvSeriesAlternativeTitlesQueryKey(options)
 });
 
-export const tvSeriesChangesQueryKey = (options: Options<TvSeriesChangesData>) => createQueryKey('tvSeriesChanges', options);
+export const tvSeriesChangesQueryKey = (options: Options<TvSeriesChangesData>) => createQueryKey("tvSeriesChanges", options);
 
 /**
  * Changes
  *
  * Get the recent changes for a TV show.
  */
-export const tvSeriesChangesOptions = (options: Options<TvSeriesChangesData>) => queryOptions({
+export const tvSeriesChangesOptions = (options: Options<TvSeriesChangesData>) => queryOptions<TvSeriesChangesResponse, DefaultError, TvSeriesChangesResponse, ReturnType<typeof tvSeriesChangesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeriesChanges({
             ...options,
@@ -3502,7 +3502,7 @@ export const tvSeriesChangesOptions = (options: Options<TvSeriesChangesData>) =>
     queryKey: tvSeriesChangesQueryKey(options)
 });
 
-export const tvSeriesChangesInfiniteQueryKey = (options: Options<TvSeriesChangesData>): QueryKey<Options<TvSeriesChangesData>> => createQueryKey('tvSeriesChanges', options, true);
+export const tvSeriesChangesInfiniteQueryKey = (options: Options<TvSeriesChangesData>): QueryKey<Options<TvSeriesChangesData>> => createQueryKey("tvSeriesChanges", options, true);
 
 /**
  * Changes
@@ -3533,14 +3533,14 @@ export const tvSeriesChangesInfiniteOptions = (options: Options<TvSeriesChangesD
     });
 };
 
-export const tvSeriesContentRatingsQueryKey = (options: Options<TvSeriesContentRatingsData>) => createQueryKey('tvSeriesContentRatings', options);
+export const tvSeriesContentRatingsQueryKey = (options: Options<TvSeriesContentRatingsData>) => createQueryKey("tvSeriesContentRatings", options);
 
 /**
  * Content Ratings
  *
  * Get the content ratings that have been added to a TV show.
  */
-export const tvSeriesContentRatingsOptions = (options: Options<TvSeriesContentRatingsData>) => queryOptions({
+export const tvSeriesContentRatingsOptions = (options: Options<TvSeriesContentRatingsData>) => queryOptions<TvSeriesContentRatingsResponse, DefaultError, TvSeriesContentRatingsResponse, ReturnType<typeof tvSeriesContentRatingsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeriesContentRatings({
             ...options,
@@ -3553,14 +3553,14 @@ export const tvSeriesContentRatingsOptions = (options: Options<TvSeriesContentRa
     queryKey: tvSeriesContentRatingsQueryKey(options)
 });
 
-export const tvSeriesCreditsQueryKey = (options: Options<TvSeriesCreditsData>) => createQueryKey('tvSeriesCredits', options);
+export const tvSeriesCreditsQueryKey = (options: Options<TvSeriesCreditsData>) => createQueryKey("tvSeriesCredits", options);
 
 /**
  * Credits
  *
  * Get the latest season credits of a TV show.
  */
-export const tvSeriesCreditsOptions = (options: Options<TvSeriesCreditsData>) => queryOptions({
+export const tvSeriesCreditsOptions = (options: Options<TvSeriesCreditsData>) => queryOptions<TvSeriesCreditsResponse, DefaultError, TvSeriesCreditsResponse, ReturnType<typeof tvSeriesCreditsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeriesCredits({
             ...options,
@@ -3573,14 +3573,14 @@ export const tvSeriesCreditsOptions = (options: Options<TvSeriesCreditsData>) =>
     queryKey: tvSeriesCreditsQueryKey(options)
 });
 
-export const tvSeriesEpisodeGroupsQueryKey = (options: Options<TvSeriesEpisodeGroupsData>) => createQueryKey('tvSeriesEpisodeGroups', options);
+export const tvSeriesEpisodeGroupsQueryKey = (options: Options<TvSeriesEpisodeGroupsData>) => createQueryKey("tvSeriesEpisodeGroups", options);
 
 /**
  * Episode Groups
  *
  * Get the episode groups that have been added to a TV show.
  */
-export const tvSeriesEpisodeGroupsOptions = (options: Options<TvSeriesEpisodeGroupsData>) => queryOptions({
+export const tvSeriesEpisodeGroupsOptions = (options: Options<TvSeriesEpisodeGroupsData>) => queryOptions<TvSeriesEpisodeGroupsResponse, DefaultError, TvSeriesEpisodeGroupsResponse, ReturnType<typeof tvSeriesEpisodeGroupsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeriesEpisodeGroups({
             ...options,
@@ -3593,14 +3593,14 @@ export const tvSeriesEpisodeGroupsOptions = (options: Options<TvSeriesEpisodeGro
     queryKey: tvSeriesEpisodeGroupsQueryKey(options)
 });
 
-export const tvSeriesExternalIdsQueryKey = (options: Options<TvSeriesExternalIdsData>) => createQueryKey('tvSeriesExternalIds', options);
+export const tvSeriesExternalIdsQueryKey = (options: Options<TvSeriesExternalIdsData>) => createQueryKey("tvSeriesExternalIds", options);
 
 /**
  * External IDs
  *
  * Get a list of external IDs that have been added to a TV show.
  */
-export const tvSeriesExternalIdsOptions = (options: Options<TvSeriesExternalIdsData>) => queryOptions({
+export const tvSeriesExternalIdsOptions = (options: Options<TvSeriesExternalIdsData>) => queryOptions<TvSeriesExternalIdsResponse, DefaultError, TvSeriesExternalIdsResponse, ReturnType<typeof tvSeriesExternalIdsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeriesExternalIds({
             ...options,
@@ -3613,14 +3613,14 @@ export const tvSeriesExternalIdsOptions = (options: Options<TvSeriesExternalIdsD
     queryKey: tvSeriesExternalIdsQueryKey(options)
 });
 
-export const tvSeriesImagesQueryKey = (options: Options<TvSeriesImagesData>) => createQueryKey('tvSeriesImages', options);
+export const tvSeriesImagesQueryKey = (options: Options<TvSeriesImagesData>) => createQueryKey("tvSeriesImages", options);
 
 /**
  * Images
  *
  * Get the images that belong to a TV series.
  */
-export const tvSeriesImagesOptions = (options: Options<TvSeriesImagesData>) => queryOptions({
+export const tvSeriesImagesOptions = (options: Options<TvSeriesImagesData>) => queryOptions<TvSeriesImagesResponse, DefaultError, TvSeriesImagesResponse, ReturnType<typeof tvSeriesImagesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeriesImages({
             ...options,
@@ -3633,14 +3633,14 @@ export const tvSeriesImagesOptions = (options: Options<TvSeriesImagesData>) => q
     queryKey: tvSeriesImagesQueryKey(options)
 });
 
-export const tvSeriesKeywordsQueryKey = (options: Options<TvSeriesKeywordsData>) => createQueryKey('tvSeriesKeywords', options);
+export const tvSeriesKeywordsQueryKey = (options: Options<TvSeriesKeywordsData>) => createQueryKey("tvSeriesKeywords", options);
 
 /**
  * Keywords
  *
  * Get a list of keywords that have been added to a TV show.
  */
-export const tvSeriesKeywordsOptions = (options: Options<TvSeriesKeywordsData>) => queryOptions({
+export const tvSeriesKeywordsOptions = (options: Options<TvSeriesKeywordsData>) => queryOptions<TvSeriesKeywordsResponse, DefaultError, TvSeriesKeywordsResponse, ReturnType<typeof tvSeriesKeywordsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeriesKeywords({
             ...options,
@@ -3653,14 +3653,14 @@ export const tvSeriesKeywordsOptions = (options: Options<TvSeriesKeywordsData>) 
     queryKey: tvSeriesKeywordsQueryKey(options)
 });
 
-export const tvSeriesLatestIdQueryKey = (options?: Options<TvSeriesLatestIdData>) => createQueryKey('tvSeriesLatestId', options);
+export const tvSeriesLatestIdQueryKey = (options?: Options<TvSeriesLatestIdData>) => createQueryKey("tvSeriesLatestId", options);
 
 /**
  * Latest
  *
  * Get the newest TV show ID.
  */
-export const tvSeriesLatestIdOptions = (options?: Options<TvSeriesLatestIdData>) => queryOptions({
+export const tvSeriesLatestIdOptions = (options?: Options<TvSeriesLatestIdData>) => queryOptions<TvSeriesLatestIdResponse, DefaultError, TvSeriesLatestIdResponse, ReturnType<typeof tvSeriesLatestIdQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeriesLatestId({
             ...options,
@@ -3673,14 +3673,14 @@ export const tvSeriesLatestIdOptions = (options?: Options<TvSeriesLatestIdData>)
     queryKey: tvSeriesLatestIdQueryKey(options)
 });
 
-export const listsCopyQueryKey = (options: Options<ListsCopyData>) => createQueryKey('listsCopy', options);
+export const listsCopyQueryKey = (options: Options<ListsCopyData>) => createQueryKey("listsCopy", options);
 
 /**
  * Lists
  *
  * Get the lists that a TV series has been added to.
  */
-export const listsCopyOptions = (options: Options<ListsCopyData>) => queryOptions({
+export const listsCopyOptions = (options: Options<ListsCopyData>) => queryOptions<ListsCopyResponse, DefaultError, ListsCopyResponse, ReturnType<typeof listsCopyQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await listsCopy({
             ...options,
@@ -3693,7 +3693,7 @@ export const listsCopyOptions = (options: Options<ListsCopyData>) => queryOption
     queryKey: listsCopyQueryKey(options)
 });
 
-export const listsCopyInfiniteQueryKey = (options: Options<ListsCopyData>): QueryKey<Options<ListsCopyData>> => createQueryKey('listsCopy', options, true);
+export const listsCopyInfiniteQueryKey = (options: Options<ListsCopyData>): QueryKey<Options<ListsCopyData>> => createQueryKey("listsCopy", options, true);
 
 /**
  * Lists
@@ -3724,12 +3724,12 @@ export const listsCopyInfiniteOptions = (options: Options<ListsCopyData>) => {
     });
 };
 
-export const tvSeriesRecommendationsQueryKey = (options: Options<TvSeriesRecommendationsData>) => createQueryKey('tvSeriesRecommendations', options);
+export const tvSeriesRecommendationsQueryKey = (options: Options<TvSeriesRecommendationsData>) => createQueryKey("tvSeriesRecommendations", options);
 
 /**
  * Recommendations
  */
-export const tvSeriesRecommendationsOptions = (options: Options<TvSeriesRecommendationsData>) => queryOptions({
+export const tvSeriesRecommendationsOptions = (options: Options<TvSeriesRecommendationsData>) => queryOptions<TvSeriesRecommendationsResponse, DefaultError, TvSeriesRecommendationsResponse, ReturnType<typeof tvSeriesRecommendationsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeriesRecommendations({
             ...options,
@@ -3742,7 +3742,7 @@ export const tvSeriesRecommendationsOptions = (options: Options<TvSeriesRecommen
     queryKey: tvSeriesRecommendationsQueryKey(options)
 });
 
-export const tvSeriesRecommendationsInfiniteQueryKey = (options: Options<TvSeriesRecommendationsData>): QueryKey<Options<TvSeriesRecommendationsData>> => createQueryKey('tvSeriesRecommendations', options, true);
+export const tvSeriesRecommendationsInfiniteQueryKey = (options: Options<TvSeriesRecommendationsData>): QueryKey<Options<TvSeriesRecommendationsData>> => createQueryKey("tvSeriesRecommendations", options, true);
 
 /**
  * Recommendations
@@ -3771,14 +3771,14 @@ export const tvSeriesRecommendationsInfiniteOptions = (options: Options<TvSeries
     });
 };
 
-export const tvSeriesReviewsQueryKey = (options: Options<TvSeriesReviewsData>) => createQueryKey('tvSeriesReviews', options);
+export const tvSeriesReviewsQueryKey = (options: Options<TvSeriesReviewsData>) => createQueryKey("tvSeriesReviews", options);
 
 /**
  * Reviews
  *
  * Get the reviews that have been added to a TV show.
  */
-export const tvSeriesReviewsOptions = (options: Options<TvSeriesReviewsData>) => queryOptions({
+export const tvSeriesReviewsOptions = (options: Options<TvSeriesReviewsData>) => queryOptions<TvSeriesReviewsResponse, DefaultError, TvSeriesReviewsResponse, ReturnType<typeof tvSeriesReviewsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeriesReviews({
             ...options,
@@ -3791,7 +3791,7 @@ export const tvSeriesReviewsOptions = (options: Options<TvSeriesReviewsData>) =>
     queryKey: tvSeriesReviewsQueryKey(options)
 });
 
-export const tvSeriesReviewsInfiniteQueryKey = (options: Options<TvSeriesReviewsData>): QueryKey<Options<TvSeriesReviewsData>> => createQueryKey('tvSeriesReviews', options, true);
+export const tvSeriesReviewsInfiniteQueryKey = (options: Options<TvSeriesReviewsData>): QueryKey<Options<TvSeriesReviewsData>> => createQueryKey("tvSeriesReviews", options, true);
 
 /**
  * Reviews
@@ -3822,14 +3822,14 @@ export const tvSeriesReviewsInfiniteOptions = (options: Options<TvSeriesReviewsD
     });
 };
 
-export const tvSeriesScreenedTheatricallyQueryKey = (options: Options<TvSeriesScreenedTheatricallyData>) => createQueryKey('tvSeriesScreenedTheatrically', options);
+export const tvSeriesScreenedTheatricallyQueryKey = (options: Options<TvSeriesScreenedTheatricallyData>) => createQueryKey("tvSeriesScreenedTheatrically", options);
 
 /**
  * Screened Theatrically
  *
  * Get the seasons and episodes that have screened theatrically.
  */
-export const tvSeriesScreenedTheatricallyOptions = (options: Options<TvSeriesScreenedTheatricallyData>) => queryOptions({
+export const tvSeriesScreenedTheatricallyOptions = (options: Options<TvSeriesScreenedTheatricallyData>) => queryOptions<TvSeriesScreenedTheatricallyResponse, DefaultError, TvSeriesScreenedTheatricallyResponse, ReturnType<typeof tvSeriesScreenedTheatricallyQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeriesScreenedTheatrically({
             ...options,
@@ -3842,14 +3842,14 @@ export const tvSeriesScreenedTheatricallyOptions = (options: Options<TvSeriesScr
     queryKey: tvSeriesScreenedTheatricallyQueryKey(options)
 });
 
-export const tvSeriesSimilarQueryKey = (options: Options<TvSeriesSimilarData>) => createQueryKey('tvSeriesSimilar', options);
+export const tvSeriesSimilarQueryKey = (options: Options<TvSeriesSimilarData>) => createQueryKey("tvSeriesSimilar", options);
 
 /**
  * Similar
  *
  * Get the similar TV shows.
  */
-export const tvSeriesSimilarOptions = (options: Options<TvSeriesSimilarData>) => queryOptions({
+export const tvSeriesSimilarOptions = (options: Options<TvSeriesSimilarData>) => queryOptions<TvSeriesSimilarResponse, DefaultError, TvSeriesSimilarResponse, ReturnType<typeof tvSeriesSimilarQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeriesSimilar({
             ...options,
@@ -3862,7 +3862,7 @@ export const tvSeriesSimilarOptions = (options: Options<TvSeriesSimilarData>) =>
     queryKey: tvSeriesSimilarQueryKey(options)
 });
 
-export const tvSeriesSimilarInfiniteQueryKey = (options: Options<TvSeriesSimilarData>): QueryKey<Options<TvSeriesSimilarData>> => createQueryKey('tvSeriesSimilar', options, true);
+export const tvSeriesSimilarInfiniteQueryKey = (options: Options<TvSeriesSimilarData>): QueryKey<Options<TvSeriesSimilarData>> => createQueryKey("tvSeriesSimilar", options, true);
 
 /**
  * Similar
@@ -3893,14 +3893,14 @@ export const tvSeriesSimilarInfiniteOptions = (options: Options<TvSeriesSimilarD
     });
 };
 
-export const tvSeriesTranslationsQueryKey = (options: Options<TvSeriesTranslationsData>) => createQueryKey('tvSeriesTranslations', options);
+export const tvSeriesTranslationsQueryKey = (options: Options<TvSeriesTranslationsData>) => createQueryKey("tvSeriesTranslations", options);
 
 /**
  * Translations
  *
  * Get the translations that have been added to a TV show.
  */
-export const tvSeriesTranslationsOptions = (options: Options<TvSeriesTranslationsData>) => queryOptions({
+export const tvSeriesTranslationsOptions = (options: Options<TvSeriesTranslationsData>) => queryOptions<TvSeriesTranslationsResponse, DefaultError, TvSeriesTranslationsResponse, ReturnType<typeof tvSeriesTranslationsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeriesTranslations({
             ...options,
@@ -3913,14 +3913,14 @@ export const tvSeriesTranslationsOptions = (options: Options<TvSeriesTranslation
     queryKey: tvSeriesTranslationsQueryKey(options)
 });
 
-export const tvSeriesVideosQueryKey = (options: Options<TvSeriesVideosData>) => createQueryKey('tvSeriesVideos', options);
+export const tvSeriesVideosQueryKey = (options: Options<TvSeriesVideosData>) => createQueryKey("tvSeriesVideos", options);
 
 /**
  * Videos
  *
  * Get the videos that belong to a TV show.
  */
-export const tvSeriesVideosOptions = (options: Options<TvSeriesVideosData>) => queryOptions({
+export const tvSeriesVideosOptions = (options: Options<TvSeriesVideosData>) => queryOptions<TvSeriesVideosResponse, DefaultError, TvSeriesVideosResponse, ReturnType<typeof tvSeriesVideosQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeriesVideos({
             ...options,
@@ -3933,14 +3933,14 @@ export const tvSeriesVideosOptions = (options: Options<TvSeriesVideosData>) => q
     queryKey: tvSeriesVideosQueryKey(options)
 });
 
-export const tvSeriesWatchProvidersQueryKey = (options: Options<TvSeriesWatchProvidersData>) => createQueryKey('tvSeriesWatchProviders', options);
+export const tvSeriesWatchProvidersQueryKey = (options: Options<TvSeriesWatchProvidersData>) => createQueryKey("tvSeriesWatchProviders", options);
 
 /**
  * Watch Providers
  *
  * Get the list of streaming providers we have for a TV show.
  */
-export const tvSeriesWatchProvidersOptions = (options: Options<TvSeriesWatchProvidersData>) => queryOptions({
+export const tvSeriesWatchProvidersOptions = (options: Options<TvSeriesWatchProvidersData>) => queryOptions<TvSeriesWatchProvidersResponse, DefaultError, TvSeriesWatchProvidersResponse, ReturnType<typeof tvSeriesWatchProvidersQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeriesWatchProviders({
             ...options,
@@ -3989,14 +3989,14 @@ export const tvSeriesAddRatingMutation = (options?: Partial<Options<TvSeriesAddR
     return mutationOptions;
 };
 
-export const tvSeasonDetailsQueryKey = (options: Options<TvSeasonDetailsData>) => createQueryKey('tvSeasonDetails', options);
+export const tvSeasonDetailsQueryKey = (options: Options<TvSeasonDetailsData>) => createQueryKey("tvSeasonDetails", options);
 
 /**
  * Details
  *
  * Query the details of a TV season.
  */
-export const tvSeasonDetailsOptions = (options: Options<TvSeasonDetailsData>) => queryOptions({
+export const tvSeasonDetailsOptions = (options: Options<TvSeasonDetailsData>) => queryOptions<TvSeasonDetailsResponse, DefaultError, TvSeasonDetailsResponse, ReturnType<typeof tvSeasonDetailsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeasonDetails({
             ...options,
@@ -4009,14 +4009,14 @@ export const tvSeasonDetailsOptions = (options: Options<TvSeasonDetailsData>) =>
     queryKey: tvSeasonDetailsQueryKey(options)
 });
 
-export const tvSeasonAccountStatesQueryKey = (options: Options<TvSeasonAccountStatesData>) => createQueryKey('tvSeasonAccountStates', options);
+export const tvSeasonAccountStatesQueryKey = (options: Options<TvSeasonAccountStatesData>) => createQueryKey("tvSeasonAccountStates", options);
 
 /**
  * Account States
  *
  * Get the rating, watchlist and favourite status.
  */
-export const tvSeasonAccountStatesOptions = (options: Options<TvSeasonAccountStatesData>) => queryOptions({
+export const tvSeasonAccountStatesOptions = (options: Options<TvSeasonAccountStatesData>) => queryOptions<TvSeasonAccountStatesResponse, DefaultError, TvSeasonAccountStatesResponse, ReturnType<typeof tvSeasonAccountStatesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeasonAccountStates({
             ...options,
@@ -4029,14 +4029,14 @@ export const tvSeasonAccountStatesOptions = (options: Options<TvSeasonAccountSta
     queryKey: tvSeasonAccountStatesQueryKey(options)
 });
 
-export const tvSeasonAggregateCreditsQueryKey = (options: Options<TvSeasonAggregateCreditsData>) => createQueryKey('tvSeasonAggregateCredits', options);
+export const tvSeasonAggregateCreditsQueryKey = (options: Options<TvSeasonAggregateCreditsData>) => createQueryKey("tvSeasonAggregateCredits", options);
 
 /**
  * Aggregate Credits
  *
  * Get the aggregate credits (cast and crew) that have been added to a TV season.
  */
-export const tvSeasonAggregateCreditsOptions = (options: Options<TvSeasonAggregateCreditsData>) => queryOptions({
+export const tvSeasonAggregateCreditsOptions = (options: Options<TvSeasonAggregateCreditsData>) => queryOptions<TvSeasonAggregateCreditsResponse, DefaultError, TvSeasonAggregateCreditsResponse, ReturnType<typeof tvSeasonAggregateCreditsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeasonAggregateCredits({
             ...options,
@@ -4049,14 +4049,14 @@ export const tvSeasonAggregateCreditsOptions = (options: Options<TvSeasonAggrega
     queryKey: tvSeasonAggregateCreditsQueryKey(options)
 });
 
-export const tvSeasonChangesByIdQueryKey = (options: Options<TvSeasonChangesByIdData>) => createQueryKey('tvSeasonChangesById', options);
+export const tvSeasonChangesByIdQueryKey = (options: Options<TvSeasonChangesByIdData>) => createQueryKey("tvSeasonChangesById", options);
 
 /**
  * Changes
  *
  * Get the recent changes for a TV season.
  */
-export const tvSeasonChangesByIdOptions = (options: Options<TvSeasonChangesByIdData>) => queryOptions({
+export const tvSeasonChangesByIdOptions = (options: Options<TvSeasonChangesByIdData>) => queryOptions<TvSeasonChangesByIdResponse, DefaultError, TvSeasonChangesByIdResponse, ReturnType<typeof tvSeasonChangesByIdQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeasonChangesById({
             ...options,
@@ -4069,7 +4069,7 @@ export const tvSeasonChangesByIdOptions = (options: Options<TvSeasonChangesByIdD
     queryKey: tvSeasonChangesByIdQueryKey(options)
 });
 
-export const tvSeasonChangesByIdInfiniteQueryKey = (options: Options<TvSeasonChangesByIdData>): QueryKey<Options<TvSeasonChangesByIdData>> => createQueryKey('tvSeasonChangesById', options, true);
+export const tvSeasonChangesByIdInfiniteQueryKey = (options: Options<TvSeasonChangesByIdData>): QueryKey<Options<TvSeasonChangesByIdData>> => createQueryKey("tvSeasonChangesById", options, true);
 
 /**
  * Changes
@@ -4100,12 +4100,12 @@ export const tvSeasonChangesByIdInfiniteOptions = (options: Options<TvSeasonChan
     });
 };
 
-export const tvSeasonCreditsQueryKey = (options: Options<TvSeasonCreditsData>) => createQueryKey('tvSeasonCredits', options);
+export const tvSeasonCreditsQueryKey = (options: Options<TvSeasonCreditsData>) => createQueryKey("tvSeasonCredits", options);
 
 /**
  * Credits
  */
-export const tvSeasonCreditsOptions = (options: Options<TvSeasonCreditsData>) => queryOptions({
+export const tvSeasonCreditsOptions = (options: Options<TvSeasonCreditsData>) => queryOptions<TvSeasonCreditsResponse, DefaultError, TvSeasonCreditsResponse, ReturnType<typeof tvSeasonCreditsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeasonCredits({
             ...options,
@@ -4118,14 +4118,14 @@ export const tvSeasonCreditsOptions = (options: Options<TvSeasonCreditsData>) =>
     queryKey: tvSeasonCreditsQueryKey(options)
 });
 
-export const tvSeasonExternalIdsQueryKey = (options: Options<TvSeasonExternalIdsData>) => createQueryKey('tvSeasonExternalIds', options);
+export const tvSeasonExternalIdsQueryKey = (options: Options<TvSeasonExternalIdsData>) => createQueryKey("tvSeasonExternalIds", options);
 
 /**
  * External IDs
  *
  * Get a list of external IDs that have been added to a TV season.
  */
-export const tvSeasonExternalIdsOptions = (options: Options<TvSeasonExternalIdsData>) => queryOptions({
+export const tvSeasonExternalIdsOptions = (options: Options<TvSeasonExternalIdsData>) => queryOptions<TvSeasonExternalIdsResponse, DefaultError, TvSeasonExternalIdsResponse, ReturnType<typeof tvSeasonExternalIdsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeasonExternalIds({
             ...options,
@@ -4138,14 +4138,14 @@ export const tvSeasonExternalIdsOptions = (options: Options<TvSeasonExternalIdsD
     queryKey: tvSeasonExternalIdsQueryKey(options)
 });
 
-export const tvSeasonImagesQueryKey = (options: Options<TvSeasonImagesData>) => createQueryKey('tvSeasonImages', options);
+export const tvSeasonImagesQueryKey = (options: Options<TvSeasonImagesData>) => createQueryKey("tvSeasonImages", options);
 
 /**
  * Images
  *
  * Get the images that belong to a TV season.
  */
-export const tvSeasonImagesOptions = (options: Options<TvSeasonImagesData>) => queryOptions({
+export const tvSeasonImagesOptions = (options: Options<TvSeasonImagesData>) => queryOptions<TvSeasonImagesResponse, DefaultError, TvSeasonImagesResponse, ReturnType<typeof tvSeasonImagesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeasonImages({
             ...options,
@@ -4158,14 +4158,14 @@ export const tvSeasonImagesOptions = (options: Options<TvSeasonImagesData>) => q
     queryKey: tvSeasonImagesQueryKey(options)
 });
 
-export const tvSeasonTranslationsQueryKey = (options: Options<TvSeasonTranslationsData>) => createQueryKey('tvSeasonTranslations', options);
+export const tvSeasonTranslationsQueryKey = (options: Options<TvSeasonTranslationsData>) => createQueryKey("tvSeasonTranslations", options);
 
 /**
  * Translations
  *
  * Get the translations for a TV season.
  */
-export const tvSeasonTranslationsOptions = (options: Options<TvSeasonTranslationsData>) => queryOptions({
+export const tvSeasonTranslationsOptions = (options: Options<TvSeasonTranslationsData>) => queryOptions<TvSeasonTranslationsResponse, DefaultError, TvSeasonTranslationsResponse, ReturnType<typeof tvSeasonTranslationsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeasonTranslations({
             ...options,
@@ -4178,14 +4178,14 @@ export const tvSeasonTranslationsOptions = (options: Options<TvSeasonTranslation
     queryKey: tvSeasonTranslationsQueryKey(options)
 });
 
-export const tvSeasonVideosQueryKey = (options: Options<TvSeasonVideosData>) => createQueryKey('tvSeasonVideos', options);
+export const tvSeasonVideosQueryKey = (options: Options<TvSeasonVideosData>) => createQueryKey("tvSeasonVideos", options);
 
 /**
  * Videos
  *
  * Get the videos that belong to a TV season.
  */
-export const tvSeasonVideosOptions = (options: Options<TvSeasonVideosData>) => queryOptions({
+export const tvSeasonVideosOptions = (options: Options<TvSeasonVideosData>) => queryOptions<TvSeasonVideosResponse, DefaultError, TvSeasonVideosResponse, ReturnType<typeof tvSeasonVideosQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeasonVideos({
             ...options,
@@ -4198,14 +4198,14 @@ export const tvSeasonVideosOptions = (options: Options<TvSeasonVideosData>) => q
     queryKey: tvSeasonVideosQueryKey(options)
 });
 
-export const tvSeasonWatchProvidersQueryKey = (options: Options<TvSeasonWatchProvidersData>) => createQueryKey('tvSeasonWatchProviders', options);
+export const tvSeasonWatchProvidersQueryKey = (options: Options<TvSeasonWatchProvidersData>) => createQueryKey("tvSeasonWatchProviders", options);
 
 /**
  * Watch Providers
  *
  * Get the list of streaming providers we have for a TV season.
  */
-export const tvSeasonWatchProvidersOptions = (options: Options<TvSeasonWatchProvidersData>) => queryOptions({
+export const tvSeasonWatchProvidersOptions = (options: Options<TvSeasonWatchProvidersData>) => queryOptions<TvSeasonWatchProvidersResponse, DefaultError, TvSeasonWatchProvidersResponse, ReturnType<typeof tvSeasonWatchProvidersQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvSeasonWatchProviders({
             ...options,
@@ -4218,14 +4218,14 @@ export const tvSeasonWatchProvidersOptions = (options: Options<TvSeasonWatchProv
     queryKey: tvSeasonWatchProvidersQueryKey(options)
 });
 
-export const tvEpisodeDetailsQueryKey = (options: Options<TvEpisodeDetailsData>) => createQueryKey('tvEpisodeDetails', options);
+export const tvEpisodeDetailsQueryKey = (options: Options<TvEpisodeDetailsData>) => createQueryKey("tvEpisodeDetails", options);
 
 /**
  * Details
  *
  * Query the details of a TV episode.
  */
-export const tvEpisodeDetailsOptions = (options: Options<TvEpisodeDetailsData>) => queryOptions({
+export const tvEpisodeDetailsOptions = (options: Options<TvEpisodeDetailsData>) => queryOptions<TvEpisodeDetailsResponse, DefaultError, TvEpisodeDetailsResponse, ReturnType<typeof tvEpisodeDetailsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvEpisodeDetails({
             ...options,
@@ -4238,14 +4238,14 @@ export const tvEpisodeDetailsOptions = (options: Options<TvEpisodeDetailsData>) 
     queryKey: tvEpisodeDetailsQueryKey(options)
 });
 
-export const tvEpisodeAccountStatesQueryKey = (options: Options<TvEpisodeAccountStatesData>) => createQueryKey('tvEpisodeAccountStates', options);
+export const tvEpisodeAccountStatesQueryKey = (options: Options<TvEpisodeAccountStatesData>) => createQueryKey("tvEpisodeAccountStates", options);
 
 /**
  * Account States
  *
  * Get the rating, watchlist and favourite status.
  */
-export const tvEpisodeAccountStatesOptions = (options: Options<TvEpisodeAccountStatesData>) => queryOptions({
+export const tvEpisodeAccountStatesOptions = (options: Options<TvEpisodeAccountStatesData>) => queryOptions<TvEpisodeAccountStatesResponse, DefaultError, TvEpisodeAccountStatesResponse, ReturnType<typeof tvEpisodeAccountStatesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvEpisodeAccountStates({
             ...options,
@@ -4258,14 +4258,14 @@ export const tvEpisodeAccountStatesOptions = (options: Options<TvEpisodeAccountS
     queryKey: tvEpisodeAccountStatesQueryKey(options)
 });
 
-export const tvEpisodeChangesByIdQueryKey = (options: Options<TvEpisodeChangesByIdData>) => createQueryKey('tvEpisodeChangesById', options);
+export const tvEpisodeChangesByIdQueryKey = (options: Options<TvEpisodeChangesByIdData>) => createQueryKey("tvEpisodeChangesById", options);
 
 /**
  * Changes
  *
  * Get the recent changes for a TV episode.
  */
-export const tvEpisodeChangesByIdOptions = (options: Options<TvEpisodeChangesByIdData>) => queryOptions({
+export const tvEpisodeChangesByIdOptions = (options: Options<TvEpisodeChangesByIdData>) => queryOptions<TvEpisodeChangesByIdResponse, DefaultError, TvEpisodeChangesByIdResponse, ReturnType<typeof tvEpisodeChangesByIdQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvEpisodeChangesById({
             ...options,
@@ -4278,12 +4278,12 @@ export const tvEpisodeChangesByIdOptions = (options: Options<TvEpisodeChangesByI
     queryKey: tvEpisodeChangesByIdQueryKey(options)
 });
 
-export const tvEpisodeCreditsQueryKey = (options: Options<TvEpisodeCreditsData>) => createQueryKey('tvEpisodeCredits', options);
+export const tvEpisodeCreditsQueryKey = (options: Options<TvEpisodeCreditsData>) => createQueryKey("tvEpisodeCredits", options);
 
 /**
  * Credits
  */
-export const tvEpisodeCreditsOptions = (options: Options<TvEpisodeCreditsData>) => queryOptions({
+export const tvEpisodeCreditsOptions = (options: Options<TvEpisodeCreditsData>) => queryOptions<TvEpisodeCreditsResponse, DefaultError, TvEpisodeCreditsResponse, ReturnType<typeof tvEpisodeCreditsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvEpisodeCredits({
             ...options,
@@ -4296,14 +4296,14 @@ export const tvEpisodeCreditsOptions = (options: Options<TvEpisodeCreditsData>) 
     queryKey: tvEpisodeCreditsQueryKey(options)
 });
 
-export const tvEpisodeExternalIdsQueryKey = (options: Options<TvEpisodeExternalIdsData>) => createQueryKey('tvEpisodeExternalIds', options);
+export const tvEpisodeExternalIdsQueryKey = (options: Options<TvEpisodeExternalIdsData>) => createQueryKey("tvEpisodeExternalIds", options);
 
 /**
  * External IDs
  *
  * Get a list of external IDs that have been added to a TV episode.
  */
-export const tvEpisodeExternalIdsOptions = (options: Options<TvEpisodeExternalIdsData>) => queryOptions({
+export const tvEpisodeExternalIdsOptions = (options: Options<TvEpisodeExternalIdsData>) => queryOptions<TvEpisodeExternalIdsResponse, DefaultError, TvEpisodeExternalIdsResponse, ReturnType<typeof tvEpisodeExternalIdsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvEpisodeExternalIds({
             ...options,
@@ -4316,14 +4316,14 @@ export const tvEpisodeExternalIdsOptions = (options: Options<TvEpisodeExternalId
     queryKey: tvEpisodeExternalIdsQueryKey(options)
 });
 
-export const tvEpisodeImagesQueryKey = (options: Options<TvEpisodeImagesData>) => createQueryKey('tvEpisodeImages', options);
+export const tvEpisodeImagesQueryKey = (options: Options<TvEpisodeImagesData>) => createQueryKey("tvEpisodeImages", options);
 
 /**
  * Images
  *
  * Get the images that belong to a TV episode.
  */
-export const tvEpisodeImagesOptions = (options: Options<TvEpisodeImagesData>) => queryOptions({
+export const tvEpisodeImagesOptions = (options: Options<TvEpisodeImagesData>) => queryOptions<TvEpisodeImagesResponse, DefaultError, TvEpisodeImagesResponse, ReturnType<typeof tvEpisodeImagesQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvEpisodeImages({
             ...options,
@@ -4336,14 +4336,14 @@ export const tvEpisodeImagesOptions = (options: Options<TvEpisodeImagesData>) =>
     queryKey: tvEpisodeImagesQueryKey(options)
 });
 
-export const tvEpisodeTranslationsQueryKey = (options: Options<TvEpisodeTranslationsData>) => createQueryKey('tvEpisodeTranslations', options);
+export const tvEpisodeTranslationsQueryKey = (options: Options<TvEpisodeTranslationsData>) => createQueryKey("tvEpisodeTranslations", options);
 
 /**
  * Translations
  *
  * Get the translations that have been added to a TV episode.
  */
-export const tvEpisodeTranslationsOptions = (options: Options<TvEpisodeTranslationsData>) => queryOptions({
+export const tvEpisodeTranslationsOptions = (options: Options<TvEpisodeTranslationsData>) => queryOptions<TvEpisodeTranslationsResponse, DefaultError, TvEpisodeTranslationsResponse, ReturnType<typeof tvEpisodeTranslationsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvEpisodeTranslations({
             ...options,
@@ -4356,14 +4356,14 @@ export const tvEpisodeTranslationsOptions = (options: Options<TvEpisodeTranslati
     queryKey: tvEpisodeTranslationsQueryKey(options)
 });
 
-export const tvEpisodeVideosQueryKey = (options: Options<TvEpisodeVideosData>) => createQueryKey('tvEpisodeVideos', options);
+export const tvEpisodeVideosQueryKey = (options: Options<TvEpisodeVideosData>) => createQueryKey("tvEpisodeVideos", options);
 
 /**
  * Videos
  *
  * Get the videos that belong to a TV episode.
  */
-export const tvEpisodeVideosOptions = (options: Options<TvEpisodeVideosData>) => queryOptions({
+export const tvEpisodeVideosOptions = (options: Options<TvEpisodeVideosData>) => queryOptions<TvEpisodeVideosResponse, DefaultError, TvEpisodeVideosResponse, ReturnType<typeof tvEpisodeVideosQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvEpisodeVideos({
             ...options,
@@ -4414,14 +4414,14 @@ export const tvEpisodeAddRatingMutation = (options?: Partial<Options<TvEpisodeAd
     return mutationOptions;
 };
 
-export const tvEpisodeGroupDetailsQueryKey = (options: Options<TvEpisodeGroupDetailsData>) => createQueryKey('tvEpisodeGroupDetails', options);
+export const tvEpisodeGroupDetailsQueryKey = (options: Options<TvEpisodeGroupDetailsData>) => createQueryKey("tvEpisodeGroupDetails", options);
 
 /**
  * Details
  *
  * Get the details of a TV episode group.
  */
-export const tvEpisodeGroupDetailsOptions = (options: Options<TvEpisodeGroupDetailsData>) => queryOptions({
+export const tvEpisodeGroupDetailsOptions = (options: Options<TvEpisodeGroupDetailsData>) => queryOptions<TvEpisodeGroupDetailsResponse, DefaultError, TvEpisodeGroupDetailsResponse, ReturnType<typeof tvEpisodeGroupDetailsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await tvEpisodeGroupDetails({
             ...options,
@@ -4434,14 +4434,14 @@ export const tvEpisodeGroupDetailsOptions = (options: Options<TvEpisodeGroupDeta
     queryKey: tvEpisodeGroupDetailsQueryKey(options)
 });
 
-export const watchProvidersAvailableRegionsQueryKey = (options?: Options<WatchProvidersAvailableRegionsData>) => createQueryKey('watchProvidersAvailableRegions', options);
+export const watchProvidersAvailableRegionsQueryKey = (options?: Options<WatchProvidersAvailableRegionsData>) => createQueryKey("watchProvidersAvailableRegions", options);
 
 /**
  * Available Regions
  *
  * Get the list of the countries we have watch provider (OTT/streaming) data for.
  */
-export const watchProvidersAvailableRegionsOptions = (options?: Options<WatchProvidersAvailableRegionsData>) => queryOptions({
+export const watchProvidersAvailableRegionsOptions = (options?: Options<WatchProvidersAvailableRegionsData>) => queryOptions<WatchProvidersAvailableRegionsResponse, DefaultError, WatchProvidersAvailableRegionsResponse, ReturnType<typeof watchProvidersAvailableRegionsQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await watchProvidersAvailableRegions({
             ...options,
@@ -4454,14 +4454,14 @@ export const watchProvidersAvailableRegionsOptions = (options?: Options<WatchPro
     queryKey: watchProvidersAvailableRegionsQueryKey(options)
 });
 
-export const watchProvidersMovieListQueryKey = (options?: Options<WatchProvidersMovieListData>) => createQueryKey('watchProvidersMovieList', options);
+export const watchProvidersMovieListQueryKey = (options?: Options<WatchProvidersMovieListData>) => createQueryKey("watchProvidersMovieList", options);
 
 /**
  * Movie Providers
  *
  * Get the list of streaming providers we have for movies.
  */
-export const watchProvidersMovieListOptions = (options?: Options<WatchProvidersMovieListData>) => queryOptions({
+export const watchProvidersMovieListOptions = (options?: Options<WatchProvidersMovieListData>) => queryOptions<WatchProvidersMovieListResponse, DefaultError, WatchProvidersMovieListResponse, ReturnType<typeof watchProvidersMovieListQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await watchProvidersMovieList({
             ...options,
@@ -4474,14 +4474,14 @@ export const watchProvidersMovieListOptions = (options?: Options<WatchProvidersM
     queryKey: watchProvidersMovieListQueryKey(options)
 });
 
-export const watchProviderTvListQueryKey = (options?: Options<WatchProviderTvListData>) => createQueryKey('watchProviderTvList', options);
+export const watchProviderTvListQueryKey = (options?: Options<WatchProviderTvListData>) => createQueryKey("watchProviderTvList", options);
 
 /**
  * TV Providers
  *
  * Get the list of streaming providers we have for TV shows.
  */
-export const watchProviderTvListOptions = (options?: Options<WatchProviderTvListData>) => queryOptions({
+export const watchProviderTvListOptions = (options?: Options<WatchProviderTvListData>) => queryOptions<WatchProviderTvListResponse, DefaultError, WatchProviderTvListResponse, ReturnType<typeof watchProviderTvListQueryKey>>({
     queryFn: async ({ queryKey, signal }) => {
         const { data } = await watchProviderTvList({
             ...options,
