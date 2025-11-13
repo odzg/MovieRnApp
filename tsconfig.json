@@ -16,6 +16,6 @@
     "types": ["node"],
     "verbatimModuleSyntax": true
   },
-  "include": ["**/*", ".eslintrc.js"],
+  "include": ["**/*", ".eslintrc.cjs"],
   "exclude": ["**/node_modules", "**/Pods"]
 }
