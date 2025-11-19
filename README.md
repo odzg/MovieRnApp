@@ -20,16 +20,16 @@ Install the tooling in the order below so Metro, Android, and iOS builds work on
 
 ### All platforms
 
-- **Node.js 24.11.0** – required by the `engines` field. Recommended install:
+- **Node.js 24.11.1** – required by the `engines` field. Recommended install:
   ```sh
-  nvm install 24.11.0
-  nvm use 24.11.0
+  nvm install 24.11.1
+  nvm use 24.11.1
   ```
-  Volta, fnm, or asdf work too; just ensure `node -v` prints `v24.11.0`.
-- **pnpm 10.20.0** – enabled through Corepack (bundled with Node 16+):
+  Volta, fnm, or asdf work too; just ensure `node -v` prints `v24.11.1`.
+- **pnpm 10.22.0** – enabled through Corepack (bundled with Node 16+):
   ```sh
   corepack enable
-  corepack prepare pnpm@10.20.0 --activate
+  corepack prepare pnpm@10.22.0 --activate
   ```
 - **Java Development Kit 17 (Temurin or Zulu)** – required by Android builds and the React Native CLI. Confirm with `java -version`.
 - **Git** – for version control and dependency patches.
