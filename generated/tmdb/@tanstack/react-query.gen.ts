@@ -36,12 +36,10 @@ const createQueryKey = <TOptions extends Options>(id: string, options?: TOptions
     if (options?.query) {
         params.query = options.query;
     }
-    return [
-        params
-    ];
+    return [params];
 };
 
-export const authenticationValidateKeyQueryKey = (options?: Options<AuthenticationValidateKeyData>) => createQueryKey("authenticationValidateKey", options);
+export const authenticationValidateKeyQueryKey = (options?: Options<AuthenticationValidateKeyData>) => createQueryKey('authenticationValidateKey', options);
 
 /**
  * Validate Key
@@ -61,7 +59,7 @@ export const authenticationValidateKeyOptions = (options?: Options<Authenticatio
     queryKey: authenticationValidateKeyQueryKey(options)
 });
 
-export const accountDetailsQueryKey = (options: Options<AccountDetailsData>) => createQueryKey("accountDetails", options);
+export const accountDetailsQueryKey = (options: Options<AccountDetailsData>) => createQueryKey('accountDetails', options);
 
 /**
  * Details
@@ -119,7 +117,7 @@ export const accountAddToWatchlistMutation = (options?: Partial<Options<AccountA
     return mutationOptions;
 };
 
-export const accountGetFavoritesQueryKey = (options: Options<AccountGetFavoritesData>) => createQueryKey("accountGetFavorites", options);
+export const accountGetFavoritesQueryKey = (options: Options<AccountGetFavoritesData>) => createQueryKey('accountGetFavorites', options);
 
 /**
  * Favorite Movies
@@ -140,9 +138,7 @@ export const accountGetFavoritesOptions = (options: Options<AccountGetFavoritesD
 });
 
 const createInfiniteParams = <K extends Pick<QueryKey<Options>[0], 'body' | 'headers' | 'path' | 'query'>>(queryKey: QueryKey<Options>, page: K) => {
-    const params = {
-        ...queryKey[0]
-    };
+    const params = { ...queryKey[0] };
     if (page.body) {
         params.body = {
             ...queryKey[0].body as any,
@@ -170,38 +166,36 @@ const createInfiniteParams = <K extends Pick<QueryKey<Options>[0], 'body' | 'hea
     return params as unknown as typeof page;
 };
 
-export const accountGetFavoritesInfiniteQueryKey = (options: Options<AccountGetFavoritesData>): QueryKey<Options<AccountGetFavoritesData>> => createQueryKey("accountGetFavorites", options, true);
+export const accountGetFavoritesInfiniteQueryKey = (options: Options<AccountGetFavoritesData>): QueryKey<Options<AccountGetFavoritesData>> => createQueryKey('accountGetFavorites', options, true);
 
 /**
  * Favorite Movies
  *
  * Get a users list of favourite movies.
  */
-export const accountGetFavoritesInfiniteOptions = (options: Options<AccountGetFavoritesData>) => {
-    return infiniteQueryOptions<AccountGetFavoritesResponse, DefaultError, InfiniteData<AccountGetFavoritesResponse>, QueryKey<Options<AccountGetFavoritesData>>, number | Pick<QueryKey<Options<AccountGetFavoritesData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<AccountGetFavoritesData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await accountGetFavorites({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: accountGetFavoritesInfiniteQueryKey(options)
-    });
-};
+export const accountGetFavoritesInfiniteOptions = (options: Options<AccountGetFavoritesData>) => infiniteQueryOptions<AccountGetFavoritesResponse, DefaultError, InfiniteData<AccountGetFavoritesResponse>, QueryKey<Options<AccountGetFavoritesData>>, number | Pick<QueryKey<Options<AccountGetFavoritesData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<AccountGetFavoritesData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await accountGetFavorites({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: accountGetFavoritesInfiniteQueryKey(options)
+});
 
-export const accountFavoriteTvQueryKey = (options: Options<AccountFavoriteTvData>) => createQueryKey("accountFavoriteTv", options);
+export const accountFavoriteTvQueryKey = (options: Options<AccountFavoriteTvData>) => createQueryKey('accountFavoriteTv', options);
 
 /**
  * Favorite TV
@@ -221,38 +215,36 @@ export const accountFavoriteTvOptions = (options: Options<AccountFavoriteTvData>
     queryKey: accountFavoriteTvQueryKey(options)
 });
 
-export const accountFavoriteTvInfiniteQueryKey = (options: Options<AccountFavoriteTvData>): QueryKey<Options<AccountFavoriteTvData>> => createQueryKey("accountFavoriteTv", options, true);
+export const accountFavoriteTvInfiniteQueryKey = (options: Options<AccountFavoriteTvData>): QueryKey<Options<AccountFavoriteTvData>> => createQueryKey('accountFavoriteTv', options, true);
 
 /**
  * Favorite TV
  *
  * Get a users list of favourite TV shows.
  */
-export const accountFavoriteTvInfiniteOptions = (options: Options<AccountFavoriteTvData>) => {
-    return infiniteQueryOptions<AccountFavoriteTvResponse, DefaultError, InfiniteData<AccountFavoriteTvResponse>, QueryKey<Options<AccountFavoriteTvData>>, number | Pick<QueryKey<Options<AccountFavoriteTvData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<AccountFavoriteTvData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await accountFavoriteTv({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: accountFavoriteTvInfiniteQueryKey(options)
-    });
-};
+export const accountFavoriteTvInfiniteOptions = (options: Options<AccountFavoriteTvData>) => infiniteQueryOptions<AccountFavoriteTvResponse, DefaultError, InfiniteData<AccountFavoriteTvResponse>, QueryKey<Options<AccountFavoriteTvData>>, number | Pick<QueryKey<Options<AccountFavoriteTvData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<AccountFavoriteTvData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await accountFavoriteTv({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: accountFavoriteTvInfiniteQueryKey(options)
+});
 
-export const accountListsQueryKey = (options: Options<AccountListsData>) => createQueryKey("accountLists", options);
+export const accountListsQueryKey = (options: Options<AccountListsData>) => createQueryKey('accountLists', options);
 
 /**
  * Lists
@@ -272,38 +264,36 @@ export const accountListsOptions = (options: Options<AccountListsData>) => query
     queryKey: accountListsQueryKey(options)
 });
 
-export const accountListsInfiniteQueryKey = (options: Options<AccountListsData>): QueryKey<Options<AccountListsData>> => createQueryKey("accountLists", options, true);
+export const accountListsInfiniteQueryKey = (options: Options<AccountListsData>): QueryKey<Options<AccountListsData>> => createQueryKey('accountLists', options, true);
 
 /**
  * Lists
  *
  * Get a users list of custom lists.
  */
-export const accountListsInfiniteOptions = (options: Options<AccountListsData>) => {
-    return infiniteQueryOptions<AccountListsResponse, DefaultError, InfiniteData<AccountListsResponse>, QueryKey<Options<AccountListsData>>, number | Pick<QueryKey<Options<AccountListsData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<AccountListsData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await accountLists({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: accountListsInfiniteQueryKey(options)
-    });
-};
+export const accountListsInfiniteOptions = (options: Options<AccountListsData>) => infiniteQueryOptions<AccountListsResponse, DefaultError, InfiniteData<AccountListsResponse>, QueryKey<Options<AccountListsData>>, number | Pick<QueryKey<Options<AccountListsData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<AccountListsData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await accountLists({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: accountListsInfiniteQueryKey(options)
+});
 
-export const accountRatedMoviesQueryKey = (options: Options<AccountRatedMoviesData>) => createQueryKey("accountRatedMovies", options);
+export const accountRatedMoviesQueryKey = (options: Options<AccountRatedMoviesData>) => createQueryKey('accountRatedMovies', options);
 
 /**
  * Rated Movies
@@ -323,38 +313,36 @@ export const accountRatedMoviesOptions = (options: Options<AccountRatedMoviesDat
     queryKey: accountRatedMoviesQueryKey(options)
 });
 
-export const accountRatedMoviesInfiniteQueryKey = (options: Options<AccountRatedMoviesData>): QueryKey<Options<AccountRatedMoviesData>> => createQueryKey("accountRatedMovies", options, true);
+export const accountRatedMoviesInfiniteQueryKey = (options: Options<AccountRatedMoviesData>): QueryKey<Options<AccountRatedMoviesData>> => createQueryKey('accountRatedMovies', options, true);
 
 /**
  * Rated Movies
  *
  * Get a users list of rated movies.
  */
-export const accountRatedMoviesInfiniteOptions = (options: Options<AccountRatedMoviesData>) => {
-    return infiniteQueryOptions<AccountRatedMoviesResponse, DefaultError, InfiniteData<AccountRatedMoviesResponse>, QueryKey<Options<AccountRatedMoviesData>>, number | Pick<QueryKey<Options<AccountRatedMoviesData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<AccountRatedMoviesData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await accountRatedMovies({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: accountRatedMoviesInfiniteQueryKey(options)
-    });
-};
+export const accountRatedMoviesInfiniteOptions = (options: Options<AccountRatedMoviesData>) => infiniteQueryOptions<AccountRatedMoviesResponse, DefaultError, InfiniteData<AccountRatedMoviesResponse>, QueryKey<Options<AccountRatedMoviesData>>, number | Pick<QueryKey<Options<AccountRatedMoviesData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<AccountRatedMoviesData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await accountRatedMovies({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: accountRatedMoviesInfiniteQueryKey(options)
+});
 
-export const accountRatedTvQueryKey = (options: Options<AccountRatedTvData>) => createQueryKey("accountRatedTv", options);
+export const accountRatedTvQueryKey = (options: Options<AccountRatedTvData>) => createQueryKey('accountRatedTv', options);
 
 /**
  * Rated TV
@@ -374,38 +362,36 @@ export const accountRatedTvOptions = (options: Options<AccountRatedTvData>) => q
     queryKey: accountRatedTvQueryKey(options)
 });
 
-export const accountRatedTvInfiniteQueryKey = (options: Options<AccountRatedTvData>): QueryKey<Options<AccountRatedTvData>> => createQueryKey("accountRatedTv", options, true);
+export const accountRatedTvInfiniteQueryKey = (options: Options<AccountRatedTvData>): QueryKey<Options<AccountRatedTvData>> => createQueryKey('accountRatedTv', options, true);
 
 /**
  * Rated TV
  *
  * Get a users list of rated TV shows.
  */
-export const accountRatedTvInfiniteOptions = (options: Options<AccountRatedTvData>) => {
-    return infiniteQueryOptions<AccountRatedTvResponse, DefaultError, InfiniteData<AccountRatedTvResponse>, QueryKey<Options<AccountRatedTvData>>, number | Pick<QueryKey<Options<AccountRatedTvData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<AccountRatedTvData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await accountRatedTv({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: accountRatedTvInfiniteQueryKey(options)
-    });
-};
+export const accountRatedTvInfiniteOptions = (options: Options<AccountRatedTvData>) => infiniteQueryOptions<AccountRatedTvResponse, DefaultError, InfiniteData<AccountRatedTvResponse>, QueryKey<Options<AccountRatedTvData>>, number | Pick<QueryKey<Options<AccountRatedTvData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<AccountRatedTvData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await accountRatedTv({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: accountRatedTvInfiniteQueryKey(options)
+});
 
-export const accountRatedTvEpisodesQueryKey = (options: Options<AccountRatedTvEpisodesData>) => createQueryKey("accountRatedTvEpisodes", options);
+export const accountRatedTvEpisodesQueryKey = (options: Options<AccountRatedTvEpisodesData>) => createQueryKey('accountRatedTvEpisodes', options);
 
 /**
  * Rated TV Episodes
@@ -425,38 +411,36 @@ export const accountRatedTvEpisodesOptions = (options: Options<AccountRatedTvEpi
     queryKey: accountRatedTvEpisodesQueryKey(options)
 });
 
-export const accountRatedTvEpisodesInfiniteQueryKey = (options: Options<AccountRatedTvEpisodesData>): QueryKey<Options<AccountRatedTvEpisodesData>> => createQueryKey("accountRatedTvEpisodes", options, true);
+export const accountRatedTvEpisodesInfiniteQueryKey = (options: Options<AccountRatedTvEpisodesData>): QueryKey<Options<AccountRatedTvEpisodesData>> => createQueryKey('accountRatedTvEpisodes', options, true);
 
 /**
  * Rated TV Episodes
  *
  * Get a users list of rated TV episodes.
  */
-export const accountRatedTvEpisodesInfiniteOptions = (options: Options<AccountRatedTvEpisodesData>) => {
-    return infiniteQueryOptions<AccountRatedTvEpisodesResponse, DefaultError, InfiniteData<AccountRatedTvEpisodesResponse>, QueryKey<Options<AccountRatedTvEpisodesData>>, number | Pick<QueryKey<Options<AccountRatedTvEpisodesData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<AccountRatedTvEpisodesData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await accountRatedTvEpisodes({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: accountRatedTvEpisodesInfiniteQueryKey(options)
-    });
-};
+export const accountRatedTvEpisodesInfiniteOptions = (options: Options<AccountRatedTvEpisodesData>) => infiniteQueryOptions<AccountRatedTvEpisodesResponse, DefaultError, InfiniteData<AccountRatedTvEpisodesResponse>, QueryKey<Options<AccountRatedTvEpisodesData>>, number | Pick<QueryKey<Options<AccountRatedTvEpisodesData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<AccountRatedTvEpisodesData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await accountRatedTvEpisodes({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: accountRatedTvEpisodesInfiniteQueryKey(options)
+});
 
-export const accountWatchlistMoviesQueryKey = (options: Options<AccountWatchlistMoviesData>) => createQueryKey("accountWatchlistMovies", options);
+export const accountWatchlistMoviesQueryKey = (options: Options<AccountWatchlistMoviesData>) => createQueryKey('accountWatchlistMovies', options);
 
 /**
  * Watchlist Movies
@@ -476,38 +460,36 @@ export const accountWatchlistMoviesOptions = (options: Options<AccountWatchlistM
     queryKey: accountWatchlistMoviesQueryKey(options)
 });
 
-export const accountWatchlistMoviesInfiniteQueryKey = (options: Options<AccountWatchlistMoviesData>): QueryKey<Options<AccountWatchlistMoviesData>> => createQueryKey("accountWatchlistMovies", options, true);
+export const accountWatchlistMoviesInfiniteQueryKey = (options: Options<AccountWatchlistMoviesData>): QueryKey<Options<AccountWatchlistMoviesData>> => createQueryKey('accountWatchlistMovies', options, true);
 
 /**
  * Watchlist Movies
  *
  * Get a list of movies added to a users watchlist.
  */
-export const accountWatchlistMoviesInfiniteOptions = (options: Options<AccountWatchlistMoviesData>) => {
-    return infiniteQueryOptions<AccountWatchlistMoviesResponse, DefaultError, InfiniteData<AccountWatchlistMoviesResponse>, QueryKey<Options<AccountWatchlistMoviesData>>, number | Pick<QueryKey<Options<AccountWatchlistMoviesData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<AccountWatchlistMoviesData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await accountWatchlistMovies({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: accountWatchlistMoviesInfiniteQueryKey(options)
-    });
-};
+export const accountWatchlistMoviesInfiniteOptions = (options: Options<AccountWatchlistMoviesData>) => infiniteQueryOptions<AccountWatchlistMoviesResponse, DefaultError, InfiniteData<AccountWatchlistMoviesResponse>, QueryKey<Options<AccountWatchlistMoviesData>>, number | Pick<QueryKey<Options<AccountWatchlistMoviesData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<AccountWatchlistMoviesData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await accountWatchlistMovies({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: accountWatchlistMoviesInfiniteQueryKey(options)
+});
 
-export const accountWatchlistTvQueryKey = (options: Options<AccountWatchlistTvData>) => createQueryKey("accountWatchlistTv", options);
+export const accountWatchlistTvQueryKey = (options: Options<AccountWatchlistTvData>) => createQueryKey('accountWatchlistTv', options);
 
 /**
  * Watchlist TV
@@ -527,38 +509,36 @@ export const accountWatchlistTvOptions = (options: Options<AccountWatchlistTvDat
     queryKey: accountWatchlistTvQueryKey(options)
 });
 
-export const accountWatchlistTvInfiniteQueryKey = (options: Options<AccountWatchlistTvData>): QueryKey<Options<AccountWatchlistTvData>> => createQueryKey("accountWatchlistTv", options, true);
+export const accountWatchlistTvInfiniteQueryKey = (options: Options<AccountWatchlistTvData>): QueryKey<Options<AccountWatchlistTvData>> => createQueryKey('accountWatchlistTv', options, true);
 
 /**
  * Watchlist TV
  *
  * Get a list of TV shows added to a users watchlist.
  */
-export const accountWatchlistTvInfiniteOptions = (options: Options<AccountWatchlistTvData>) => {
-    return infiniteQueryOptions<AccountWatchlistTvResponse, DefaultError, InfiniteData<AccountWatchlistTvResponse>, QueryKey<Options<AccountWatchlistTvData>>, number | Pick<QueryKey<Options<AccountWatchlistTvData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<AccountWatchlistTvData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await accountWatchlistTv({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: accountWatchlistTvInfiniteQueryKey(options)
-    });
-};
+export const accountWatchlistTvInfiniteOptions = (options: Options<AccountWatchlistTvData>) => infiniteQueryOptions<AccountWatchlistTvResponse, DefaultError, InfiniteData<AccountWatchlistTvResponse>, QueryKey<Options<AccountWatchlistTvData>>, number | Pick<QueryKey<Options<AccountWatchlistTvData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<AccountWatchlistTvData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await accountWatchlistTv({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: accountWatchlistTvInfiniteQueryKey(options)
+});
 
-export const authenticationCreateGuestSessionQueryKey = (options?: Options<AuthenticationCreateGuestSessionData>) => createQueryKey("authenticationCreateGuestSession", options);
+export const authenticationCreateGuestSessionQueryKey = (options?: Options<AuthenticationCreateGuestSessionData>) => createQueryKey('authenticationCreateGuestSession', options);
 
 /**
  * Create Guest Session
@@ -576,7 +556,7 @@ export const authenticationCreateGuestSessionOptions = (options?: Options<Authen
     queryKey: authenticationCreateGuestSessionQueryKey(options)
 });
 
-export const authenticationCreateRequestTokenQueryKey = (options?: Options<AuthenticationCreateRequestTokenData>) => createQueryKey("authenticationCreateRequestToken", options);
+export const authenticationCreateRequestTokenQueryKey = (options?: Options<AuthenticationCreateRequestTokenData>) => createQueryKey('authenticationCreateRequestToken', options);
 
 /**
  * Create Request Token
@@ -664,7 +644,7 @@ export const authenticationDeleteSessionMutation = (options?: Partial<Options<Au
     return mutationOptions;
 };
 
-export const certificationMovieListQueryKey = (options?: Options<CertificationMovieListData>) => createQueryKey("certificationMovieList", options);
+export const certificationMovieListQueryKey = (options?: Options<CertificationMovieListData>) => createQueryKey('certificationMovieList', options);
 
 /**
  * Movie Certifications
@@ -684,7 +664,7 @@ export const certificationMovieListOptions = (options?: Options<CertificationMov
     queryKey: certificationMovieListQueryKey(options)
 });
 
-export const certificationsTvListQueryKey = (options?: Options<CertificationsTvListData>) => createQueryKey("certificationsTvList", options);
+export const certificationsTvListQueryKey = (options?: Options<CertificationsTvListData>) => createQueryKey('certificationsTvList', options);
 
 /**
  * TV Certifications
@@ -702,7 +682,7 @@ export const certificationsTvListOptions = (options?: Options<CertificationsTvLi
     queryKey: certificationsTvListQueryKey(options)
 });
 
-export const changesMovieListQueryKey = (options?: Options<ChangesMovieListData>) => createQueryKey("changesMovieList", options);
+export const changesMovieListQueryKey = (options?: Options<ChangesMovieListData>) => createQueryKey('changesMovieList', options);
 
 /**
  * Movie List
@@ -722,38 +702,36 @@ export const changesMovieListOptions = (options?: Options<ChangesMovieListData>)
     queryKey: changesMovieListQueryKey(options)
 });
 
-export const changesMovieListInfiniteQueryKey = (options?: Options<ChangesMovieListData>): QueryKey<Options<ChangesMovieListData>> => createQueryKey("changesMovieList", options, true);
+export const changesMovieListInfiniteQueryKey = (options?: Options<ChangesMovieListData>): QueryKey<Options<ChangesMovieListData>> => createQueryKey('changesMovieList', options, true);
 
 /**
  * Movie List
  *
  * Get a list of all of the movie ids that have been changed in the past 24 hours.
  */
-export const changesMovieListInfiniteOptions = (options?: Options<ChangesMovieListData>) => {
-    return infiniteQueryOptions<ChangesMovieListResponse, DefaultError, InfiniteData<ChangesMovieListResponse>, QueryKey<Options<ChangesMovieListData>>, number | Pick<QueryKey<Options<ChangesMovieListData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<ChangesMovieListData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await changesMovieList({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: changesMovieListInfiniteQueryKey(options)
-    });
-};
+export const changesMovieListInfiniteOptions = (options?: Options<ChangesMovieListData>) => infiniteQueryOptions<ChangesMovieListResponse, DefaultError, InfiniteData<ChangesMovieListResponse>, QueryKey<Options<ChangesMovieListData>>, number | Pick<QueryKey<Options<ChangesMovieListData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<ChangesMovieListData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await changesMovieList({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: changesMovieListInfiniteQueryKey(options)
+});
 
-export const changesPeopleListQueryKey = (options?: Options<ChangesPeopleListData>) => createQueryKey("changesPeopleList", options);
+export const changesPeopleListQueryKey = (options?: Options<ChangesPeopleListData>) => createQueryKey('changesPeopleList', options);
 
 /**
  * People List
@@ -771,36 +749,34 @@ export const changesPeopleListOptions = (options?: Options<ChangesPeopleListData
     queryKey: changesPeopleListQueryKey(options)
 });
 
-export const changesPeopleListInfiniteQueryKey = (options?: Options<ChangesPeopleListData>): QueryKey<Options<ChangesPeopleListData>> => createQueryKey("changesPeopleList", options, true);
+export const changesPeopleListInfiniteQueryKey = (options?: Options<ChangesPeopleListData>): QueryKey<Options<ChangesPeopleListData>> => createQueryKey('changesPeopleList', options, true);
 
 /**
  * People List
  */
-export const changesPeopleListInfiniteOptions = (options?: Options<ChangesPeopleListData>) => {
-    return infiniteQueryOptions<ChangesPeopleListResponse, DefaultError, InfiniteData<ChangesPeopleListResponse>, QueryKey<Options<ChangesPeopleListData>>, number | Pick<QueryKey<Options<ChangesPeopleListData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<ChangesPeopleListData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await changesPeopleList({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: changesPeopleListInfiniteQueryKey(options)
-    });
-};
+export const changesPeopleListInfiniteOptions = (options?: Options<ChangesPeopleListData>) => infiniteQueryOptions<ChangesPeopleListResponse, DefaultError, InfiniteData<ChangesPeopleListResponse>, QueryKey<Options<ChangesPeopleListData>>, number | Pick<QueryKey<Options<ChangesPeopleListData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<ChangesPeopleListData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await changesPeopleList({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: changesPeopleListInfiniteQueryKey(options)
+});
 
-export const changesTvListQueryKey = (options?: Options<ChangesTvListData>) => createQueryKey("changesTvList", options);
+export const changesTvListQueryKey = (options?: Options<ChangesTvListData>) => createQueryKey('changesTvList', options);
 
 /**
  * TV List
@@ -818,36 +794,34 @@ export const changesTvListOptions = (options?: Options<ChangesTvListData>) => qu
     queryKey: changesTvListQueryKey(options)
 });
 
-export const changesTvListInfiniteQueryKey = (options?: Options<ChangesTvListData>): QueryKey<Options<ChangesTvListData>> => createQueryKey("changesTvList", options, true);
+export const changesTvListInfiniteQueryKey = (options?: Options<ChangesTvListData>): QueryKey<Options<ChangesTvListData>> => createQueryKey('changesTvList', options, true);
 
 /**
  * TV List
  */
-export const changesTvListInfiniteOptions = (options?: Options<ChangesTvListData>) => {
-    return infiniteQueryOptions<ChangesTvListResponse, DefaultError, InfiniteData<ChangesTvListResponse>, QueryKey<Options<ChangesTvListData>>, number | Pick<QueryKey<Options<ChangesTvListData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<ChangesTvListData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await changesTvList({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: changesTvListInfiniteQueryKey(options)
-    });
-};
+export const changesTvListInfiniteOptions = (options?: Options<ChangesTvListData>) => infiniteQueryOptions<ChangesTvListResponse, DefaultError, InfiniteData<ChangesTvListResponse>, QueryKey<Options<ChangesTvListData>>, number | Pick<QueryKey<Options<ChangesTvListData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<ChangesTvListData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await changesTvList({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: changesTvListInfiniteQueryKey(options)
+});
 
-export const collectionDetailsQueryKey = (options: Options<CollectionDetailsData>) => createQueryKey("collectionDetails", options);
+export const collectionDetailsQueryKey = (options: Options<CollectionDetailsData>) => createQueryKey('collectionDetails', options);
 
 /**
  * Details
@@ -867,7 +841,7 @@ export const collectionDetailsOptions = (options: Options<CollectionDetailsData>
     queryKey: collectionDetailsQueryKey(options)
 });
 
-export const collectionImagesQueryKey = (options: Options<CollectionImagesData>) => createQueryKey("collectionImages", options);
+export const collectionImagesQueryKey = (options: Options<CollectionImagesData>) => createQueryKey('collectionImages', options);
 
 /**
  * Images
@@ -887,7 +861,7 @@ export const collectionImagesOptions = (options: Options<CollectionImagesData>) 
     queryKey: collectionImagesQueryKey(options)
 });
 
-export const collectionTranslationsQueryKey = (options: Options<CollectionTranslationsData>) => createQueryKey("collectionTranslations", options);
+export const collectionTranslationsQueryKey = (options: Options<CollectionTranslationsData>) => createQueryKey('collectionTranslations', options);
 
 /**
  * Translations
@@ -905,7 +879,7 @@ export const collectionTranslationsOptions = (options: Options<CollectionTransla
     queryKey: collectionTranslationsQueryKey(options)
 });
 
-export const companyDetailsQueryKey = (options: Options<CompanyDetailsData>) => createQueryKey("companyDetails", options);
+export const companyDetailsQueryKey = (options: Options<CompanyDetailsData>) => createQueryKey('companyDetails', options);
 
 /**
  * Details
@@ -925,7 +899,7 @@ export const companyDetailsOptions = (options: Options<CompanyDetailsData>) => q
     queryKey: companyDetailsQueryKey(options)
 });
 
-export const companyAlternativeNamesQueryKey = (options: Options<CompanyAlternativeNamesData>) => createQueryKey("companyAlternativeNames", options);
+export const companyAlternativeNamesQueryKey = (options: Options<CompanyAlternativeNamesData>) => createQueryKey('companyAlternativeNames', options);
 
 /**
  * Alternative Names
@@ -945,7 +919,7 @@ export const companyAlternativeNamesOptions = (options: Options<CompanyAlternati
     queryKey: companyAlternativeNamesQueryKey(options)
 });
 
-export const companyImagesQueryKey = (options: Options<CompanyImagesData>) => createQueryKey("companyImages", options);
+export const companyImagesQueryKey = (options: Options<CompanyImagesData>) => createQueryKey('companyImages', options);
 
 /**
  * Images
@@ -965,7 +939,7 @@ export const companyImagesOptions = (options: Options<CompanyImagesData>) => que
     queryKey: companyImagesQueryKey(options)
 });
 
-export const configurationDetailsQueryKey = (options?: Options<ConfigurationDetailsData>) => createQueryKey("configurationDetails", options);
+export const configurationDetailsQueryKey = (options?: Options<ConfigurationDetailsData>) => createQueryKey('configurationDetails', options);
 
 /**
  * Details
@@ -985,7 +959,7 @@ export const configurationDetailsOptions = (options?: Options<ConfigurationDetai
     queryKey: configurationDetailsQueryKey(options)
 });
 
-export const configurationCountriesQueryKey = (options?: Options<ConfigurationCountriesData>) => createQueryKey("configurationCountries", options);
+export const configurationCountriesQueryKey = (options?: Options<ConfigurationCountriesData>) => createQueryKey('configurationCountries', options);
 
 /**
  * Countries
@@ -1005,7 +979,7 @@ export const configurationCountriesOptions = (options?: Options<ConfigurationCou
     queryKey: configurationCountriesQueryKey(options)
 });
 
-export const configurationJobsQueryKey = (options?: Options<ConfigurationJobsData>) => createQueryKey("configurationJobs", options);
+export const configurationJobsQueryKey = (options?: Options<ConfigurationJobsData>) => createQueryKey('configurationJobs', options);
 
 /**
  * Jobs
@@ -1025,7 +999,7 @@ export const configurationJobsOptions = (options?: Options<ConfigurationJobsData
     queryKey: configurationJobsQueryKey(options)
 });
 
-export const configurationLanguagesQueryKey = (options?: Options<ConfigurationLanguagesData>) => createQueryKey("configurationLanguages", options);
+export const configurationLanguagesQueryKey = (options?: Options<ConfigurationLanguagesData>) => createQueryKey('configurationLanguages', options);
 
 /**
  * Languages
@@ -1045,7 +1019,7 @@ export const configurationLanguagesOptions = (options?: Options<ConfigurationLan
     queryKey: configurationLanguagesQueryKey(options)
 });
 
-export const configurationPrimaryTranslationsQueryKey = (options?: Options<ConfigurationPrimaryTranslationsData>) => createQueryKey("configurationPrimaryTranslations", options);
+export const configurationPrimaryTranslationsQueryKey = (options?: Options<ConfigurationPrimaryTranslationsData>) => createQueryKey('configurationPrimaryTranslations', options);
 
 /**
  * Primary Translations
@@ -1065,7 +1039,7 @@ export const configurationPrimaryTranslationsOptions = (options?: Options<Config
     queryKey: configurationPrimaryTranslationsQueryKey(options)
 });
 
-export const configurationTimezonesQueryKey = (options?: Options<ConfigurationTimezonesData>) => createQueryKey("configurationTimezones", options);
+export const configurationTimezonesQueryKey = (options?: Options<ConfigurationTimezonesData>) => createQueryKey('configurationTimezones', options);
 
 /**
  * Timezones
@@ -1085,7 +1059,7 @@ export const configurationTimezonesOptions = (options?: Options<ConfigurationTim
     queryKey: configurationTimezonesQueryKey(options)
 });
 
-export const creditDetailsQueryKey = (options: Options<CreditDetailsData>) => createQueryKey("creditDetails", options);
+export const creditDetailsQueryKey = (options: Options<CreditDetailsData>) => createQueryKey('creditDetails', options);
 
 /**
  * Details
@@ -1105,7 +1079,7 @@ export const creditDetailsOptions = (options: Options<CreditDetailsData>) => que
     queryKey: creditDetailsQueryKey(options)
 });
 
-export const discoverMovieQueryKey = (options?: Options<DiscoverMovieData>) => createQueryKey("discoverMovie", options);
+export const discoverMovieQueryKey = (options?: Options<DiscoverMovieData>) => createQueryKey('discoverMovie', options);
 
 /**
  * Movie
@@ -1125,38 +1099,36 @@ export const discoverMovieOptions = (options?: Options<DiscoverMovieData>) => qu
     queryKey: discoverMovieQueryKey(options)
 });
 
-export const discoverMovieInfiniteQueryKey = (options?: Options<DiscoverMovieData>): QueryKey<Options<DiscoverMovieData>> => createQueryKey("discoverMovie", options, true);
+export const discoverMovieInfiniteQueryKey = (options?: Options<DiscoverMovieData>): QueryKey<Options<DiscoverMovieData>> => createQueryKey('discoverMovie', options, true);
 
 /**
  * Movie
  *
  * Find movies using over 30 filters and sort options.
  */
-export const discoverMovieInfiniteOptions = (options?: Options<DiscoverMovieData>) => {
-    return infiniteQueryOptions<DiscoverMovieResponse, DefaultError, InfiniteData<DiscoverMovieResponse>, QueryKey<Options<DiscoverMovieData>>, number | Pick<QueryKey<Options<DiscoverMovieData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<DiscoverMovieData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await discoverMovie({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: discoverMovieInfiniteQueryKey(options)
-    });
-};
+export const discoverMovieInfiniteOptions = (options?: Options<DiscoverMovieData>) => infiniteQueryOptions<DiscoverMovieResponse, DefaultError, InfiniteData<DiscoverMovieResponse>, QueryKey<Options<DiscoverMovieData>>, number | Pick<QueryKey<Options<DiscoverMovieData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<DiscoverMovieData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await discoverMovie({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: discoverMovieInfiniteQueryKey(options)
+});
 
-export const discoverTvQueryKey = (options?: Options<DiscoverTvData>) => createQueryKey("discoverTv", options);
+export const discoverTvQueryKey = (options?: Options<DiscoverTvData>) => createQueryKey('discoverTv', options);
 
 /**
  * TV
@@ -1176,38 +1148,36 @@ export const discoverTvOptions = (options?: Options<DiscoverTvData>) => queryOpt
     queryKey: discoverTvQueryKey(options)
 });
 
-export const discoverTvInfiniteQueryKey = (options?: Options<DiscoverTvData>): QueryKey<Options<DiscoverTvData>> => createQueryKey("discoverTv", options, true);
+export const discoverTvInfiniteQueryKey = (options?: Options<DiscoverTvData>): QueryKey<Options<DiscoverTvData>> => createQueryKey('discoverTv', options, true);
 
 /**
  * TV
  *
  * Find TV shows using over 30 filters and sort options.
  */
-export const discoverTvInfiniteOptions = (options?: Options<DiscoverTvData>) => {
-    return infiniteQueryOptions<DiscoverTvResponse, DefaultError, InfiniteData<DiscoverTvResponse>, QueryKey<Options<DiscoverTvData>>, number | Pick<QueryKey<Options<DiscoverTvData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<DiscoverTvData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await discoverTv({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: discoverTvInfiniteQueryKey(options)
-    });
-};
+export const discoverTvInfiniteOptions = (options?: Options<DiscoverTvData>) => infiniteQueryOptions<DiscoverTvResponse, DefaultError, InfiniteData<DiscoverTvResponse>, QueryKey<Options<DiscoverTvData>>, number | Pick<QueryKey<Options<DiscoverTvData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<DiscoverTvData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await discoverTv({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: discoverTvInfiniteQueryKey(options)
+});
 
-export const findByIdQueryKey = (options: Options<FindByIdData>) => createQueryKey("findById", options);
+export const findByIdQueryKey = (options: Options<FindByIdData>) => createQueryKey('findById', options);
 
 /**
  * Find By ID
@@ -1227,7 +1197,7 @@ export const findByIdOptions = (options: Options<FindByIdData>) => queryOptions<
     queryKey: findByIdQueryKey(options)
 });
 
-export const genreMovieListQueryKey = (options?: Options<GenreMovieListData>) => createQueryKey("genreMovieList", options);
+export const genreMovieListQueryKey = (options?: Options<GenreMovieListData>) => createQueryKey('genreMovieList', options);
 
 /**
  * Movie List
@@ -1247,7 +1217,7 @@ export const genreMovieListOptions = (options?: Options<GenreMovieListData>) => 
     queryKey: genreMovieListQueryKey(options)
 });
 
-export const genreTvListQueryKey = (options?: Options<GenreTvListData>) => createQueryKey("genreTvList", options);
+export const genreTvListQueryKey = (options?: Options<GenreTvListData>) => createQueryKey('genreTvList', options);
 
 /**
  * TV List
@@ -1267,7 +1237,7 @@ export const genreTvListOptions = (options?: Options<GenreTvListData>) => queryO
     queryKey: genreTvListQueryKey(options)
 });
 
-export const guestSessionRatedMoviesQueryKey = (options: Options<GuestSessionRatedMoviesData>) => createQueryKey("guestSessionRatedMovies", options);
+export const guestSessionRatedMoviesQueryKey = (options: Options<GuestSessionRatedMoviesData>) => createQueryKey('guestSessionRatedMovies', options);
 
 /**
  * Rated Movies
@@ -1287,38 +1257,36 @@ export const guestSessionRatedMoviesOptions = (options: Options<GuestSessionRate
     queryKey: guestSessionRatedMoviesQueryKey(options)
 });
 
-export const guestSessionRatedMoviesInfiniteQueryKey = (options: Options<GuestSessionRatedMoviesData>): QueryKey<Options<GuestSessionRatedMoviesData>> => createQueryKey("guestSessionRatedMovies", options, true);
+export const guestSessionRatedMoviesInfiniteQueryKey = (options: Options<GuestSessionRatedMoviesData>): QueryKey<Options<GuestSessionRatedMoviesData>> => createQueryKey('guestSessionRatedMovies', options, true);
 
 /**
  * Rated Movies
  *
  * Get the rated movies for a guest session.
  */
-export const guestSessionRatedMoviesInfiniteOptions = (options: Options<GuestSessionRatedMoviesData>) => {
-    return infiniteQueryOptions<GuestSessionRatedMoviesResponse, DefaultError, InfiniteData<GuestSessionRatedMoviesResponse>, QueryKey<Options<GuestSessionRatedMoviesData>>, number | Pick<QueryKey<Options<GuestSessionRatedMoviesData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<GuestSessionRatedMoviesData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await guestSessionRatedMovies({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: guestSessionRatedMoviesInfiniteQueryKey(options)
-    });
-};
+export const guestSessionRatedMoviesInfiniteOptions = (options: Options<GuestSessionRatedMoviesData>) => infiniteQueryOptions<GuestSessionRatedMoviesResponse, DefaultError, InfiniteData<GuestSessionRatedMoviesResponse>, QueryKey<Options<GuestSessionRatedMoviesData>>, number | Pick<QueryKey<Options<GuestSessionRatedMoviesData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<GuestSessionRatedMoviesData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await guestSessionRatedMovies({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: guestSessionRatedMoviesInfiniteQueryKey(options)
+});
 
-export const guestSessionRatedTvQueryKey = (options: Options<GuestSessionRatedTvData>) => createQueryKey("guestSessionRatedTv", options);
+export const guestSessionRatedTvQueryKey = (options: Options<GuestSessionRatedTvData>) => createQueryKey('guestSessionRatedTv', options);
 
 /**
  * Rated TV
@@ -1338,38 +1306,36 @@ export const guestSessionRatedTvOptions = (options: Options<GuestSessionRatedTvD
     queryKey: guestSessionRatedTvQueryKey(options)
 });
 
-export const guestSessionRatedTvInfiniteQueryKey = (options: Options<GuestSessionRatedTvData>): QueryKey<Options<GuestSessionRatedTvData>> => createQueryKey("guestSessionRatedTv", options, true);
+export const guestSessionRatedTvInfiniteQueryKey = (options: Options<GuestSessionRatedTvData>): QueryKey<Options<GuestSessionRatedTvData>> => createQueryKey('guestSessionRatedTv', options, true);
 
 /**
  * Rated TV
  *
  * Get the rated TV shows for a guest session.
  */
-export const guestSessionRatedTvInfiniteOptions = (options: Options<GuestSessionRatedTvData>) => {
-    return infiniteQueryOptions<GuestSessionRatedTvResponse, DefaultError, InfiniteData<GuestSessionRatedTvResponse>, QueryKey<Options<GuestSessionRatedTvData>>, number | Pick<QueryKey<Options<GuestSessionRatedTvData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<GuestSessionRatedTvData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await guestSessionRatedTv({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: guestSessionRatedTvInfiniteQueryKey(options)
-    });
-};
+export const guestSessionRatedTvInfiniteOptions = (options: Options<GuestSessionRatedTvData>) => infiniteQueryOptions<GuestSessionRatedTvResponse, DefaultError, InfiniteData<GuestSessionRatedTvResponse>, QueryKey<Options<GuestSessionRatedTvData>>, number | Pick<QueryKey<Options<GuestSessionRatedTvData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<GuestSessionRatedTvData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await guestSessionRatedTv({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: guestSessionRatedTvInfiniteQueryKey(options)
+});
 
-export const guestSessionRatedTvEpisodesQueryKey = (options: Options<GuestSessionRatedTvEpisodesData>) => createQueryKey("guestSessionRatedTvEpisodes", options);
+export const guestSessionRatedTvEpisodesQueryKey = (options: Options<GuestSessionRatedTvEpisodesData>) => createQueryKey('guestSessionRatedTvEpisodes', options);
 
 /**
  * Rated TV Episodes
@@ -1389,38 +1355,36 @@ export const guestSessionRatedTvEpisodesOptions = (options: Options<GuestSession
     queryKey: guestSessionRatedTvEpisodesQueryKey(options)
 });
 
-export const guestSessionRatedTvEpisodesInfiniteQueryKey = (options: Options<GuestSessionRatedTvEpisodesData>): QueryKey<Options<GuestSessionRatedTvEpisodesData>> => createQueryKey("guestSessionRatedTvEpisodes", options, true);
+export const guestSessionRatedTvEpisodesInfiniteQueryKey = (options: Options<GuestSessionRatedTvEpisodesData>): QueryKey<Options<GuestSessionRatedTvEpisodesData>> => createQueryKey('guestSessionRatedTvEpisodes', options, true);
 
 /**
  * Rated TV Episodes
  *
  * Get the rated TV episodes for a guest session.
  */
-export const guestSessionRatedTvEpisodesInfiniteOptions = (options: Options<GuestSessionRatedTvEpisodesData>) => {
-    return infiniteQueryOptions<GuestSessionRatedTvEpisodesResponse, DefaultError, InfiniteData<GuestSessionRatedTvEpisodesResponse>, QueryKey<Options<GuestSessionRatedTvEpisodesData>>, number | Pick<QueryKey<Options<GuestSessionRatedTvEpisodesData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<GuestSessionRatedTvEpisodesData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await guestSessionRatedTvEpisodes({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: guestSessionRatedTvEpisodesInfiniteQueryKey(options)
-    });
-};
+export const guestSessionRatedTvEpisodesInfiniteOptions = (options: Options<GuestSessionRatedTvEpisodesData>) => infiniteQueryOptions<GuestSessionRatedTvEpisodesResponse, DefaultError, InfiniteData<GuestSessionRatedTvEpisodesResponse>, QueryKey<Options<GuestSessionRatedTvEpisodesData>>, number | Pick<QueryKey<Options<GuestSessionRatedTvEpisodesData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<GuestSessionRatedTvEpisodesData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await guestSessionRatedTvEpisodes({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: guestSessionRatedTvEpisodesInfiniteQueryKey(options)
+});
 
-export const keywordDetailsQueryKey = (options: Options<KeywordDetailsData>) => createQueryKey("keywordDetails", options);
+export const keywordDetailsQueryKey = (options: Options<KeywordDetailsData>) => createQueryKey('keywordDetails', options);
 
 /**
  * Details
@@ -1438,7 +1402,7 @@ export const keywordDetailsOptions = (options: Options<KeywordDetailsData>) => q
     queryKey: keywordDetailsQueryKey(options)
 });
 
-export const keywordMoviesQueryKey = (options: Options<KeywordMoviesData>) => createQueryKey("keywordMovies", options);
+export const keywordMoviesQueryKey = (options: Options<KeywordMoviesData>) => createQueryKey('keywordMovies', options);
 
 /**
  * Movies
@@ -1456,34 +1420,32 @@ export const keywordMoviesOptions = (options: Options<KeywordMoviesData>) => que
     queryKey: keywordMoviesQueryKey(options)
 });
 
-export const keywordMoviesInfiniteQueryKey = (options: Options<KeywordMoviesData>): QueryKey<Options<KeywordMoviesData>> => createQueryKey("keywordMovies", options, true);
+export const keywordMoviesInfiniteQueryKey = (options: Options<KeywordMoviesData>): QueryKey<Options<KeywordMoviesData>> => createQueryKey('keywordMovies', options, true);
 
 /**
  * Movies
  */
-export const keywordMoviesInfiniteOptions = (options: Options<KeywordMoviesData>) => {
-    return infiniteQueryOptions<KeywordMoviesResponse, DefaultError, InfiniteData<KeywordMoviesResponse>, QueryKey<Options<KeywordMoviesData>>, number | Pick<QueryKey<Options<KeywordMoviesData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<KeywordMoviesData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await keywordMovies({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: keywordMoviesInfiniteQueryKey(options)
-    });
-};
+export const keywordMoviesInfiniteOptions = (options: Options<KeywordMoviesData>) => infiniteQueryOptions<KeywordMoviesResponse, DefaultError, InfiniteData<KeywordMoviesResponse>, QueryKey<Options<KeywordMoviesData>>, number | Pick<QueryKey<Options<KeywordMoviesData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<KeywordMoviesData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await keywordMovies({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: keywordMoviesInfiniteQueryKey(options)
+});
 
 /**
  * Add Movie
@@ -1504,7 +1466,7 @@ export const listAddMovieMutation = (options?: Partial<Options<ListAddMovieData>
     return mutationOptions;
 };
 
-export const listCheckItemStatusQueryKey = (options: Options<ListCheckItemStatusData>) => createQueryKey("listCheckItemStatus", options);
+export const listCheckItemStatusQueryKey = (options: Options<ListCheckItemStatusData>) => createQueryKey('listCheckItemStatus', options);
 
 /**
  * Check Item Status
@@ -1579,7 +1541,7 @@ export const listDeleteMutation = (options?: Partial<Options<ListDeleteData>>): 
     return mutationOptions;
 };
 
-export const listDetailsQueryKey = (options: Options<ListDetailsData>) => createQueryKey("listDetails", options);
+export const listDetailsQueryKey = (options: Options<ListDetailsData>) => createQueryKey('listDetails', options);
 
 /**
  * Details
@@ -1597,34 +1559,32 @@ export const listDetailsOptions = (options: Options<ListDetailsData>) => queryOp
     queryKey: listDetailsQueryKey(options)
 });
 
-export const listDetailsInfiniteQueryKey = (options: Options<ListDetailsData>): QueryKey<Options<ListDetailsData>> => createQueryKey("listDetails", options, true);
+export const listDetailsInfiniteQueryKey = (options: Options<ListDetailsData>): QueryKey<Options<ListDetailsData>> => createQueryKey('listDetails', options, true);
 
 /**
  * Details
  */
-export const listDetailsInfiniteOptions = (options: Options<ListDetailsData>) => {
-    return infiniteQueryOptions<ListDetailsResponse, DefaultError, InfiniteData<ListDetailsResponse>, QueryKey<Options<ListDetailsData>>, number | Pick<QueryKey<Options<ListDetailsData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<ListDetailsData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await listDetails({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: listDetailsInfiniteQueryKey(options)
-    });
-};
+export const listDetailsInfiniteOptions = (options: Options<ListDetailsData>) => infiniteQueryOptions<ListDetailsResponse, DefaultError, InfiniteData<ListDetailsResponse>, QueryKey<Options<ListDetailsData>>, number | Pick<QueryKey<Options<ListDetailsData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<ListDetailsData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await listDetails({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: listDetailsInfiniteQueryKey(options)
+});
 
 /**
  * Remove Movie
@@ -1645,7 +1605,7 @@ export const listRemoveMovieMutation = (options?: Partial<Options<ListRemoveMovi
     return mutationOptions;
 };
 
-export const movieNowPlayingListQueryKey = (options?: Options<MovieNowPlayingListData>) => createQueryKey("movieNowPlayingList", options);
+export const movieNowPlayingListQueryKey = (options?: Options<MovieNowPlayingListData>) => createQueryKey('movieNowPlayingList', options);
 
 /**
  * Now Playing
@@ -1665,38 +1625,36 @@ export const movieNowPlayingListOptions = (options?: Options<MovieNowPlayingList
     queryKey: movieNowPlayingListQueryKey(options)
 });
 
-export const movieNowPlayingListInfiniteQueryKey = (options?: Options<MovieNowPlayingListData>): QueryKey<Options<MovieNowPlayingListData>> => createQueryKey("movieNowPlayingList", options, true);
+export const movieNowPlayingListInfiniteQueryKey = (options?: Options<MovieNowPlayingListData>): QueryKey<Options<MovieNowPlayingListData>> => createQueryKey('movieNowPlayingList', options, true);
 
 /**
  * Now Playing
  *
  * Get a list of movies that are currently in theatres.
  */
-export const movieNowPlayingListInfiniteOptions = (options?: Options<MovieNowPlayingListData>) => {
-    return infiniteQueryOptions<MovieNowPlayingListResponse, DefaultError, InfiniteData<MovieNowPlayingListResponse>, QueryKey<Options<MovieNowPlayingListData>>, number | Pick<QueryKey<Options<MovieNowPlayingListData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<MovieNowPlayingListData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await movieNowPlayingList({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: movieNowPlayingListInfiniteQueryKey(options)
-    });
-};
+export const movieNowPlayingListInfiniteOptions = (options?: Options<MovieNowPlayingListData>) => infiniteQueryOptions<MovieNowPlayingListResponse, DefaultError, InfiniteData<MovieNowPlayingListResponse>, QueryKey<Options<MovieNowPlayingListData>>, number | Pick<QueryKey<Options<MovieNowPlayingListData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<MovieNowPlayingListData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await movieNowPlayingList({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: movieNowPlayingListInfiniteQueryKey(options)
+});
 
-export const moviePopularListQueryKey = (options?: Options<MoviePopularListData>) => createQueryKey("moviePopularList", options);
+export const moviePopularListQueryKey = (options?: Options<MoviePopularListData>) => createQueryKey('moviePopularList', options);
 
 /**
  * Popular
@@ -1716,38 +1674,36 @@ export const moviePopularListOptions = (options?: Options<MoviePopularListData>)
     queryKey: moviePopularListQueryKey(options)
 });
 
-export const moviePopularListInfiniteQueryKey = (options?: Options<MoviePopularListData>): QueryKey<Options<MoviePopularListData>> => createQueryKey("moviePopularList", options, true);
+export const moviePopularListInfiniteQueryKey = (options?: Options<MoviePopularListData>): QueryKey<Options<MoviePopularListData>> => createQueryKey('moviePopularList', options, true);
 
 /**
  * Popular
  *
  * Get a list of movies ordered by popularity.
  */
-export const moviePopularListInfiniteOptions = (options?: Options<MoviePopularListData>) => {
-    return infiniteQueryOptions<MoviePopularListResponse, DefaultError, InfiniteData<MoviePopularListResponse>, QueryKey<Options<MoviePopularListData>>, number | Pick<QueryKey<Options<MoviePopularListData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<MoviePopularListData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await moviePopularList({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: moviePopularListInfiniteQueryKey(options)
-    });
-};
+export const moviePopularListInfiniteOptions = (options?: Options<MoviePopularListData>) => infiniteQueryOptions<MoviePopularListResponse, DefaultError, InfiniteData<MoviePopularListResponse>, QueryKey<Options<MoviePopularListData>>, number | Pick<QueryKey<Options<MoviePopularListData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<MoviePopularListData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await moviePopularList({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: moviePopularListInfiniteQueryKey(options)
+});
 
-export const movieTopRatedListQueryKey = (options?: Options<MovieTopRatedListData>) => createQueryKey("movieTopRatedList", options);
+export const movieTopRatedListQueryKey = (options?: Options<MovieTopRatedListData>) => createQueryKey('movieTopRatedList', options);
 
 /**
  * Top Rated
@@ -1767,38 +1723,36 @@ export const movieTopRatedListOptions = (options?: Options<MovieTopRatedListData
     queryKey: movieTopRatedListQueryKey(options)
 });
 
-export const movieTopRatedListInfiniteQueryKey = (options?: Options<MovieTopRatedListData>): QueryKey<Options<MovieTopRatedListData>> => createQueryKey("movieTopRatedList", options, true);
+export const movieTopRatedListInfiniteQueryKey = (options?: Options<MovieTopRatedListData>): QueryKey<Options<MovieTopRatedListData>> => createQueryKey('movieTopRatedList', options, true);
 
 /**
  * Top Rated
  *
  * Get a list of movies ordered by rating.
  */
-export const movieTopRatedListInfiniteOptions = (options?: Options<MovieTopRatedListData>) => {
-    return infiniteQueryOptions<MovieTopRatedListResponse, DefaultError, InfiniteData<MovieTopRatedListResponse>, QueryKey<Options<MovieTopRatedListData>>, number | Pick<QueryKey<Options<MovieTopRatedListData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<MovieTopRatedListData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await movieTopRatedList({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: movieTopRatedListInfiniteQueryKey(options)
-    });
-};
+export const movieTopRatedListInfiniteOptions = (options?: Options<MovieTopRatedListData>) => infiniteQueryOptions<MovieTopRatedListResponse, DefaultError, InfiniteData<MovieTopRatedListResponse>, QueryKey<Options<MovieTopRatedListData>>, number | Pick<QueryKey<Options<MovieTopRatedListData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<MovieTopRatedListData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await movieTopRatedList({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: movieTopRatedListInfiniteQueryKey(options)
+});
 
-export const movieUpcomingListQueryKey = (options?: Options<MovieUpcomingListData>) => createQueryKey("movieUpcomingList", options);
+export const movieUpcomingListQueryKey = (options?: Options<MovieUpcomingListData>) => createQueryKey('movieUpcomingList', options);
 
 /**
  * Upcoming
@@ -1818,38 +1772,36 @@ export const movieUpcomingListOptions = (options?: Options<MovieUpcomingListData
     queryKey: movieUpcomingListQueryKey(options)
 });
 
-export const movieUpcomingListInfiniteQueryKey = (options?: Options<MovieUpcomingListData>): QueryKey<Options<MovieUpcomingListData>> => createQueryKey("movieUpcomingList", options, true);
+export const movieUpcomingListInfiniteQueryKey = (options?: Options<MovieUpcomingListData>): QueryKey<Options<MovieUpcomingListData>> => createQueryKey('movieUpcomingList', options, true);
 
 /**
  * Upcoming
  *
  * Get a list of movies that are being released soon.
  */
-export const movieUpcomingListInfiniteOptions = (options?: Options<MovieUpcomingListData>) => {
-    return infiniteQueryOptions<MovieUpcomingListResponse, DefaultError, InfiniteData<MovieUpcomingListResponse>, QueryKey<Options<MovieUpcomingListData>>, number | Pick<QueryKey<Options<MovieUpcomingListData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<MovieUpcomingListData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await movieUpcomingList({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: movieUpcomingListInfiniteQueryKey(options)
-    });
-};
+export const movieUpcomingListInfiniteOptions = (options?: Options<MovieUpcomingListData>) => infiniteQueryOptions<MovieUpcomingListResponse, DefaultError, InfiniteData<MovieUpcomingListResponse>, QueryKey<Options<MovieUpcomingListData>>, number | Pick<QueryKey<Options<MovieUpcomingListData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<MovieUpcomingListData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await movieUpcomingList({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: movieUpcomingListInfiniteQueryKey(options)
+});
 
-export const movieDetailsQueryKey = (options: Options<MovieDetailsData>) => createQueryKey("movieDetails", options);
+export const movieDetailsQueryKey = (options: Options<MovieDetailsData>) => createQueryKey('movieDetails', options);
 
 /**
  * Details
@@ -1869,7 +1821,7 @@ export const movieDetailsOptions = (options: Options<MovieDetailsData>) => query
     queryKey: movieDetailsQueryKey(options)
 });
 
-export const movieAccountStatesQueryKey = (options: Options<MovieAccountStatesData>) => createQueryKey("movieAccountStates", options);
+export const movieAccountStatesQueryKey = (options: Options<MovieAccountStatesData>) => createQueryKey('movieAccountStates', options);
 
 /**
  * Account States
@@ -1889,7 +1841,7 @@ export const movieAccountStatesOptions = (options: Options<MovieAccountStatesDat
     queryKey: movieAccountStatesQueryKey(options)
 });
 
-export const movieAlternativeTitlesQueryKey = (options: Options<MovieAlternativeTitlesData>) => createQueryKey("movieAlternativeTitles", options);
+export const movieAlternativeTitlesQueryKey = (options: Options<MovieAlternativeTitlesData>) => createQueryKey('movieAlternativeTitles', options);
 
 /**
  * Alternative Titles
@@ -1909,7 +1861,7 @@ export const movieAlternativeTitlesOptions = (options: Options<MovieAlternativeT
     queryKey: movieAlternativeTitlesQueryKey(options)
 });
 
-export const movieChangesQueryKey = (options: Options<MovieChangesData>) => createQueryKey("movieChanges", options);
+export const movieChangesQueryKey = (options: Options<MovieChangesData>) => createQueryKey('movieChanges', options);
 
 /**
  * Changes
@@ -1929,38 +1881,36 @@ export const movieChangesOptions = (options: Options<MovieChangesData>) => query
     queryKey: movieChangesQueryKey(options)
 });
 
-export const movieChangesInfiniteQueryKey = (options: Options<MovieChangesData>): QueryKey<Options<MovieChangesData>> => createQueryKey("movieChanges", options, true);
+export const movieChangesInfiniteQueryKey = (options: Options<MovieChangesData>): QueryKey<Options<MovieChangesData>> => createQueryKey('movieChanges', options, true);
 
 /**
  * Changes
  *
  * Get the recent changes for a movie.
  */
-export const movieChangesInfiniteOptions = (options: Options<MovieChangesData>) => {
-    return infiniteQueryOptions<MovieChangesResponse, DefaultError, InfiniteData<MovieChangesResponse>, QueryKey<Options<MovieChangesData>>, number | Pick<QueryKey<Options<MovieChangesData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<MovieChangesData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await movieChanges({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: movieChangesInfiniteQueryKey(options)
-    });
-};
+export const movieChangesInfiniteOptions = (options: Options<MovieChangesData>) => infiniteQueryOptions<MovieChangesResponse, DefaultError, InfiniteData<MovieChangesResponse>, QueryKey<Options<MovieChangesData>>, number | Pick<QueryKey<Options<MovieChangesData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<MovieChangesData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await movieChanges({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: movieChangesInfiniteQueryKey(options)
+});
 
-export const movieCreditsQueryKey = (options: Options<MovieCreditsData>) => createQueryKey("movieCredits", options);
+export const movieCreditsQueryKey = (options: Options<MovieCreditsData>) => createQueryKey('movieCredits', options);
 
 /**
  * Credits
@@ -1978,7 +1928,7 @@ export const movieCreditsOptions = (options: Options<MovieCreditsData>) => query
     queryKey: movieCreditsQueryKey(options)
 });
 
-export const movieExternalIdsQueryKey = (options: Options<MovieExternalIdsData>) => createQueryKey("movieExternalIds", options);
+export const movieExternalIdsQueryKey = (options: Options<MovieExternalIdsData>) => createQueryKey('movieExternalIds', options);
 
 /**
  * External IDs
@@ -1996,7 +1946,7 @@ export const movieExternalIdsOptions = (options: Options<MovieExternalIdsData>) 
     queryKey: movieExternalIdsQueryKey(options)
 });
 
-export const movieImagesQueryKey = (options: Options<MovieImagesData>) => createQueryKey("movieImages", options);
+export const movieImagesQueryKey = (options: Options<MovieImagesData>) => createQueryKey('movieImages', options);
 
 /**
  * Images
@@ -2016,7 +1966,7 @@ export const movieImagesOptions = (options: Options<MovieImagesData>) => queryOp
     queryKey: movieImagesQueryKey(options)
 });
 
-export const movieKeywordsQueryKey = (options: Options<MovieKeywordsData>) => createQueryKey("movieKeywords", options);
+export const movieKeywordsQueryKey = (options: Options<MovieKeywordsData>) => createQueryKey('movieKeywords', options);
 
 /**
  * Keywords
@@ -2034,7 +1984,7 @@ export const movieKeywordsOptions = (options: Options<MovieKeywordsData>) => que
     queryKey: movieKeywordsQueryKey(options)
 });
 
-export const movieLatestIdQueryKey = (options?: Options<MovieLatestIdData>) => createQueryKey("movieLatestId", options);
+export const movieLatestIdQueryKey = (options?: Options<MovieLatestIdData>) => createQueryKey('movieLatestId', options);
 
 /**
  * Latest
@@ -2054,7 +2004,7 @@ export const movieLatestIdOptions = (options?: Options<MovieLatestIdData>) => qu
     queryKey: movieLatestIdQueryKey(options)
 });
 
-export const movieListsQueryKey = (options: Options<MovieListsData>) => createQueryKey("movieLists", options);
+export const movieListsQueryKey = (options: Options<MovieListsData>) => createQueryKey('movieLists', options);
 
 /**
  * Lists
@@ -2074,38 +2024,36 @@ export const movieListsOptions = (options: Options<MovieListsData>) => queryOpti
     queryKey: movieListsQueryKey(options)
 });
 
-export const movieListsInfiniteQueryKey = (options: Options<MovieListsData>): QueryKey<Options<MovieListsData>> => createQueryKey("movieLists", options, true);
+export const movieListsInfiniteQueryKey = (options: Options<MovieListsData>): QueryKey<Options<MovieListsData>> => createQueryKey('movieLists', options, true);
 
 /**
  * Lists
  *
  * Get the lists that a movie has been added to.
  */
-export const movieListsInfiniteOptions = (options: Options<MovieListsData>) => {
-    return infiniteQueryOptions<MovieListsResponse, DefaultError, InfiniteData<MovieListsResponse>, QueryKey<Options<MovieListsData>>, number | Pick<QueryKey<Options<MovieListsData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<MovieListsData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await movieLists({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: movieListsInfiniteQueryKey(options)
-    });
-};
+export const movieListsInfiniteOptions = (options: Options<MovieListsData>) => infiniteQueryOptions<MovieListsResponse, DefaultError, InfiniteData<MovieListsResponse>, QueryKey<Options<MovieListsData>>, number | Pick<QueryKey<Options<MovieListsData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<MovieListsData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await movieLists({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: movieListsInfiniteQueryKey(options)
+});
 
-export const movieRecommendationsQueryKey = (options: Options<MovieRecommendationsData>) => createQueryKey("movieRecommendations", options);
+export const movieRecommendationsQueryKey = (options: Options<MovieRecommendationsData>) => createQueryKey('movieRecommendations', options);
 
 /**
  * Recommendations
@@ -2123,36 +2071,34 @@ export const movieRecommendationsOptions = (options: Options<MovieRecommendation
     queryKey: movieRecommendationsQueryKey(options)
 });
 
-export const movieRecommendationsInfiniteQueryKey = (options: Options<MovieRecommendationsData>): QueryKey<Options<MovieRecommendationsData>> => createQueryKey("movieRecommendations", options, true);
+export const movieRecommendationsInfiniteQueryKey = (options: Options<MovieRecommendationsData>): QueryKey<Options<MovieRecommendationsData>> => createQueryKey('movieRecommendations', options, true);
 
 /**
  * Recommendations
  */
-export const movieRecommendationsInfiniteOptions = (options: Options<MovieRecommendationsData>) => {
-    return infiniteQueryOptions<MovieRecommendationsResponse, DefaultError, InfiniteData<MovieRecommendationsResponse>, QueryKey<Options<MovieRecommendationsData>>, number | Pick<QueryKey<Options<MovieRecommendationsData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<MovieRecommendationsData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await movieRecommendations({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: movieRecommendationsInfiniteQueryKey(options)
-    });
-};
+export const movieRecommendationsInfiniteOptions = (options: Options<MovieRecommendationsData>) => infiniteQueryOptions<MovieRecommendationsResponse, DefaultError, InfiniteData<MovieRecommendationsResponse>, QueryKey<Options<MovieRecommendationsData>>, number | Pick<QueryKey<Options<MovieRecommendationsData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<MovieRecommendationsData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await movieRecommendations({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: movieRecommendationsInfiniteQueryKey(options)
+});
 
-export const movieReleaseDatesQueryKey = (options: Options<MovieReleaseDatesData>) => createQueryKey("movieReleaseDates", options);
+export const movieReleaseDatesQueryKey = (options: Options<MovieReleaseDatesData>) => createQueryKey('movieReleaseDates', options);
 
 /**
  * Release Dates
@@ -2172,7 +2118,7 @@ export const movieReleaseDatesOptions = (options: Options<MovieReleaseDatesData>
     queryKey: movieReleaseDatesQueryKey(options)
 });
 
-export const movieReviewsQueryKey = (options: Options<MovieReviewsData>) => createQueryKey("movieReviews", options);
+export const movieReviewsQueryKey = (options: Options<MovieReviewsData>) => createQueryKey('movieReviews', options);
 
 /**
  * Reviews
@@ -2192,38 +2138,36 @@ export const movieReviewsOptions = (options: Options<MovieReviewsData>) => query
     queryKey: movieReviewsQueryKey(options)
 });
 
-export const movieReviewsInfiniteQueryKey = (options: Options<MovieReviewsData>): QueryKey<Options<MovieReviewsData>> => createQueryKey("movieReviews", options, true);
+export const movieReviewsInfiniteQueryKey = (options: Options<MovieReviewsData>): QueryKey<Options<MovieReviewsData>> => createQueryKey('movieReviews', options, true);
 
 /**
  * Reviews
  *
  * Get the user reviews for a movie.
  */
-export const movieReviewsInfiniteOptions = (options: Options<MovieReviewsData>) => {
-    return infiniteQueryOptions<MovieReviewsResponse, DefaultError, InfiniteData<MovieReviewsResponse>, QueryKey<Options<MovieReviewsData>>, number | Pick<QueryKey<Options<MovieReviewsData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<MovieReviewsData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await movieReviews({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: movieReviewsInfiniteQueryKey(options)
-    });
-};
+export const movieReviewsInfiniteOptions = (options: Options<MovieReviewsData>) => infiniteQueryOptions<MovieReviewsResponse, DefaultError, InfiniteData<MovieReviewsResponse>, QueryKey<Options<MovieReviewsData>>, number | Pick<QueryKey<Options<MovieReviewsData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<MovieReviewsData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await movieReviews({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: movieReviewsInfiniteQueryKey(options)
+});
 
-export const movieSimilarQueryKey = (options: Options<MovieSimilarData>) => createQueryKey("movieSimilar", options);
+export const movieSimilarQueryKey = (options: Options<MovieSimilarData>) => createQueryKey('movieSimilar', options);
 
 /**
  * Similar
@@ -2243,38 +2187,36 @@ export const movieSimilarOptions = (options: Options<MovieSimilarData>) => query
     queryKey: movieSimilarQueryKey(options)
 });
 
-export const movieSimilarInfiniteQueryKey = (options: Options<MovieSimilarData>): QueryKey<Options<MovieSimilarData>> => createQueryKey("movieSimilar", options, true);
+export const movieSimilarInfiniteQueryKey = (options: Options<MovieSimilarData>): QueryKey<Options<MovieSimilarData>> => createQueryKey('movieSimilar', options, true);
 
 /**
  * Similar
  *
  * Get the similar movies based on genres and keywords.
  */
-export const movieSimilarInfiniteOptions = (options: Options<MovieSimilarData>) => {
-    return infiniteQueryOptions<MovieSimilarResponse, DefaultError, InfiniteData<MovieSimilarResponse>, QueryKey<Options<MovieSimilarData>>, number | Pick<QueryKey<Options<MovieSimilarData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<MovieSimilarData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await movieSimilar({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: movieSimilarInfiniteQueryKey(options)
-    });
-};
+export const movieSimilarInfiniteOptions = (options: Options<MovieSimilarData>) => infiniteQueryOptions<MovieSimilarResponse, DefaultError, InfiniteData<MovieSimilarResponse>, QueryKey<Options<MovieSimilarData>>, number | Pick<QueryKey<Options<MovieSimilarData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<MovieSimilarData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await movieSimilar({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: movieSimilarInfiniteQueryKey(options)
+});
 
-export const movieTranslationsQueryKey = (options: Options<MovieTranslationsData>) => createQueryKey("movieTranslations", options);
+export const movieTranslationsQueryKey = (options: Options<MovieTranslationsData>) => createQueryKey('movieTranslations', options);
 
 /**
  * Translations
@@ -2294,7 +2236,7 @@ export const movieTranslationsOptions = (options: Options<MovieTranslationsData>
     queryKey: movieTranslationsQueryKey(options)
 });
 
-export const movieVideosQueryKey = (options: Options<MovieVideosData>) => createQueryKey("movieVideos", options);
+export const movieVideosQueryKey = (options: Options<MovieVideosData>) => createQueryKey('movieVideos', options);
 
 /**
  * Videos
@@ -2312,7 +2254,7 @@ export const movieVideosOptions = (options: Options<MovieVideosData>) => queryOp
     queryKey: movieVideosQueryKey(options)
 });
 
-export const movieWatchProvidersQueryKey = (options: Options<MovieWatchProvidersData>) => createQueryKey("movieWatchProviders", options);
+export const movieWatchProvidersQueryKey = (options: Options<MovieWatchProvidersData>) => createQueryKey('movieWatchProviders', options);
 
 /**
  * Watch Providers
@@ -2370,7 +2312,7 @@ export const movieAddRatingMutation = (options?: Partial<Options<MovieAddRatingD
     return mutationOptions;
 };
 
-export const networkDetailsQueryKey = (options: Options<NetworkDetailsData>) => createQueryKey("networkDetails", options);
+export const networkDetailsQueryKey = (options: Options<NetworkDetailsData>) => createQueryKey('networkDetails', options);
 
 /**
  * Details
@@ -2388,7 +2330,7 @@ export const networkDetailsOptions = (options: Options<NetworkDetailsData>) => q
     queryKey: networkDetailsQueryKey(options)
 });
 
-export const detailsCopyQueryKey = (options: Options<DetailsCopyData>) => createQueryKey("detailsCopy", options);
+export const detailsCopyQueryKey = (options: Options<DetailsCopyData>) => createQueryKey('detailsCopy', options);
 
 /**
  * Alternative Names
@@ -2408,7 +2350,7 @@ export const detailsCopyOptions = (options: Options<DetailsCopyData>) => queryOp
     queryKey: detailsCopyQueryKey(options)
 });
 
-export const alternativeNamesCopyQueryKey = (options: Options<AlternativeNamesCopyData>) => createQueryKey("alternativeNamesCopy", options);
+export const alternativeNamesCopyQueryKey = (options: Options<AlternativeNamesCopyData>) => createQueryKey('alternativeNamesCopy', options);
 
 /**
  * Images
@@ -2428,7 +2370,7 @@ export const alternativeNamesCopyOptions = (options: Options<AlternativeNamesCop
     queryKey: alternativeNamesCopyQueryKey(options)
 });
 
-export const personPopularListQueryKey = (options?: Options<PersonPopularListData>) => createQueryKey("personPopularList", options);
+export const personPopularListQueryKey = (options?: Options<PersonPopularListData>) => createQueryKey('personPopularList', options);
 
 /**
  * Popular
@@ -2448,38 +2390,36 @@ export const personPopularListOptions = (options?: Options<PersonPopularListData
     queryKey: personPopularListQueryKey(options)
 });
 
-export const personPopularListInfiniteQueryKey = (options?: Options<PersonPopularListData>): QueryKey<Options<PersonPopularListData>> => createQueryKey("personPopularList", options, true);
+export const personPopularListInfiniteQueryKey = (options?: Options<PersonPopularListData>): QueryKey<Options<PersonPopularListData>> => createQueryKey('personPopularList', options, true);
 
 /**
  * Popular
  *
  * Get a list of people ordered by popularity.
  */
-export const personPopularListInfiniteOptions = (options?: Options<PersonPopularListData>) => {
-    return infiniteQueryOptions<PersonPopularListResponse, DefaultError, InfiniteData<PersonPopularListResponse>, QueryKey<Options<PersonPopularListData>>, number | Pick<QueryKey<Options<PersonPopularListData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<PersonPopularListData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await personPopularList({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: personPopularListInfiniteQueryKey(options)
-    });
-};
+export const personPopularListInfiniteOptions = (options?: Options<PersonPopularListData>) => infiniteQueryOptions<PersonPopularListResponse, DefaultError, InfiniteData<PersonPopularListResponse>, QueryKey<Options<PersonPopularListData>>, number | Pick<QueryKey<Options<PersonPopularListData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<PersonPopularListData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await personPopularList({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: personPopularListInfiniteQueryKey(options)
+});
 
-export const personDetailsQueryKey = (options: Options<PersonDetailsData>) => createQueryKey("personDetails", options);
+export const personDetailsQueryKey = (options: Options<PersonDetailsData>) => createQueryKey('personDetails', options);
 
 /**
  * Details
@@ -2499,7 +2439,7 @@ export const personDetailsOptions = (options: Options<PersonDetailsData>) => que
     queryKey: personDetailsQueryKey(options)
 });
 
-export const personChangesQueryKey = (options: Options<PersonChangesData>) => createQueryKey("personChanges", options);
+export const personChangesQueryKey = (options: Options<PersonChangesData>) => createQueryKey('personChanges', options);
 
 /**
  * Changes
@@ -2519,38 +2459,36 @@ export const personChangesOptions = (options: Options<PersonChangesData>) => que
     queryKey: personChangesQueryKey(options)
 });
 
-export const personChangesInfiniteQueryKey = (options: Options<PersonChangesData>): QueryKey<Options<PersonChangesData>> => createQueryKey("personChanges", options, true);
+export const personChangesInfiniteQueryKey = (options: Options<PersonChangesData>): QueryKey<Options<PersonChangesData>> => createQueryKey('personChanges', options, true);
 
 /**
  * Changes
  *
  * Get the recent changes for a person.
  */
-export const personChangesInfiniteOptions = (options: Options<PersonChangesData>) => {
-    return infiniteQueryOptions<PersonChangesResponse, DefaultError, InfiniteData<PersonChangesResponse>, QueryKey<Options<PersonChangesData>>, number | Pick<QueryKey<Options<PersonChangesData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<PersonChangesData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await personChanges({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: personChangesInfiniteQueryKey(options)
-    });
-};
+export const personChangesInfiniteOptions = (options: Options<PersonChangesData>) => infiniteQueryOptions<PersonChangesResponse, DefaultError, InfiniteData<PersonChangesResponse>, QueryKey<Options<PersonChangesData>>, number | Pick<QueryKey<Options<PersonChangesData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<PersonChangesData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await personChanges({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: personChangesInfiniteQueryKey(options)
+});
 
-export const personCombinedCreditsQueryKey = (options: Options<PersonCombinedCreditsData>) => createQueryKey("personCombinedCredits", options);
+export const personCombinedCreditsQueryKey = (options: Options<PersonCombinedCreditsData>) => createQueryKey('personCombinedCredits', options);
 
 /**
  * Combined Credits
@@ -2570,7 +2508,7 @@ export const personCombinedCreditsOptions = (options: Options<PersonCombinedCred
     queryKey: personCombinedCreditsQueryKey(options)
 });
 
-export const personExternalIdsQueryKey = (options: Options<PersonExternalIdsData>) => createQueryKey("personExternalIds", options);
+export const personExternalIdsQueryKey = (options: Options<PersonExternalIdsData>) => createQueryKey('personExternalIds', options);
 
 /**
  * External IDs
@@ -2590,7 +2528,7 @@ export const personExternalIdsOptions = (options: Options<PersonExternalIdsData>
     queryKey: personExternalIdsQueryKey(options)
 });
 
-export const personImagesQueryKey = (options: Options<PersonImagesData>) => createQueryKey("personImages", options);
+export const personImagesQueryKey = (options: Options<PersonImagesData>) => createQueryKey('personImages', options);
 
 /**
  * Images
@@ -2610,7 +2548,7 @@ export const personImagesOptions = (options: Options<PersonImagesData>) => query
     queryKey: personImagesQueryKey(options)
 });
 
-export const personLatestIdQueryKey = (options?: Options<PersonLatestIdData>) => createQueryKey("personLatestId", options);
+export const personLatestIdQueryKey = (options?: Options<PersonLatestIdData>) => createQueryKey('personLatestId', options);
 
 /**
  * Latest
@@ -2630,7 +2568,7 @@ export const personLatestIdOptions = (options?: Options<PersonLatestIdData>) => 
     queryKey: personLatestIdQueryKey(options)
 });
 
-export const personMovieCreditsQueryKey = (options: Options<PersonMovieCreditsData>) => createQueryKey("personMovieCredits", options);
+export const personMovieCreditsQueryKey = (options: Options<PersonMovieCreditsData>) => createQueryKey('personMovieCredits', options);
 
 /**
  * Movie Credits
@@ -2650,7 +2588,7 @@ export const personMovieCreditsOptions = (options: Options<PersonMovieCreditsDat
     queryKey: personMovieCreditsQueryKey(options)
 });
 
-export const personTvCreditsQueryKey = (options: Options<PersonTvCreditsData>) => createQueryKey("personTvCredits", options);
+export const personTvCreditsQueryKey = (options: Options<PersonTvCreditsData>) => createQueryKey('personTvCredits', options);
 
 /**
  * TV Credits
@@ -2670,7 +2608,7 @@ export const personTvCreditsOptions = (options: Options<PersonTvCreditsData>) =>
     queryKey: personTvCreditsQueryKey(options)
 });
 
-export const personTaggedImagesQueryKey = (options: Options<PersonTaggedImagesData>) => createQueryKey("personTaggedImages", options);
+export const personTaggedImagesQueryKey = (options: Options<PersonTaggedImagesData>) => createQueryKey('personTaggedImages', options);
 
 /**
  * Tagged Images
@@ -2690,38 +2628,36 @@ export const personTaggedImagesOptions = (options: Options<PersonTaggedImagesDat
     queryKey: personTaggedImagesQueryKey(options)
 });
 
-export const personTaggedImagesInfiniteQueryKey = (options: Options<PersonTaggedImagesData>): QueryKey<Options<PersonTaggedImagesData>> => createQueryKey("personTaggedImages", options, true);
+export const personTaggedImagesInfiniteQueryKey = (options: Options<PersonTaggedImagesData>): QueryKey<Options<PersonTaggedImagesData>> => createQueryKey('personTaggedImages', options, true);
 
 /**
  * Tagged Images
  *
  * Get the tagged images for a person.
  */
-export const personTaggedImagesInfiniteOptions = (options: Options<PersonTaggedImagesData>) => {
-    return infiniteQueryOptions<PersonTaggedImagesResponse, DefaultError, InfiniteData<PersonTaggedImagesResponse>, QueryKey<Options<PersonTaggedImagesData>>, number | Pick<QueryKey<Options<PersonTaggedImagesData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<PersonTaggedImagesData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await personTaggedImages({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: personTaggedImagesInfiniteQueryKey(options)
-    });
-};
+export const personTaggedImagesInfiniteOptions = (options: Options<PersonTaggedImagesData>) => infiniteQueryOptions<PersonTaggedImagesResponse, DefaultError, InfiniteData<PersonTaggedImagesResponse>, QueryKey<Options<PersonTaggedImagesData>>, number | Pick<QueryKey<Options<PersonTaggedImagesData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<PersonTaggedImagesData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await personTaggedImages({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: personTaggedImagesInfiniteQueryKey(options)
+});
 
-export const translationsQueryKey = (options: Options<TranslationsData>) => createQueryKey("translations", options);
+export const translationsQueryKey = (options: Options<TranslationsData>) => createQueryKey('translations', options);
 
 /**
  * Translations
@@ -2741,7 +2677,7 @@ export const translationsOptions = (options: Options<TranslationsData>) => query
     queryKey: translationsQueryKey(options)
 });
 
-export const reviewDetailsQueryKey = (options: Options<ReviewDetailsData>) => createQueryKey("reviewDetails", options);
+export const reviewDetailsQueryKey = (options: Options<ReviewDetailsData>) => createQueryKey('reviewDetails', options);
 
 /**
  * Details
@@ -2761,7 +2697,7 @@ export const reviewDetailsOptions = (options: Options<ReviewDetailsData>) => que
     queryKey: reviewDetailsQueryKey(options)
 });
 
-export const searchCollectionQueryKey = (options: Options<SearchCollectionData>) => createQueryKey("searchCollection", options);
+export const searchCollectionQueryKey = (options: Options<SearchCollectionData>) => createQueryKey('searchCollection', options);
 
 /**
  * Collection
@@ -2781,38 +2717,36 @@ export const searchCollectionOptions = (options: Options<SearchCollectionData>) 
     queryKey: searchCollectionQueryKey(options)
 });
 
-export const searchCollectionInfiniteQueryKey = (options: Options<SearchCollectionData>): QueryKey<Options<SearchCollectionData>> => createQueryKey("searchCollection", options, true);
+export const searchCollectionInfiniteQueryKey = (options: Options<SearchCollectionData>): QueryKey<Options<SearchCollectionData>> => createQueryKey('searchCollection', options, true);
 
 /**
  * Collection
  *
  * Search for collections by their original, translated and alternative names.
  */
-export const searchCollectionInfiniteOptions = (options: Options<SearchCollectionData>) => {
-    return infiniteQueryOptions<SearchCollectionResponse, DefaultError, InfiniteData<SearchCollectionResponse>, QueryKey<Options<SearchCollectionData>>, number | Pick<QueryKey<Options<SearchCollectionData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<SearchCollectionData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await searchCollection({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: searchCollectionInfiniteQueryKey(options)
-    });
-};
+export const searchCollectionInfiniteOptions = (options: Options<SearchCollectionData>) => infiniteQueryOptions<SearchCollectionResponse, DefaultError, InfiniteData<SearchCollectionResponse>, QueryKey<Options<SearchCollectionData>>, number | Pick<QueryKey<Options<SearchCollectionData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<SearchCollectionData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await searchCollection({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: searchCollectionInfiniteQueryKey(options)
+});
 
-export const searchCompanyQueryKey = (options: Options<SearchCompanyData>) => createQueryKey("searchCompany", options);
+export const searchCompanyQueryKey = (options: Options<SearchCompanyData>) => createQueryKey('searchCompany', options);
 
 /**
  * Company
@@ -2832,38 +2766,36 @@ export const searchCompanyOptions = (options: Options<SearchCompanyData>) => que
     queryKey: searchCompanyQueryKey(options)
 });
 
-export const searchCompanyInfiniteQueryKey = (options: Options<SearchCompanyData>): QueryKey<Options<SearchCompanyData>> => createQueryKey("searchCompany", options, true);
+export const searchCompanyInfiniteQueryKey = (options: Options<SearchCompanyData>): QueryKey<Options<SearchCompanyData>> => createQueryKey('searchCompany', options, true);
 
 /**
  * Company
  *
  * Search for companies by their original and alternative names.
  */
-export const searchCompanyInfiniteOptions = (options: Options<SearchCompanyData>) => {
-    return infiniteQueryOptions<SearchCompanyResponse, DefaultError, InfiniteData<SearchCompanyResponse>, QueryKey<Options<SearchCompanyData>>, number | Pick<QueryKey<Options<SearchCompanyData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<SearchCompanyData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await searchCompany({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: searchCompanyInfiniteQueryKey(options)
-    });
-};
+export const searchCompanyInfiniteOptions = (options: Options<SearchCompanyData>) => infiniteQueryOptions<SearchCompanyResponse, DefaultError, InfiniteData<SearchCompanyResponse>, QueryKey<Options<SearchCompanyData>>, number | Pick<QueryKey<Options<SearchCompanyData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<SearchCompanyData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await searchCompany({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: searchCompanyInfiniteQueryKey(options)
+});
 
-export const searchKeywordQueryKey = (options: Options<SearchKeywordData>) => createQueryKey("searchKeyword", options);
+export const searchKeywordQueryKey = (options: Options<SearchKeywordData>) => createQueryKey('searchKeyword', options);
 
 /**
  * Keyword
@@ -2883,38 +2815,36 @@ export const searchKeywordOptions = (options: Options<SearchKeywordData>) => que
     queryKey: searchKeywordQueryKey(options)
 });
 
-export const searchKeywordInfiniteQueryKey = (options: Options<SearchKeywordData>): QueryKey<Options<SearchKeywordData>> => createQueryKey("searchKeyword", options, true);
+export const searchKeywordInfiniteQueryKey = (options: Options<SearchKeywordData>): QueryKey<Options<SearchKeywordData>> => createQueryKey('searchKeyword', options, true);
 
 /**
  * Keyword
  *
  * Search for keywords by their name.
  */
-export const searchKeywordInfiniteOptions = (options: Options<SearchKeywordData>) => {
-    return infiniteQueryOptions<SearchKeywordResponse, DefaultError, InfiniteData<SearchKeywordResponse>, QueryKey<Options<SearchKeywordData>>, number | Pick<QueryKey<Options<SearchKeywordData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<SearchKeywordData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await searchKeyword({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: searchKeywordInfiniteQueryKey(options)
-    });
-};
+export const searchKeywordInfiniteOptions = (options: Options<SearchKeywordData>) => infiniteQueryOptions<SearchKeywordResponse, DefaultError, InfiniteData<SearchKeywordResponse>, QueryKey<Options<SearchKeywordData>>, number | Pick<QueryKey<Options<SearchKeywordData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<SearchKeywordData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await searchKeyword({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: searchKeywordInfiniteQueryKey(options)
+});
 
-export const searchMovieQueryKey = (options: Options<SearchMovieData>) => createQueryKey("searchMovie", options);
+export const searchMovieQueryKey = (options: Options<SearchMovieData>) => createQueryKey('searchMovie', options);
 
 /**
  * Movie
@@ -2934,38 +2864,36 @@ export const searchMovieOptions = (options: Options<SearchMovieData>) => queryOp
     queryKey: searchMovieQueryKey(options)
 });
 
-export const searchMovieInfiniteQueryKey = (options: Options<SearchMovieData>): QueryKey<Options<SearchMovieData>> => createQueryKey("searchMovie", options, true);
+export const searchMovieInfiniteQueryKey = (options: Options<SearchMovieData>): QueryKey<Options<SearchMovieData>> => createQueryKey('searchMovie', options, true);
 
 /**
  * Movie
  *
  * Search for movies by their original, translated and alternative titles.
  */
-export const searchMovieInfiniteOptions = (options: Options<SearchMovieData>) => {
-    return infiniteQueryOptions<SearchMovieResponse, DefaultError, InfiniteData<SearchMovieResponse>, QueryKey<Options<SearchMovieData>>, number | Pick<QueryKey<Options<SearchMovieData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<SearchMovieData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await searchMovie({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: searchMovieInfiniteQueryKey(options)
-    });
-};
+export const searchMovieInfiniteOptions = (options: Options<SearchMovieData>) => infiniteQueryOptions<SearchMovieResponse, DefaultError, InfiniteData<SearchMovieResponse>, QueryKey<Options<SearchMovieData>>, number | Pick<QueryKey<Options<SearchMovieData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<SearchMovieData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await searchMovie({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: searchMovieInfiniteQueryKey(options)
+});
 
-export const searchMultiQueryKey = (options: Options<SearchMultiData>) => createQueryKey("searchMulti", options);
+export const searchMultiQueryKey = (options: Options<SearchMultiData>) => createQueryKey('searchMulti', options);
 
 /**
  * Multi
@@ -2985,38 +2913,36 @@ export const searchMultiOptions = (options: Options<SearchMultiData>) => queryOp
     queryKey: searchMultiQueryKey(options)
 });
 
-export const searchMultiInfiniteQueryKey = (options: Options<SearchMultiData>): QueryKey<Options<SearchMultiData>> => createQueryKey("searchMulti", options, true);
+export const searchMultiInfiniteQueryKey = (options: Options<SearchMultiData>): QueryKey<Options<SearchMultiData>> => createQueryKey('searchMulti', options, true);
 
 /**
  * Multi
  *
  * Use multi search when you want to search for movies, TV shows and people in a single request.
  */
-export const searchMultiInfiniteOptions = (options: Options<SearchMultiData>) => {
-    return infiniteQueryOptions<SearchMultiResponse, DefaultError, InfiniteData<SearchMultiResponse>, QueryKey<Options<SearchMultiData>>, number | Pick<QueryKey<Options<SearchMultiData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<SearchMultiData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await searchMulti({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: searchMultiInfiniteQueryKey(options)
-    });
-};
+export const searchMultiInfiniteOptions = (options: Options<SearchMultiData>) => infiniteQueryOptions<SearchMultiResponse, DefaultError, InfiniteData<SearchMultiResponse>, QueryKey<Options<SearchMultiData>>, number | Pick<QueryKey<Options<SearchMultiData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<SearchMultiData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await searchMulti({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: searchMultiInfiniteQueryKey(options)
+});
 
-export const searchPersonQueryKey = (options: Options<SearchPersonData>) => createQueryKey("searchPerson", options);
+export const searchPersonQueryKey = (options: Options<SearchPersonData>) => createQueryKey('searchPerson', options);
 
 /**
  * Person
@@ -3036,38 +2962,36 @@ export const searchPersonOptions = (options: Options<SearchPersonData>) => query
     queryKey: searchPersonQueryKey(options)
 });
 
-export const searchPersonInfiniteQueryKey = (options: Options<SearchPersonData>): QueryKey<Options<SearchPersonData>> => createQueryKey("searchPerson", options, true);
+export const searchPersonInfiniteQueryKey = (options: Options<SearchPersonData>): QueryKey<Options<SearchPersonData>> => createQueryKey('searchPerson', options, true);
 
 /**
  * Person
  *
  * Search for people by their name and also known as names.
  */
-export const searchPersonInfiniteOptions = (options: Options<SearchPersonData>) => {
-    return infiniteQueryOptions<SearchPersonResponse, DefaultError, InfiniteData<SearchPersonResponse>, QueryKey<Options<SearchPersonData>>, number | Pick<QueryKey<Options<SearchPersonData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<SearchPersonData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await searchPerson({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: searchPersonInfiniteQueryKey(options)
-    });
-};
+export const searchPersonInfiniteOptions = (options: Options<SearchPersonData>) => infiniteQueryOptions<SearchPersonResponse, DefaultError, InfiniteData<SearchPersonResponse>, QueryKey<Options<SearchPersonData>>, number | Pick<QueryKey<Options<SearchPersonData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<SearchPersonData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await searchPerson({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: searchPersonInfiniteQueryKey(options)
+});
 
-export const searchTvQueryKey = (options: Options<SearchTvData>) => createQueryKey("searchTv", options);
+export const searchTvQueryKey = (options: Options<SearchTvData>) => createQueryKey('searchTv', options);
 
 /**
  * TV
@@ -3087,38 +3011,36 @@ export const searchTvOptions = (options: Options<SearchTvData>) => queryOptions<
     queryKey: searchTvQueryKey(options)
 });
 
-export const searchTvInfiniteQueryKey = (options: Options<SearchTvData>): QueryKey<Options<SearchTvData>> => createQueryKey("searchTv", options, true);
+export const searchTvInfiniteQueryKey = (options: Options<SearchTvData>): QueryKey<Options<SearchTvData>> => createQueryKey('searchTv', options, true);
 
 /**
  * TV
  *
  * Search for TV shows by their original, translated and also known as names.
  */
-export const searchTvInfiniteOptions = (options: Options<SearchTvData>) => {
-    return infiniteQueryOptions<SearchTvResponse, DefaultError, InfiniteData<SearchTvResponse>, QueryKey<Options<SearchTvData>>, number | Pick<QueryKey<Options<SearchTvData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<SearchTvData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await searchTv({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: searchTvInfiniteQueryKey(options)
-    });
-};
+export const searchTvInfiniteOptions = (options: Options<SearchTvData>) => infiniteQueryOptions<SearchTvResponse, DefaultError, InfiniteData<SearchTvResponse>, QueryKey<Options<SearchTvData>>, number | Pick<QueryKey<Options<SearchTvData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<SearchTvData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await searchTv({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: searchTvInfiniteQueryKey(options)
+});
 
-export const trendingAllQueryKey = (options: Options<TrendingAllData>) => createQueryKey("trendingAll", options);
+export const trendingAllQueryKey = (options: Options<TrendingAllData>) => createQueryKey('trendingAll', options);
 
 /**
  * All
@@ -3138,7 +3060,7 @@ export const trendingAllOptions = (options: Options<TrendingAllData>) => queryOp
     queryKey: trendingAllQueryKey(options)
 });
 
-export const trendingMoviesQueryKey = (options: Options<TrendingMoviesData>) => createQueryKey("trendingMovies", options);
+export const trendingMoviesQueryKey = (options: Options<TrendingMoviesData>) => createQueryKey('trendingMovies', options);
 
 /**
  * Movies
@@ -3158,7 +3080,7 @@ export const trendingMoviesOptions = (options: Options<TrendingMoviesData>) => q
     queryKey: trendingMoviesQueryKey(options)
 });
 
-export const trendingPeopleQueryKey = (options: Options<TrendingPeopleData>) => createQueryKey("trendingPeople", options);
+export const trendingPeopleQueryKey = (options: Options<TrendingPeopleData>) => createQueryKey('trendingPeople', options);
 
 /**
  * People
@@ -3178,7 +3100,7 @@ export const trendingPeopleOptions = (options: Options<TrendingPeopleData>) => q
     queryKey: trendingPeopleQueryKey(options)
 });
 
-export const trendingTvQueryKey = (options: Options<TrendingTvData>) => createQueryKey("trendingTv", options);
+export const trendingTvQueryKey = (options: Options<TrendingTvData>) => createQueryKey('trendingTv', options);
 
 /**
  * TV
@@ -3198,7 +3120,7 @@ export const trendingTvOptions = (options: Options<TrendingTvData>) => queryOpti
     queryKey: trendingTvQueryKey(options)
 });
 
-export const tvSeriesAiringTodayListQueryKey = (options?: Options<TvSeriesAiringTodayListData>) => createQueryKey("tvSeriesAiringTodayList", options);
+export const tvSeriesAiringTodayListQueryKey = (options?: Options<TvSeriesAiringTodayListData>) => createQueryKey('tvSeriesAiringTodayList', options);
 
 /**
  * Airing Today
@@ -3218,38 +3140,36 @@ export const tvSeriesAiringTodayListOptions = (options?: Options<TvSeriesAiringT
     queryKey: tvSeriesAiringTodayListQueryKey(options)
 });
 
-export const tvSeriesAiringTodayListInfiniteQueryKey = (options?: Options<TvSeriesAiringTodayListData>): QueryKey<Options<TvSeriesAiringTodayListData>> => createQueryKey("tvSeriesAiringTodayList", options, true);
+export const tvSeriesAiringTodayListInfiniteQueryKey = (options?: Options<TvSeriesAiringTodayListData>): QueryKey<Options<TvSeriesAiringTodayListData>> => createQueryKey('tvSeriesAiringTodayList', options, true);
 
 /**
  * Airing Today
  *
  * Get a list of TV shows airing today.
  */
-export const tvSeriesAiringTodayListInfiniteOptions = (options?: Options<TvSeriesAiringTodayListData>) => {
-    return infiniteQueryOptions<TvSeriesAiringTodayListResponse, DefaultError, InfiniteData<TvSeriesAiringTodayListResponse>, QueryKey<Options<TvSeriesAiringTodayListData>>, number | Pick<QueryKey<Options<TvSeriesAiringTodayListData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<TvSeriesAiringTodayListData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await tvSeriesAiringTodayList({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: tvSeriesAiringTodayListInfiniteQueryKey(options)
-    });
-};
+export const tvSeriesAiringTodayListInfiniteOptions = (options?: Options<TvSeriesAiringTodayListData>) => infiniteQueryOptions<TvSeriesAiringTodayListResponse, DefaultError, InfiniteData<TvSeriesAiringTodayListResponse>, QueryKey<Options<TvSeriesAiringTodayListData>>, number | Pick<QueryKey<Options<TvSeriesAiringTodayListData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<TvSeriesAiringTodayListData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await tvSeriesAiringTodayList({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: tvSeriesAiringTodayListInfiniteQueryKey(options)
+});
 
-export const tvSeriesOnTheAirListQueryKey = (options?: Options<TvSeriesOnTheAirListData>) => createQueryKey("tvSeriesOnTheAirList", options);
+export const tvSeriesOnTheAirListQueryKey = (options?: Options<TvSeriesOnTheAirListData>) => createQueryKey('tvSeriesOnTheAirList', options);
 
 /**
  * On The Air
@@ -3269,38 +3189,36 @@ export const tvSeriesOnTheAirListOptions = (options?: Options<TvSeriesOnTheAirLi
     queryKey: tvSeriesOnTheAirListQueryKey(options)
 });
 
-export const tvSeriesOnTheAirListInfiniteQueryKey = (options?: Options<TvSeriesOnTheAirListData>): QueryKey<Options<TvSeriesOnTheAirListData>> => createQueryKey("tvSeriesOnTheAirList", options, true);
+export const tvSeriesOnTheAirListInfiniteQueryKey = (options?: Options<TvSeriesOnTheAirListData>): QueryKey<Options<TvSeriesOnTheAirListData>> => createQueryKey('tvSeriesOnTheAirList', options, true);
 
 /**
  * On The Air
  *
  * Get a list of TV shows that air in the next 7 days.
  */
-export const tvSeriesOnTheAirListInfiniteOptions = (options?: Options<TvSeriesOnTheAirListData>) => {
-    return infiniteQueryOptions<TvSeriesOnTheAirListResponse, DefaultError, InfiniteData<TvSeriesOnTheAirListResponse>, QueryKey<Options<TvSeriesOnTheAirListData>>, number | Pick<QueryKey<Options<TvSeriesOnTheAirListData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<TvSeriesOnTheAirListData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await tvSeriesOnTheAirList({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: tvSeriesOnTheAirListInfiniteQueryKey(options)
-    });
-};
+export const tvSeriesOnTheAirListInfiniteOptions = (options?: Options<TvSeriesOnTheAirListData>) => infiniteQueryOptions<TvSeriesOnTheAirListResponse, DefaultError, InfiniteData<TvSeriesOnTheAirListResponse>, QueryKey<Options<TvSeriesOnTheAirListData>>, number | Pick<QueryKey<Options<TvSeriesOnTheAirListData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<TvSeriesOnTheAirListData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await tvSeriesOnTheAirList({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: tvSeriesOnTheAirListInfiniteQueryKey(options)
+});
 
-export const tvSeriesPopularListQueryKey = (options?: Options<TvSeriesPopularListData>) => createQueryKey("tvSeriesPopularList", options);
+export const tvSeriesPopularListQueryKey = (options?: Options<TvSeriesPopularListData>) => createQueryKey('tvSeriesPopularList', options);
 
 /**
  * Popular
@@ -3320,38 +3238,36 @@ export const tvSeriesPopularListOptions = (options?: Options<TvSeriesPopularList
     queryKey: tvSeriesPopularListQueryKey(options)
 });
 
-export const tvSeriesPopularListInfiniteQueryKey = (options?: Options<TvSeriesPopularListData>): QueryKey<Options<TvSeriesPopularListData>> => createQueryKey("tvSeriesPopularList", options, true);
+export const tvSeriesPopularListInfiniteQueryKey = (options?: Options<TvSeriesPopularListData>): QueryKey<Options<TvSeriesPopularListData>> => createQueryKey('tvSeriesPopularList', options, true);
 
 /**
  * Popular
  *
  * Get a list of TV shows ordered by popularity.
  */
-export const tvSeriesPopularListInfiniteOptions = (options?: Options<TvSeriesPopularListData>) => {
-    return infiniteQueryOptions<TvSeriesPopularListResponse, DefaultError, InfiniteData<TvSeriesPopularListResponse>, QueryKey<Options<TvSeriesPopularListData>>, number | Pick<QueryKey<Options<TvSeriesPopularListData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<TvSeriesPopularListData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await tvSeriesPopularList({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: tvSeriesPopularListInfiniteQueryKey(options)
-    });
-};
+export const tvSeriesPopularListInfiniteOptions = (options?: Options<TvSeriesPopularListData>) => infiniteQueryOptions<TvSeriesPopularListResponse, DefaultError, InfiniteData<TvSeriesPopularListResponse>, QueryKey<Options<TvSeriesPopularListData>>, number | Pick<QueryKey<Options<TvSeriesPopularListData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<TvSeriesPopularListData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await tvSeriesPopularList({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: tvSeriesPopularListInfiniteQueryKey(options)
+});
 
-export const tvSeriesTopRatedListQueryKey = (options?: Options<TvSeriesTopRatedListData>) => createQueryKey("tvSeriesTopRatedList", options);
+export const tvSeriesTopRatedListQueryKey = (options?: Options<TvSeriesTopRatedListData>) => createQueryKey('tvSeriesTopRatedList', options);
 
 /**
  * Top Rated
@@ -3371,38 +3287,36 @@ export const tvSeriesTopRatedListOptions = (options?: Options<TvSeriesTopRatedLi
     queryKey: tvSeriesTopRatedListQueryKey(options)
 });
 
-export const tvSeriesTopRatedListInfiniteQueryKey = (options?: Options<TvSeriesTopRatedListData>): QueryKey<Options<TvSeriesTopRatedListData>> => createQueryKey("tvSeriesTopRatedList", options, true);
+export const tvSeriesTopRatedListInfiniteQueryKey = (options?: Options<TvSeriesTopRatedListData>): QueryKey<Options<TvSeriesTopRatedListData>> => createQueryKey('tvSeriesTopRatedList', options, true);
 
 /**
  * Top Rated
  *
  * Get a list of TV shows ordered by rating.
  */
-export const tvSeriesTopRatedListInfiniteOptions = (options?: Options<TvSeriesTopRatedListData>) => {
-    return infiniteQueryOptions<TvSeriesTopRatedListResponse, DefaultError, InfiniteData<TvSeriesTopRatedListResponse>, QueryKey<Options<TvSeriesTopRatedListData>>, number | Pick<QueryKey<Options<TvSeriesTopRatedListData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<TvSeriesTopRatedListData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await tvSeriesTopRatedList({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: tvSeriesTopRatedListInfiniteQueryKey(options)
-    });
-};
+export const tvSeriesTopRatedListInfiniteOptions = (options?: Options<TvSeriesTopRatedListData>) => infiniteQueryOptions<TvSeriesTopRatedListResponse, DefaultError, InfiniteData<TvSeriesTopRatedListResponse>, QueryKey<Options<TvSeriesTopRatedListData>>, number | Pick<QueryKey<Options<TvSeriesTopRatedListData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<TvSeriesTopRatedListData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await tvSeriesTopRatedList({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: tvSeriesTopRatedListInfiniteQueryKey(options)
+});
 
-export const tvSeriesDetailsQueryKey = (options: Options<TvSeriesDetailsData>) => createQueryKey("tvSeriesDetails", options);
+export const tvSeriesDetailsQueryKey = (options: Options<TvSeriesDetailsData>) => createQueryKey('tvSeriesDetails', options);
 
 /**
  * Details
@@ -3422,7 +3336,7 @@ export const tvSeriesDetailsOptions = (options: Options<TvSeriesDetailsData>) =>
     queryKey: tvSeriesDetailsQueryKey(options)
 });
 
-export const tvSeriesAccountStatesQueryKey = (options: Options<TvSeriesAccountStatesData>) => createQueryKey("tvSeriesAccountStates", options);
+export const tvSeriesAccountStatesQueryKey = (options: Options<TvSeriesAccountStatesData>) => createQueryKey('tvSeriesAccountStates', options);
 
 /**
  * Account States
@@ -3442,7 +3356,7 @@ export const tvSeriesAccountStatesOptions = (options: Options<TvSeriesAccountSta
     queryKey: tvSeriesAccountStatesQueryKey(options)
 });
 
-export const tvSeriesAggregateCreditsQueryKey = (options: Options<TvSeriesAggregateCreditsData>) => createQueryKey("tvSeriesAggregateCredits", options);
+export const tvSeriesAggregateCreditsQueryKey = (options: Options<TvSeriesAggregateCreditsData>) => createQueryKey('tvSeriesAggregateCredits', options);
 
 /**
  * Aggregate Credits
@@ -3462,7 +3376,7 @@ export const tvSeriesAggregateCreditsOptions = (options: Options<TvSeriesAggrega
     queryKey: tvSeriesAggregateCreditsQueryKey(options)
 });
 
-export const tvSeriesAlternativeTitlesQueryKey = (options: Options<TvSeriesAlternativeTitlesData>) => createQueryKey("tvSeriesAlternativeTitles", options);
+export const tvSeriesAlternativeTitlesQueryKey = (options: Options<TvSeriesAlternativeTitlesData>) => createQueryKey('tvSeriesAlternativeTitles', options);
 
 /**
  * Alternative Titles
@@ -3482,7 +3396,7 @@ export const tvSeriesAlternativeTitlesOptions = (options: Options<TvSeriesAltern
     queryKey: tvSeriesAlternativeTitlesQueryKey(options)
 });
 
-export const tvSeriesChangesQueryKey = (options: Options<TvSeriesChangesData>) => createQueryKey("tvSeriesChanges", options);
+export const tvSeriesChangesQueryKey = (options: Options<TvSeriesChangesData>) => createQueryKey('tvSeriesChanges', options);
 
 /**
  * Changes
@@ -3502,38 +3416,36 @@ export const tvSeriesChangesOptions = (options: Options<TvSeriesChangesData>) =>
     queryKey: tvSeriesChangesQueryKey(options)
 });
 
-export const tvSeriesChangesInfiniteQueryKey = (options: Options<TvSeriesChangesData>): QueryKey<Options<TvSeriesChangesData>> => createQueryKey("tvSeriesChanges", options, true);
+export const tvSeriesChangesInfiniteQueryKey = (options: Options<TvSeriesChangesData>): QueryKey<Options<TvSeriesChangesData>> => createQueryKey('tvSeriesChanges', options, true);
 
 /**
  * Changes
  *
  * Get the recent changes for a TV show.
  */
-export const tvSeriesChangesInfiniteOptions = (options: Options<TvSeriesChangesData>) => {
-    return infiniteQueryOptions<TvSeriesChangesResponse, DefaultError, InfiniteData<TvSeriesChangesResponse>, QueryKey<Options<TvSeriesChangesData>>, number | Pick<QueryKey<Options<TvSeriesChangesData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<TvSeriesChangesData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await tvSeriesChanges({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: tvSeriesChangesInfiniteQueryKey(options)
-    });
-};
+export const tvSeriesChangesInfiniteOptions = (options: Options<TvSeriesChangesData>) => infiniteQueryOptions<TvSeriesChangesResponse, DefaultError, InfiniteData<TvSeriesChangesResponse>, QueryKey<Options<TvSeriesChangesData>>, number | Pick<QueryKey<Options<TvSeriesChangesData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<TvSeriesChangesData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await tvSeriesChanges({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: tvSeriesChangesInfiniteQueryKey(options)
+});
 
-export const tvSeriesContentRatingsQueryKey = (options: Options<TvSeriesContentRatingsData>) => createQueryKey("tvSeriesContentRatings", options);
+export const tvSeriesContentRatingsQueryKey = (options: Options<TvSeriesContentRatingsData>) => createQueryKey('tvSeriesContentRatings', options);
 
 /**
  * Content Ratings
@@ -3553,7 +3465,7 @@ export const tvSeriesContentRatingsOptions = (options: Options<TvSeriesContentRa
     queryKey: tvSeriesContentRatingsQueryKey(options)
 });
 
-export const tvSeriesCreditsQueryKey = (options: Options<TvSeriesCreditsData>) => createQueryKey("tvSeriesCredits", options);
+export const tvSeriesCreditsQueryKey = (options: Options<TvSeriesCreditsData>) => createQueryKey('tvSeriesCredits', options);
 
 /**
  * Credits
@@ -3573,7 +3485,7 @@ export const tvSeriesCreditsOptions = (options: Options<TvSeriesCreditsData>) =>
     queryKey: tvSeriesCreditsQueryKey(options)
 });
 
-export const tvSeriesEpisodeGroupsQueryKey = (options: Options<TvSeriesEpisodeGroupsData>) => createQueryKey("tvSeriesEpisodeGroups", options);
+export const tvSeriesEpisodeGroupsQueryKey = (options: Options<TvSeriesEpisodeGroupsData>) => createQueryKey('tvSeriesEpisodeGroups', options);
 
 /**
  * Episode Groups
@@ -3593,7 +3505,7 @@ export const tvSeriesEpisodeGroupsOptions = (options: Options<TvSeriesEpisodeGro
     queryKey: tvSeriesEpisodeGroupsQueryKey(options)
 });
 
-export const tvSeriesExternalIdsQueryKey = (options: Options<TvSeriesExternalIdsData>) => createQueryKey("tvSeriesExternalIds", options);
+export const tvSeriesExternalIdsQueryKey = (options: Options<TvSeriesExternalIdsData>) => createQueryKey('tvSeriesExternalIds', options);
 
 /**
  * External IDs
@@ -3613,7 +3525,7 @@ export const tvSeriesExternalIdsOptions = (options: Options<TvSeriesExternalIdsD
     queryKey: tvSeriesExternalIdsQueryKey(options)
 });
 
-export const tvSeriesImagesQueryKey = (options: Options<TvSeriesImagesData>) => createQueryKey("tvSeriesImages", options);
+export const tvSeriesImagesQueryKey = (options: Options<TvSeriesImagesData>) => createQueryKey('tvSeriesImages', options);
 
 /**
  * Images
@@ -3633,7 +3545,7 @@ export const tvSeriesImagesOptions = (options: Options<TvSeriesImagesData>) => q
     queryKey: tvSeriesImagesQueryKey(options)
 });
 
-export const tvSeriesKeywordsQueryKey = (options: Options<TvSeriesKeywordsData>) => createQueryKey("tvSeriesKeywords", options);
+export const tvSeriesKeywordsQueryKey = (options: Options<TvSeriesKeywordsData>) => createQueryKey('tvSeriesKeywords', options);
 
 /**
  * Keywords
@@ -3653,7 +3565,7 @@ export const tvSeriesKeywordsOptions = (options: Options<TvSeriesKeywordsData>) 
     queryKey: tvSeriesKeywordsQueryKey(options)
 });
 
-export const tvSeriesLatestIdQueryKey = (options?: Options<TvSeriesLatestIdData>) => createQueryKey("tvSeriesLatestId", options);
+export const tvSeriesLatestIdQueryKey = (options?: Options<TvSeriesLatestIdData>) => createQueryKey('tvSeriesLatestId', options);
 
 /**
  * Latest
@@ -3673,7 +3585,7 @@ export const tvSeriesLatestIdOptions = (options?: Options<TvSeriesLatestIdData>)
     queryKey: tvSeriesLatestIdQueryKey(options)
 });
 
-export const listsCopyQueryKey = (options: Options<ListsCopyData>) => createQueryKey("listsCopy", options);
+export const listsCopyQueryKey = (options: Options<ListsCopyData>) => createQueryKey('listsCopy', options);
 
 /**
  * Lists
@@ -3693,38 +3605,36 @@ export const listsCopyOptions = (options: Options<ListsCopyData>) => queryOption
     queryKey: listsCopyQueryKey(options)
 });
 
-export const listsCopyInfiniteQueryKey = (options: Options<ListsCopyData>): QueryKey<Options<ListsCopyData>> => createQueryKey("listsCopy", options, true);
+export const listsCopyInfiniteQueryKey = (options: Options<ListsCopyData>): QueryKey<Options<ListsCopyData>> => createQueryKey('listsCopy', options, true);
 
 /**
  * Lists
  *
  * Get the lists that a TV series has been added to.
  */
-export const listsCopyInfiniteOptions = (options: Options<ListsCopyData>) => {
-    return infiniteQueryOptions<ListsCopyResponse, DefaultError, InfiniteData<ListsCopyResponse>, QueryKey<Options<ListsCopyData>>, number | Pick<QueryKey<Options<ListsCopyData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<ListsCopyData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await listsCopy({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: listsCopyInfiniteQueryKey(options)
-    });
-};
+export const listsCopyInfiniteOptions = (options: Options<ListsCopyData>) => infiniteQueryOptions<ListsCopyResponse, DefaultError, InfiniteData<ListsCopyResponse>, QueryKey<Options<ListsCopyData>>, number | Pick<QueryKey<Options<ListsCopyData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<ListsCopyData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await listsCopy({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: listsCopyInfiniteQueryKey(options)
+});
 
-export const tvSeriesRecommendationsQueryKey = (options: Options<TvSeriesRecommendationsData>) => createQueryKey("tvSeriesRecommendations", options);
+export const tvSeriesRecommendationsQueryKey = (options: Options<TvSeriesRecommendationsData>) => createQueryKey('tvSeriesRecommendations', options);
 
 /**
  * Recommendations
@@ -3742,36 +3652,34 @@ export const tvSeriesRecommendationsOptions = (options: Options<TvSeriesRecommen
     queryKey: tvSeriesRecommendationsQueryKey(options)
 });
 
-export const tvSeriesRecommendationsInfiniteQueryKey = (options: Options<TvSeriesRecommendationsData>): QueryKey<Options<TvSeriesRecommendationsData>> => createQueryKey("tvSeriesRecommendations", options, true);
+export const tvSeriesRecommendationsInfiniteQueryKey = (options: Options<TvSeriesRecommendationsData>): QueryKey<Options<TvSeriesRecommendationsData>> => createQueryKey('tvSeriesRecommendations', options, true);
 
 /**
  * Recommendations
  */
-export const tvSeriesRecommendationsInfiniteOptions = (options: Options<TvSeriesRecommendationsData>) => {
-    return infiniteQueryOptions<TvSeriesRecommendationsResponse, DefaultError, InfiniteData<TvSeriesRecommendationsResponse>, QueryKey<Options<TvSeriesRecommendationsData>>, number | Pick<QueryKey<Options<TvSeriesRecommendationsData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<TvSeriesRecommendationsData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await tvSeriesRecommendations({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: tvSeriesRecommendationsInfiniteQueryKey(options)
-    });
-};
+export const tvSeriesRecommendationsInfiniteOptions = (options: Options<TvSeriesRecommendationsData>) => infiniteQueryOptions<TvSeriesRecommendationsResponse, DefaultError, InfiniteData<TvSeriesRecommendationsResponse>, QueryKey<Options<TvSeriesRecommendationsData>>, number | Pick<QueryKey<Options<TvSeriesRecommendationsData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<TvSeriesRecommendationsData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await tvSeriesRecommendations({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: tvSeriesRecommendationsInfiniteQueryKey(options)
+});
 
-export const tvSeriesReviewsQueryKey = (options: Options<TvSeriesReviewsData>) => createQueryKey("tvSeriesReviews", options);
+export const tvSeriesReviewsQueryKey = (options: Options<TvSeriesReviewsData>) => createQueryKey('tvSeriesReviews', options);
 
 /**
  * Reviews
@@ -3791,38 +3699,36 @@ export const tvSeriesReviewsOptions = (options: Options<TvSeriesReviewsData>) =>
     queryKey: tvSeriesReviewsQueryKey(options)
 });
 
-export const tvSeriesReviewsInfiniteQueryKey = (options: Options<TvSeriesReviewsData>): QueryKey<Options<TvSeriesReviewsData>> => createQueryKey("tvSeriesReviews", options, true);
+export const tvSeriesReviewsInfiniteQueryKey = (options: Options<TvSeriesReviewsData>): QueryKey<Options<TvSeriesReviewsData>> => createQueryKey('tvSeriesReviews', options, true);
 
 /**
  * Reviews
  *
  * Get the reviews that have been added to a TV show.
  */
-export const tvSeriesReviewsInfiniteOptions = (options: Options<TvSeriesReviewsData>) => {
-    return infiniteQueryOptions<TvSeriesReviewsResponse, DefaultError, InfiniteData<TvSeriesReviewsResponse>, QueryKey<Options<TvSeriesReviewsData>>, number | Pick<QueryKey<Options<TvSeriesReviewsData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<TvSeriesReviewsData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await tvSeriesReviews({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: tvSeriesReviewsInfiniteQueryKey(options)
-    });
-};
+export const tvSeriesReviewsInfiniteOptions = (options: Options<TvSeriesReviewsData>) => infiniteQueryOptions<TvSeriesReviewsResponse, DefaultError, InfiniteData<TvSeriesReviewsResponse>, QueryKey<Options<TvSeriesReviewsData>>, number | Pick<QueryKey<Options<TvSeriesReviewsData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<TvSeriesReviewsData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await tvSeriesReviews({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: tvSeriesReviewsInfiniteQueryKey(options)
+});
 
-export const tvSeriesScreenedTheatricallyQueryKey = (options: Options<TvSeriesScreenedTheatricallyData>) => createQueryKey("tvSeriesScreenedTheatrically", options);
+export const tvSeriesScreenedTheatricallyQueryKey = (options: Options<TvSeriesScreenedTheatricallyData>) => createQueryKey('tvSeriesScreenedTheatrically', options);
 
 /**
  * Screened Theatrically
@@ -3842,7 +3748,7 @@ export const tvSeriesScreenedTheatricallyOptions = (options: Options<TvSeriesScr
     queryKey: tvSeriesScreenedTheatricallyQueryKey(options)
 });
 
-export const tvSeriesSimilarQueryKey = (options: Options<TvSeriesSimilarData>) => createQueryKey("tvSeriesSimilar", options);
+export const tvSeriesSimilarQueryKey = (options: Options<TvSeriesSimilarData>) => createQueryKey('tvSeriesSimilar', options);
 
 /**
  * Similar
@@ -3862,38 +3768,36 @@ export const tvSeriesSimilarOptions = (options: Options<TvSeriesSimilarData>) =>
     queryKey: tvSeriesSimilarQueryKey(options)
 });
 
-export const tvSeriesSimilarInfiniteQueryKey = (options: Options<TvSeriesSimilarData>): QueryKey<Options<TvSeriesSimilarData>> => createQueryKey("tvSeriesSimilar", options, true);
+export const tvSeriesSimilarInfiniteQueryKey = (options: Options<TvSeriesSimilarData>): QueryKey<Options<TvSeriesSimilarData>> => createQueryKey('tvSeriesSimilar', options, true);
 
 /**
  * Similar
  *
  * Get the similar TV shows.
  */
-export const tvSeriesSimilarInfiniteOptions = (options: Options<TvSeriesSimilarData>) => {
-    return infiniteQueryOptions<TvSeriesSimilarResponse, DefaultError, InfiniteData<TvSeriesSimilarResponse>, QueryKey<Options<TvSeriesSimilarData>>, number | Pick<QueryKey<Options<TvSeriesSimilarData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<TvSeriesSimilarData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await tvSeriesSimilar({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: tvSeriesSimilarInfiniteQueryKey(options)
-    });
-};
+export const tvSeriesSimilarInfiniteOptions = (options: Options<TvSeriesSimilarData>) => infiniteQueryOptions<TvSeriesSimilarResponse, DefaultError, InfiniteData<TvSeriesSimilarResponse>, QueryKey<Options<TvSeriesSimilarData>>, number | Pick<QueryKey<Options<TvSeriesSimilarData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<TvSeriesSimilarData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await tvSeriesSimilar({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: tvSeriesSimilarInfiniteQueryKey(options)
+});
 
-export const tvSeriesTranslationsQueryKey = (options: Options<TvSeriesTranslationsData>) => createQueryKey("tvSeriesTranslations", options);
+export const tvSeriesTranslationsQueryKey = (options: Options<TvSeriesTranslationsData>) => createQueryKey('tvSeriesTranslations', options);
 
 /**
  * Translations
@@ -3913,7 +3817,7 @@ export const tvSeriesTranslationsOptions = (options: Options<TvSeriesTranslation
     queryKey: tvSeriesTranslationsQueryKey(options)
 });
 
-export const tvSeriesVideosQueryKey = (options: Options<TvSeriesVideosData>) => createQueryKey("tvSeriesVideos", options);
+export const tvSeriesVideosQueryKey = (options: Options<TvSeriesVideosData>) => createQueryKey('tvSeriesVideos', options);
 
 /**
  * Videos
@@ -3933,7 +3837,7 @@ export const tvSeriesVideosOptions = (options: Options<TvSeriesVideosData>) => q
     queryKey: tvSeriesVideosQueryKey(options)
 });
 
-export const tvSeriesWatchProvidersQueryKey = (options: Options<TvSeriesWatchProvidersData>) => createQueryKey("tvSeriesWatchProviders", options);
+export const tvSeriesWatchProvidersQueryKey = (options: Options<TvSeriesWatchProvidersData>) => createQueryKey('tvSeriesWatchProviders', options);
 
 /**
  * Watch Providers
@@ -3989,7 +3893,7 @@ export const tvSeriesAddRatingMutation = (options?: Partial<Options<TvSeriesAddR
     return mutationOptions;
 };
 
-export const tvSeasonDetailsQueryKey = (options: Options<TvSeasonDetailsData>) => createQueryKey("tvSeasonDetails", options);
+export const tvSeasonDetailsQueryKey = (options: Options<TvSeasonDetailsData>) => createQueryKey('tvSeasonDetails', options);
 
 /**
  * Details
@@ -4009,7 +3913,7 @@ export const tvSeasonDetailsOptions = (options: Options<TvSeasonDetailsData>) =>
     queryKey: tvSeasonDetailsQueryKey(options)
 });
 
-export const tvSeasonAccountStatesQueryKey = (options: Options<TvSeasonAccountStatesData>) => createQueryKey("tvSeasonAccountStates", options);
+export const tvSeasonAccountStatesQueryKey = (options: Options<TvSeasonAccountStatesData>) => createQueryKey('tvSeasonAccountStates', options);
 
 /**
  * Account States
@@ -4029,7 +3933,7 @@ export const tvSeasonAccountStatesOptions = (options: Options<TvSeasonAccountSta
     queryKey: tvSeasonAccountStatesQueryKey(options)
 });
 
-export const tvSeasonAggregateCreditsQueryKey = (options: Options<TvSeasonAggregateCreditsData>) => createQueryKey("tvSeasonAggregateCredits", options);
+export const tvSeasonAggregateCreditsQueryKey = (options: Options<TvSeasonAggregateCreditsData>) => createQueryKey('tvSeasonAggregateCredits', options);
 
 /**
  * Aggregate Credits
@@ -4049,7 +3953,7 @@ export const tvSeasonAggregateCreditsOptions = (options: Options<TvSeasonAggrega
     queryKey: tvSeasonAggregateCreditsQueryKey(options)
 });
 
-export const tvSeasonChangesByIdQueryKey = (options: Options<TvSeasonChangesByIdData>) => createQueryKey("tvSeasonChangesById", options);
+export const tvSeasonChangesByIdQueryKey = (options: Options<TvSeasonChangesByIdData>) => createQueryKey('tvSeasonChangesById', options);
 
 /**
  * Changes
@@ -4069,38 +3973,36 @@ export const tvSeasonChangesByIdOptions = (options: Options<TvSeasonChangesByIdD
     queryKey: tvSeasonChangesByIdQueryKey(options)
 });
 
-export const tvSeasonChangesByIdInfiniteQueryKey = (options: Options<TvSeasonChangesByIdData>): QueryKey<Options<TvSeasonChangesByIdData>> => createQueryKey("tvSeasonChangesById", options, true);
+export const tvSeasonChangesByIdInfiniteQueryKey = (options: Options<TvSeasonChangesByIdData>): QueryKey<Options<TvSeasonChangesByIdData>> => createQueryKey('tvSeasonChangesById', options, true);
 
 /**
  * Changes
  *
  * Get the recent changes for a TV season.
  */
-export const tvSeasonChangesByIdInfiniteOptions = (options: Options<TvSeasonChangesByIdData>) => {
-    return infiniteQueryOptions<TvSeasonChangesByIdResponse, DefaultError, InfiniteData<TvSeasonChangesByIdResponse>, QueryKey<Options<TvSeasonChangesByIdData>>, number | Pick<QueryKey<Options<TvSeasonChangesByIdData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
-    // @ts-ignore
-    {
-        queryFn: async ({ pageParam, queryKey, signal }) => {
-            // @ts-ignore
-            const page: Pick<QueryKey<Options<TvSeasonChangesByIdData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
-                query: {
-                    page: pageParam
-                }
-            };
-            const params = createInfiniteParams(queryKey, page);
-            const { data } = await tvSeasonChangesById({
-                ...options,
-                ...params,
-                signal,
-                throwOnError: true
-            });
-            return data;
-        },
-        queryKey: tvSeasonChangesByIdInfiniteQueryKey(options)
-    });
-};
+export const tvSeasonChangesByIdInfiniteOptions = (options: Options<TvSeasonChangesByIdData>) => infiniteQueryOptions<TvSeasonChangesByIdResponse, DefaultError, InfiniteData<TvSeasonChangesByIdResponse>, QueryKey<Options<TvSeasonChangesByIdData>>, number | Pick<QueryKey<Options<TvSeasonChangesByIdData>>[0], 'body' | 'headers' | 'path' | 'query'>>(
+// @ts-ignore
+{
+    queryFn: async ({ pageParam, queryKey, signal }) => {
+        // @ts-ignore
+        const page: Pick<QueryKey<Options<TvSeasonChangesByIdData>>[0], 'body' | 'headers' | 'path' | 'query'> = typeof pageParam === 'object' ? pageParam : {
+            query: {
+                page: pageParam
+            }
+        };
+        const params = createInfiniteParams(queryKey, page);
+        const { data } = await tvSeasonChangesById({
+            ...options,
+            ...params,
+            signal,
+            throwOnError: true
+        });
+        return data;
+    },
+    queryKey: tvSeasonChangesByIdInfiniteQueryKey(options)
+});
 
-export const tvSeasonCreditsQueryKey = (options: Options<TvSeasonCreditsData>) => createQueryKey("tvSeasonCredits", options);
+export const tvSeasonCreditsQueryKey = (options: Options<TvSeasonCreditsData>) => createQueryKey('tvSeasonCredits', options);
 
 /**
  * Credits
@@ -4118,7 +4020,7 @@ export const tvSeasonCreditsOptions = (options: Options<TvSeasonCreditsData>) =>
     queryKey: tvSeasonCreditsQueryKey(options)
 });
 
-export const tvSeasonExternalIdsQueryKey = (options: Options<TvSeasonExternalIdsData>) => createQueryKey("tvSeasonExternalIds", options);
+export const tvSeasonExternalIdsQueryKey = (options: Options<TvSeasonExternalIdsData>) => createQueryKey('tvSeasonExternalIds', options);
 
 /**
  * External IDs
@@ -4138,7 +4040,7 @@ export const tvSeasonExternalIdsOptions = (options: Options<TvSeasonExternalIdsD
     queryKey: tvSeasonExternalIdsQueryKey(options)
 });
 
-export const tvSeasonImagesQueryKey = (options: Options<TvSeasonImagesData>) => createQueryKey("tvSeasonImages", options);
+export const tvSeasonImagesQueryKey = (options: Options<TvSeasonImagesData>) => createQueryKey('tvSeasonImages', options);
 
 /**
  * Images
@@ -4158,7 +4060,7 @@ export const tvSeasonImagesOptions = (options: Options<TvSeasonImagesData>) => q
     queryKey: tvSeasonImagesQueryKey(options)
 });
 
-export const tvSeasonTranslationsQueryKey = (options: Options<TvSeasonTranslationsData>) => createQueryKey("tvSeasonTranslations", options);
+export const tvSeasonTranslationsQueryKey = (options: Options<TvSeasonTranslationsData>) => createQueryKey('tvSeasonTranslations', options);
 
 /**
  * Translations
@@ -4178,7 +4080,7 @@ export const tvSeasonTranslationsOptions = (options: Options<TvSeasonTranslation
     queryKey: tvSeasonTranslationsQueryKey(options)
 });
 
-export const tvSeasonVideosQueryKey = (options: Options<TvSeasonVideosData>) => createQueryKey("tvSeasonVideos", options);
+export const tvSeasonVideosQueryKey = (options: Options<TvSeasonVideosData>) => createQueryKey('tvSeasonVideos', options);
 
 /**
  * Videos
@@ -4198,7 +4100,7 @@ export const tvSeasonVideosOptions = (options: Options<TvSeasonVideosData>) => q
     queryKey: tvSeasonVideosQueryKey(options)
 });
 
-export const tvSeasonWatchProvidersQueryKey = (options: Options<TvSeasonWatchProvidersData>) => createQueryKey("tvSeasonWatchProviders", options);
+export const tvSeasonWatchProvidersQueryKey = (options: Options<TvSeasonWatchProvidersData>) => createQueryKey('tvSeasonWatchProviders', options);
 
 /**
  * Watch Providers
@@ -4218,7 +4120,7 @@ export const tvSeasonWatchProvidersOptions = (options: Options<TvSeasonWatchProv
     queryKey: tvSeasonWatchProvidersQueryKey(options)
 });
 
-export const tvEpisodeDetailsQueryKey = (options: Options<TvEpisodeDetailsData>) => createQueryKey("tvEpisodeDetails", options);
+export const tvEpisodeDetailsQueryKey = (options: Options<TvEpisodeDetailsData>) => createQueryKey('tvEpisodeDetails', options);
 
 /**
  * Details
@@ -4238,7 +4140,7 @@ export const tvEpisodeDetailsOptions = (options: Options<TvEpisodeDetailsData>) 
     queryKey: tvEpisodeDetailsQueryKey(options)
 });
 
-export const tvEpisodeAccountStatesQueryKey = (options: Options<TvEpisodeAccountStatesData>) => createQueryKey("tvEpisodeAccountStates", options);
+export const tvEpisodeAccountStatesQueryKey = (options: Options<TvEpisodeAccountStatesData>) => createQueryKey('tvEpisodeAccountStates', options);
 
 /**
  * Account States
@@ -4258,7 +4160,7 @@ export const tvEpisodeAccountStatesOptions = (options: Options<TvEpisodeAccountS
     queryKey: tvEpisodeAccountStatesQueryKey(options)
 });
 
-export const tvEpisodeChangesByIdQueryKey = (options: Options<TvEpisodeChangesByIdData>) => createQueryKey("tvEpisodeChangesById", options);
+export const tvEpisodeChangesByIdQueryKey = (options: Options<TvEpisodeChangesByIdData>) => createQueryKey('tvEpisodeChangesById', options);
 
 /**
  * Changes
@@ -4278,7 +4180,7 @@ export const tvEpisodeChangesByIdOptions = (options: Options<TvEpisodeChangesByI
     queryKey: tvEpisodeChangesByIdQueryKey(options)
 });
 
-export const tvEpisodeCreditsQueryKey = (options: Options<TvEpisodeCreditsData>) => createQueryKey("tvEpisodeCredits", options);
+export const tvEpisodeCreditsQueryKey = (options: Options<TvEpisodeCreditsData>) => createQueryKey('tvEpisodeCredits', options);
 
 /**
  * Credits
@@ -4296,7 +4198,7 @@ export const tvEpisodeCreditsOptions = (options: Options<TvEpisodeCreditsData>) 
     queryKey: tvEpisodeCreditsQueryKey(options)
 });
 
-export const tvEpisodeExternalIdsQueryKey = (options: Options<TvEpisodeExternalIdsData>) => createQueryKey("tvEpisodeExternalIds", options);
+export const tvEpisodeExternalIdsQueryKey = (options: Options<TvEpisodeExternalIdsData>) => createQueryKey('tvEpisodeExternalIds', options);
 
 /**
  * External IDs
@@ -4316,7 +4218,7 @@ export const tvEpisodeExternalIdsOptions = (options: Options<TvEpisodeExternalId
     queryKey: tvEpisodeExternalIdsQueryKey(options)
 });
 
-export const tvEpisodeImagesQueryKey = (options: Options<TvEpisodeImagesData>) => createQueryKey("tvEpisodeImages", options);
+export const tvEpisodeImagesQueryKey = (options: Options<TvEpisodeImagesData>) => createQueryKey('tvEpisodeImages', options);
 
 /**
  * Images
@@ -4336,7 +4238,7 @@ export const tvEpisodeImagesOptions = (options: Options<TvEpisodeImagesData>) =>
     queryKey: tvEpisodeImagesQueryKey(options)
 });
 
-export const tvEpisodeTranslationsQueryKey = (options: Options<TvEpisodeTranslationsData>) => createQueryKey("tvEpisodeTranslations", options);
+export const tvEpisodeTranslationsQueryKey = (options: Options<TvEpisodeTranslationsData>) => createQueryKey('tvEpisodeTranslations', options);
 
 /**
  * Translations
@@ -4356,7 +4258,7 @@ export const tvEpisodeTranslationsOptions = (options: Options<TvEpisodeTranslati
     queryKey: tvEpisodeTranslationsQueryKey(options)
 });
 
-export const tvEpisodeVideosQueryKey = (options: Options<TvEpisodeVideosData>) => createQueryKey("tvEpisodeVideos", options);
+export const tvEpisodeVideosQueryKey = (options: Options<TvEpisodeVideosData>) => createQueryKey('tvEpisodeVideos', options);
 
 /**
  * Videos
@@ -4414,7 +4316,7 @@ export const tvEpisodeAddRatingMutation = (options?: Partial<Options<TvEpisodeAd
     return mutationOptions;
 };
 
-export const tvEpisodeGroupDetailsQueryKey = (options: Options<TvEpisodeGroupDetailsData>) => createQueryKey("tvEpisodeGroupDetails", options);
+export const tvEpisodeGroupDetailsQueryKey = (options: Options<TvEpisodeGroupDetailsData>) => createQueryKey('tvEpisodeGroupDetails', options);
 
 /**
  * Details
@@ -4434,7 +4336,7 @@ export const tvEpisodeGroupDetailsOptions = (options: Options<TvEpisodeGroupDeta
     queryKey: tvEpisodeGroupDetailsQueryKey(options)
 });
 
-export const watchProvidersAvailableRegionsQueryKey = (options?: Options<WatchProvidersAvailableRegionsData>) => createQueryKey("watchProvidersAvailableRegions", options);
+export const watchProvidersAvailableRegionsQueryKey = (options?: Options<WatchProvidersAvailableRegionsData>) => createQueryKey('watchProvidersAvailableRegions', options);
 
 /**
  * Available Regions
@@ -4454,7 +4356,7 @@ export const watchProvidersAvailableRegionsOptions = (options?: Options<WatchPro
     queryKey: watchProvidersAvailableRegionsQueryKey(options)
 });
 
-export const watchProvidersMovieListQueryKey = (options?: Options<WatchProvidersMovieListData>) => createQueryKey("watchProvidersMovieList", options);
+export const watchProvidersMovieListQueryKey = (options?: Options<WatchProvidersMovieListData>) => createQueryKey('watchProvidersMovieList', options);
 
 /**
  * Movie Providers
@@ -4474,7 +4376,7 @@ export const watchProvidersMovieListOptions = (options?: Options<WatchProvidersM
     queryKey: watchProvidersMovieListQueryKey(options)
 });
 
-export const watchProviderTvListQueryKey = (options?: Options<WatchProviderTvListData>) => createQueryKey("watchProviderTvList", options);
+export const watchProviderTvListQueryKey = (options?: Options<WatchProviderTvListData>) => createQueryKey('watchProviderTvList', options);
 
 /**
  * TV Providers

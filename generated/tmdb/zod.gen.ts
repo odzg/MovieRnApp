@@ -96,10 +96,7 @@ export const zAccountGetFavoritesData = z.object({
         language: z.optional(z.string()).default('en-US'),
         page: z.optional(z.int()).default(1),
         session_id: z.optional(z.string()),
-        sort_by: z.optional(z.enum([
-            'created_at.asc',
-            'created_at.desc'
-        ]))
+        sort_by: z.optional(z.enum(['created_at.asc', 'created_at.desc']))
     }))
 });
 
@@ -137,10 +134,7 @@ export const zAccountFavoriteTvData = z.object({
         language: z.optional(z.string()).default('en-US'),
         page: z.optional(z.int()).default(1),
         session_id: z.optional(z.string()),
-        sort_by: z.optional(z.enum([
-            'created_at.asc',
-            'created_at.desc'
-        ]))
+        sort_by: z.optional(z.enum(['created_at.asc', 'created_at.desc']))
     }))
 });
 
@@ -208,10 +202,7 @@ export const zAccountRatedMoviesData = z.object({
         language: z.optional(z.string()).default('en-US'),
         page: z.optional(z.int()).default(1),
         session_id: z.optional(z.string()),
-        sort_by: z.optional(z.enum([
-            'created_at.asc',
-            'created_at.desc'
-        ]))
+        sort_by: z.optional(z.enum(['created_at.asc', 'created_at.desc']))
     }))
 });
 
@@ -250,10 +241,7 @@ export const zAccountRatedTvData = z.object({
         language: z.optional(z.string()).default('en-US'),
         page: z.optional(z.int()).default(1),
         session_id: z.optional(z.string()),
-        sort_by: z.optional(z.enum([
-            'created_at.asc',
-            'created_at.desc'
-        ]))
+        sort_by: z.optional(z.enum(['created_at.asc', 'created_at.desc']))
     }))
 });
 
@@ -292,10 +280,7 @@ export const zAccountRatedTvEpisodesData = z.object({
         language: z.optional(z.string()).default('en-US'),
         page: z.optional(z.int()).default(1),
         session_id: z.optional(z.string()),
-        sort_by: z.optional(z.enum([
-            'created_at.asc',
-            'created_at.desc'
-        ]))
+        sort_by: z.optional(z.enum(['created_at.asc', 'created_at.desc']))
     }))
 });
 
@@ -332,10 +317,7 @@ export const zAccountWatchlistMoviesData = z.object({
         language: z.optional(z.string()).default('en-US'),
         page: z.optional(z.int()).default(1),
         session_id: z.optional(z.string()),
-        sort_by: z.optional(z.enum([
-            'created_at.asc',
-            'created_at.desc'
-        ]))
+        sort_by: z.optional(z.enum(['created_at.asc', 'created_at.desc']))
     }))
 });
 
@@ -373,10 +355,7 @@ export const zAccountWatchlistTvData = z.object({
         language: z.optional(z.string()).default('en-US'),
         page: z.optional(z.int()).default(1),
         session_id: z.optional(z.string()),
-        sort_by: z.optional(z.enum([
-            'created_at.asc',
-            'created_at.desc'
-        ]))
+        sort_by: z.optional(z.enum(['created_at.asc', 'created_at.desc']))
     }))
 });
 
@@ -1595,10 +1574,7 @@ export const zGuestSessionRatedMoviesData = z.object({
     query: z.optional(z.object({
         language: z.optional(z.string()).default('en-US'),
         page: z.optional(z.int()).default(1),
-        sort_by: z.optional(z.enum([
-            'created_at.asc',
-            'created_at.desc'
-        ]))
+        sort_by: z.optional(z.enum(['created_at.asc', 'created_at.desc']))
     }))
 });
 
@@ -1636,10 +1612,7 @@ export const zGuestSessionRatedTvData = z.object({
     query: z.optional(z.object({
         language: z.optional(z.string()).default('en-US'),
         page: z.optional(z.int()).default(1),
-        sort_by: z.optional(z.enum([
-            'created_at.asc',
-            'created_at.desc'
-        ]))
+        sort_by: z.optional(z.enum(['created_at.asc', 'created_at.desc']))
     }))
 });
 
@@ -1677,10 +1650,7 @@ export const zGuestSessionRatedTvEpisodesData = z.object({
     query: z.optional(z.object({
         language: z.optional(z.string()).default('en-US'),
         page: z.optional(z.int()).default(1),
-        sort_by: z.optional(z.enum([
-            'created_at.asc',
-            'created_at.desc'
-        ]))
+        sort_by: z.optional(z.enum(['created_at.asc', 'created_at.desc']))
     }))
 });
 
@@ -4860,10 +4830,7 @@ export const zSearchTvResponse = z.object({
 export const zTrendingAllData = z.object({
     body: z.optional(z.never()),
     path: z.object({
-        time_window: z.enum([
-            'day',
-            'week'
-        ])
+        time_window: z.enum(['day', 'week'])
     }),
     query: z.optional(z.object({
         language: z.optional(z.string()).default('en-US')
@@ -4899,10 +4866,7 @@ export const zTrendingAllResponse = z.object({
 export const zTrendingMoviesData = z.object({
     body: z.optional(z.never()),
     path: z.object({
-        time_window: z.enum([
-            'day',
-            'week'
-        ])
+        time_window: z.enum(['day', 'week'])
     }),
     query: z.optional(z.object({
         language: z.optional(z.string()).default('en-US')
@@ -4938,10 +4902,7 @@ export const zTrendingMoviesResponse = z.object({
 export const zTrendingPeopleData = z.object({
     body: z.optional(z.never()),
     path: z.object({
-        time_window: z.enum([
-            'day',
-            'week'
-        ])
+        time_window: z.enum(['day', 'week'])
     }),
     query: z.optional(z.object({
         language: z.optional(z.string()).default('en-US')
@@ -4988,10 +4949,7 @@ export const zTrendingPeopleResponse = z.object({
 export const zTrendingTvData = z.object({
     body: z.optional(z.never()),
     path: z.object({
-        time_window: z.enum([
-            'day',
-            'week'
-        ])
+        time_window: z.enum(['day', 'week'])
     }),
     query: z.optional(z.object({
         language: z.optional(z.string()).default('en-US')
