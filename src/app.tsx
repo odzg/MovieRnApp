@@ -81,7 +81,7 @@ export default function App() {
       <StatusBar
         barStyle={colorScheme === 'dark' ? 'light-content' : 'dark-content'}
       />
-      <AppContent colorScheme={colorScheme} />
+      <AppContent colorScheme={colorScheme ?? 'unspecified'} />
     </AppProviders>
   );
 }

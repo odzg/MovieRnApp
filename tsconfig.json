@@ -4,6 +4,7 @@
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "checkJs": true,
+    "customConditions": ["react-native-strict-api"],
     "erasableSyntaxOnly": true,
     "exactOptionalPropertyTypes": true,
     "incremental": true,
