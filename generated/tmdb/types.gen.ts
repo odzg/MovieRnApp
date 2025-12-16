@@ -1459,7 +1459,9 @@ export type CreditDetailsData = {
     path: {
         credit_id: string;
     };
-    query?: never;
+    query?: {
+        language?: string;
+    };
     url: '/3/credit/{credit_id}';
 };
 
@@ -1734,7 +1736,7 @@ export type FindByIdData = {
         external_id: string;
     };
     query: {
-        external_source: '' | 'imdb_id' | 'facebook_id' | 'instagram_id' | 'tvdb_id' | 'tiktok_id' | 'twitter_id' | 'wikidata_id' | 'youtube_id';
+        external_source: 'imdb_id' | 'facebook_id' | 'instagram_id' | 'tvdb_id' | 'tiktok_id' | 'twitter_id' | 'wikidata_id' | 'youtube_id';
         language?: string;
     };
     url: '/3/find/{external_id}';

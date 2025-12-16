@@ -1266,7 +1266,9 @@ export const zCreditDetailsData = z.object({
     path: z.object({
         credit_id: z.string()
     }),
-    query: z.optional(z.never())
+    query: z.optional(z.object({
+        language: z.optional(z.string()).default('en-US')
+    }))
 });
 
 /**
@@ -1489,7 +1491,6 @@ export const zFindByIdData = z.object({
     }),
     query: z.object({
         external_source: z.enum([
-            '',
             'imdb_id',
             'facebook_id',
             'instagram_id',
@@ -1499,7 +1500,7 @@ export const zFindByIdData = z.object({
             'wikidata_id',
             'youtube_id'
         ]),
-        language: z.optional(z.string())
+        language: z.optional(z.string()).default('en-US')
     })
 });
 
