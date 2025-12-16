@@ -79,7 +79,7 @@ export default function App() {
   return (
     <AppProviders defaultTheme={defaultTheme}>
       <StatusBar
-        barStyle={colorScheme === 'dark' ? 'light-content' : 'dark-content'}
+        barStyle={colorScheme === 'dark' ? 'dark-content' : 'light-content'}
       />
       <AppContent colorScheme={colorScheme ?? 'unspecified'} />
     </AppProviders>
